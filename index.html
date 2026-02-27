@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Global Group of Companies</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --royal: #2D0A5E;
+  --royal-mid: #3D1478;
+  --royal-light: #5A2A9E;
+  --purple-glass: rgba(45,10,94,0.85);
+  --gold: #C9952A;
+  --gold-light: #E4B84A;
+  --gold-pale: #F5D98A;
+  --gold-shimmer: #FFE9A0;
+  --cream: #FDF8EE;
+  --white: #FFFFFF;
+  --ink: #0E0318;
+  --muted: rgba(253,248,238,0.55);
+  --muted-dark: rgba(45,10,94,0.45);
+  --card-border: rgba(201,149,42,0.25);
+  --card-bg: rgba(255,255,255,0.04);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Outfit',sans-serif;
+  background:var(--ink);
+  color:var(--cream);
+  overflow-x:hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:20px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(14,3,24,0.92);
+  border-bottom:1px solid rgba(201,149,42,0.15);
+  backdrop-filter:blur(20px);
+  transition:all 0.4s;
+}
+.nav-brand { display:flex; align-items:center; gap:14px; }
+.nav-logo-circle {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg, var(--gold), var(--royal-light));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-size:0.75rem; font-weight:700;
+  color:white; letter-spacing:0.05em;
+  box-shadow:0 0 18px rgba(201,149,42,0.3);
+}
+.nav-name { font-size:0.78rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--cream); }
+.nav-name span { color:var(--gold-light); }
+.nav-links { display:flex; gap:36px; }
+.nav-links a { font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.3s; }
+.nav-links a:hover { color:var(--gold-light); }
+.nav-cta {
+  padding:9px 22px; font-size:0.7rem; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  color:var(--ink); border:none; border-radius:2px; cursor:pointer; text-decoration:none;
+  transition:all 0.3s; box-shadow:0 4px 16px rgba(201,149,42,0.25);
+}
+.nav-cta:hover { box-shadow:0 6px 24px rgba(201,149,42,0.45); transform:translateY(-1px); }
+
+/* ── HERO ── */
+#hero {
+  min-height:100vh; position:relative; overflow:hidden;
+  display:flex; align-items:center;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(90,42,158,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(201,149,42,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(61,20,120,0.3) 0%, transparent 50%),
+    var(--ink);
+}
+.hero-geo {
+  position:absolute; inset:0; overflow:hidden; pointer-events:none;
+}
+.geo-circle {
+  position:absolute; border-radius:50%;
+  border:1px solid rgba(201,149,42,0.12);
+  animation:spin 40s linear infinite;
+}
+.geo-circle:nth-child(1) { width:600px; height:600px; top:-150px; right:-100px; animation-duration:50s; }
+.geo-circle:nth-child(2) { width:400px; height:400px; top:-50px; right:50px; animation-direction:reverse; animation-duration:35s; }
+.geo-circle:nth-child(3) { width:900px; height:900px; bottom:-300px; left:-200px; animation-duration:65s; border-color:rgba(90,42,158,0.12); }
+@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.geo-line {
+  position:absolute; background:linear-gradient(90deg, transparent, rgba(201,149,42,0.2), transparent);
+  height:1px; width:100%;
+}
+.geo-line:nth-child(4) { top:28%; }
+.geo-line:nth-child(5) { top:72%; opacity:0.5; }
+
+.hero-inner {
+  position:relative; z-index:2; max-width:1200px; margin:0 auto;
+  padding:120px 56px 80px;
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+}
+.hero-left {}
+.hero-eyebrow {
+  font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.3em;
+  text-transform:uppercase; color:var(--gold-light);
+  display:flex; align-items:center; gap:14px; margin-bottom:28px;
+}
+.hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold-light); }
+h1.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.2rem,5.5vw,5.6rem);
+  font-weight:900; line-height:0.95; letter-spacing:-0.02em;
+  margin-bottom:12px;
+}
+h1.hero-title em { font-style:italic; color:var(--gold-light); display:block; }
+h1.hero-title .outline {
+  -webkit-text-stroke:1px rgba(201,149,42,0.5); color:transparent;
+  display:block;
+}
+.hero-tagline {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1.1rem; color:var(--muted); line-height:1.6; margin:24px 0 36px;
+  padding-left:20px; border-left:2px solid var(--gold);
+}
+.hero-divs {
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+.hdiv-badge {
+  padding:7px 16px; font-size:0.65rem; font-weight:600; letter-spacing:0.14em;
+  text-transform:uppercase; border:1px solid var(--card-border);
+  color:var(--gold-pale); border-radius:2px; cursor:pointer;
+  transition:all 0.3s; background:rgba(201,149,42,0.05);
+}
+.hdiv-badge:hover { background:rgba(201,149,42,0.15); border-color:var(--gold); }
+
+.hero-right { display:flex; flex-direction:column; gap:16px; }
+.ceo-card {
+  background:linear-gradient(135deg, rgba(61,20,120,0.6), rgba(45,10,94,0.4));
+  border:1px solid var(--card-border); border-radius:8px; padding:32px;
+  position:relative; overflow:hidden;
+  backdrop-filter:blur(10px);
+}
+.ceo-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+}
+.ceo-card::after {
+  content:''; position:absolute; bottom:-40px; right:-40px;
+  width:120px; height:120px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,149,42,0.12), transparent 70%);
+}
+.ceo-label { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.25em; color:var(--gold-light); text-transform:uppercase; margin-bottom:12px; }
+.ceo-name { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--cream); line-height:1.1; margin-bottom:4px; }
+.ceo-title { font-size:0.75rem; color:var(--muted); letter-spacing:0.1em; margin-bottom:18px; }
+.ceo-quote { font-family:'Playfair Display',serif; font-style:italic; font-size:0.92rem; color:rgba(253,248,238,0.75); line-height:1.65; }
+.ceo-quote strong { color:var(--gold-pale); font-style:normal; }
+
+.bggc-logo-card {
+  background:rgba(255,255,255,0.03); border:1px solid rgba(201,149,42,0.12);
+  border-radius:8px; padding:20px 28px;
+  display:flex; align-items:center; gap:16px;
+}
+.bggc-monogram {
+  font-family:'Playfair Display',serif; font-size:2rem; font-weight:900;
+  background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.bggc-text { font-size:0.68rem; color:var(--muted); letter-spacing:0.08em; line-height:1.7; }
+.bggc-text strong { color:var(--cream); font-size:0.8rem; display:block; margin-bottom:2px; }
+
+.hero-scroll {
+  position:absolute; bottom:36px; left:56px;
+  display:flex; align-items:center; gap:12px; z-index:2;
+}
+.hero-scroll span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.22em; color:var(--muted); }
+.scroll-bar { width:48px; height:1px; background:linear-gradient(90deg, var(--gold-light), transparent); position:relative; overflow:hidden; }
+.scroll-bar::after { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:var(--gold-shimmer); animation:slide 2s ease infinite; }
+@keyframes slide { to{left:100%} }
+
+/* ── SECTION BASE ── */
+section { position:relative; z-index:1; }
+.section-inner { max-width:1200px; margin:0 auto; padding:100px 56px; }
+.section-tag {
+  font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.28em;
+  text-transform:uppercase; color:var(--gold-light);
+  display:flex; align-items:center; gap:14px; margin-bottom:20px;
+}
+.section-tag::before { content:''; display:block; width:28px; height:1px; background:var(--gold-light); }
+h2.sec-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4vw,3.6rem);
+  font-weight:700; line-height:1.05; letter-spacing:-0.01em;
+}
+h2.sec-title em { font-style:italic; color:var(--gold-light); }
+.sec-sub {
+  font-size:1rem; color:var(--muted); line-height:1.7; max-width:560px; margin-top:16px;
+}
+
+/* ── DIVIDERS ── */
+.gold-rule { width:100%; height:1px; background:linear-gradient(90deg, transparent, rgba(201,149,42,0.3), transparent); margin:0; }
+
+/* ── DIVISIONS SECTION ── */
+#divisions {
+  background:linear-gradient(180deg, var(--ink) 0%, rgba(45,10,94,0.15) 50%, var(--ink) 100%);
+}
+.div-header { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:64px; }
+.div-count { font-family:'Playfair Display',serif; font-size:5rem; font-weight:900; color:rgba(201,149,42,0.1); line-height:1; }
+
+/* Division cards */
+.division-card {
+  border:1px solid var(--card-border); border-radius:10px; overflow:hidden;
+  background:linear-gradient(135deg, rgba(45,10,94,0.4), rgba(14,3,24,0.8));
+  transition:transform 0.4s, box-shadow 0.4s;
+  margin-bottom:32px;
+  position:relative;
+}
+.division-card:hover { transform:translateY(-4px); box-shadow:0 20px 60px rgba(201,149,42,0.12); }
+.div-card-header {
+  padding:32px 36px 24px;
+  display:flex; align-items:flex-start; justify-content:space-between;
+  border-bottom:1px solid rgba(201,149,42,0.1);
+  position:relative;
+}
+.div-card-header::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+}
+.fashion-card .div-card-header::before { background:linear-gradient(90deg, #C9952A, #E4B84A, #C9952A); }
+.restaurant-card .div-card-header::before { background:linear-gradient(90deg, #8B4513, #C9952A, #E4B84A); }
+.rentals-card .div-card-header::before { background:linear-gradient(90deg, #3D1478, #C9952A, #E4B84A); }
+
+.div-icon { font-size:2.2rem; margin-bottom:12px; }
+.div-name { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:700; color:var(--cream); margin-bottom:4px; }
+.div-tagline { font-size:0.75rem; color:var(--muted); letter-spacing:0.05em; }
+.div-badge {
+  font-family:'DM Mono',monospace; font-size:0.55rem; letter-spacing:0.15em;
+  text-transform:uppercase; padding:4px 12px;
+  border:1px solid var(--card-border); color:var(--gold-pale); border-radius:20px;
+  white-space:nowrap;
+}
+
+.div-body { padding:28px 36px 32px; }
+.div-desc { font-size:0.88rem; color:var(--muted); line-height:1.7; margin-bottom:24px; }
+
+/* Preview grids per division */
+.preview-grid { display:grid; gap:10px; margin-bottom:28px; }
+.fashion-grid { grid-template-columns:repeat(4,1fr); }
+.food-grid { grid-template-columns:repeat(3,1fr); }
+.rental-grid { grid-template-columns:repeat(3,1fr); }
+
+.preview-item {
+  border-radius:6px; overflow:hidden; position:relative; cursor:pointer;
+  transition:transform 0.3s;
+}
+.preview-item:hover { transform:scale(1.03); }
+.preview-item:hover .pi-overlay { opacity:1; }
+.pi-visual {
+  height:110px; display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem; position:relative;
+}
+/* Fashion visuals */
+.fv1 { background:linear-gradient(135deg,#1a1a1a,#2d2d2d); }
+.fv2 { background:linear-gradient(135deg,#0d0d0d,#1a1a1a); }
+.fv3 { background:linear-gradient(135deg,#111,#222); }
+.fv4 { background:linear-gradient(135deg,#080808,#181818); }
+/* Food visuals */
+.rv1 { background:linear-gradient(135deg,#3d1500,#6b2800); }
+.rv2 { background:linear-gradient(135deg,#2a1000,#4d2000); }
+.rv3 { background:linear-gradient(135deg,#1a0800,#3d1500); }
+/* Rental visuals */
+.renv1 { background:linear-gradient(135deg,#1a0a3d,#2d1478); }
+.renv2 { background:linear-gradient(135deg,#0d0520,#1a0a3d); }
+.renv3 { background:linear-gradient(135deg,#08021a,#1a0a3d); }
+
+.pi-label {
+  font-size:0.62rem; font-weight:600; letter-spacing:0.06em;
+  color:var(--cream); text-align:center; padding:6px 8px;
+  background:rgba(14,3,24,0.9); border-top:1px solid rgba(201,149,42,0.1);
+}
+.pi-price { color:var(--gold-light); }
+.pi-overlay {
+  position:absolute; inset:0; background:rgba(201,149,42,0.12);
+  opacity:0; transition:opacity 0.3s;
+  display:flex; align-items:center; justify-content:center;
+}
+.pi-overlay span { font-size:0.6rem; letter-spacing:0.15em; color:var(--cream); font-weight:600; text-transform:uppercase; }
+
+.div-actions { display:flex; gap:12px; align-items:center; }
+.btn-primary {
+  padding:12px 28px; font-size:0.72rem; font-weight:700; letter-spacing:0.1em;
+  text-transform:uppercase; background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  color:var(--ink); border:none; border-radius:3px; cursor:pointer;
+  text-decoration:none; display:inline-block;
+  transition:all 0.3s; box-shadow:0 4px 16px rgba(201,149,42,0.2);
+}
+.btn-primary:hover { box-shadow:0 8px 28px rgba(201,149,42,0.4); transform:translateY(-2px); }
+.btn-ghost {
+  padding:12px 24px; font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; background:transparent;
+  color:var(--gold-light); border:1px solid var(--card-border); border-radius:3px; cursor:pointer;
+  text-decoration:none; display:inline-block; transition:all 0.3s;
+}
+.btn-ghost:hover { border-color:var(--gold-light); background:rgba(201,149,42,0.08); }
+
+/* Food menu preview */
+.menu-categories { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+.menu-cat {
+  padding:5px 14px; font-size:0.63rem; font-weight:600; letter-spacing:0.08em;
+  border:1px solid var(--card-border); border-radius:20px; color:var(--muted);
+  cursor:pointer; transition:all 0.25s;
+}
+.menu-cat.active, .menu-cat:hover { background:rgba(201,149,42,0.15); border-color:var(--gold); color:var(--gold-pale); }
+
+.menu-list { display:flex; flex-direction:column; gap:2px; margin-bottom:18px; }
+.menu-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:9px 14px; border-radius:4px;
+  transition:background 0.2s; cursor:pointer;
+}
+.menu-row:hover { background:rgba(201,149,42,0.06); }
+.menu-row-name { font-size:0.78rem; color:var(--cream); }
+.menu-row-price { font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--gold-light); }
+.menu-divider { width:100%; height:1px; background:rgba(201,149,42,0.08); margin:4px 0; }
+
+/* Rental items */
+.rental-items { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+.rental-row {
+  display:flex; align-items:center; gap:16px; padding:12px 16px;
+  border:1px solid rgba(201,149,42,0.1); border-radius:6px;
+  background:rgba(255,255,255,0.02); transition:all 0.25s; cursor:pointer;
+}
+.rental-row:hover { border-color:rgba(201,149,42,0.3); background:rgba(201,149,42,0.04); }
+.rental-icon { font-size:1.2rem; }
+.rental-info { flex:1; }
+.rental-name { font-size:0.8rem; font-weight:600; color:var(--cream); margin-bottom:2px; }
+.rental-spec { font-size:0.65rem; color:var(--muted); }
+.rental-price { font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--gold-light); white-space:nowrap; }
+
+/* ── ABOUT / CEO ── */
+#about {
+  background:linear-gradient(135deg, rgba(45,10,94,0.25) 0%, rgba(14,3,24,0.95) 100%);
+  border-top:1px solid rgba(201,149,42,0.1);
+  border-bottom:1px solid rgba(201,149,42,0.1);
+}
+.about-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:center; }
+.about-left {}
+.ceo-portrait {
+  width:100%; aspect-ratio:3/4; border-radius:8px;
+  background:linear-gradient(145deg, rgba(90,42,158,0.4), rgba(45,10,94,0.8), rgba(14,3,24,0.9));
+  border:1px solid var(--card-border); display:flex; align-items:center;
+  justify-content:center; position:relative; overflow:hidden; max-width:320px;
+}
+.portrait-inner { text-align:center; }
+.portrait-monogram {
+  font-family:'Playfair Display',serif; font-size:5rem; font-weight:900;
+  background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  display:block; line-height:1;
+}
+.portrait-name { font-size:0.75rem; color:var(--muted); letter-spacing:0.12em; margin-top:12px; }
+.portrait-glow {
+  position:absolute; bottom:-40px; left:50%; transform:translateX(-50%);
+  width:200px; height:200px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,149,42,0.2), transparent 70%);
+}
+
+.about-right {}
+.about-values { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:36px; }
+.value-card {
+  padding:20px; border:1px solid rgba(201,149,42,0.12); border-radius:6px;
+  background:rgba(255,255,255,0.02); transition:all 0.3s;
+}
+.value-card:hover { border-color:var(--card-border); background:rgba(201,149,42,0.04); }
+.value-icon { font-size:1.4rem; margin-bottom:10px; }
+.value-title { font-size:0.78rem; font-weight:700; color:var(--cream); margin-bottom:5px; }
+.value-desc { font-size:0.68rem; color:var(--muted); line-height:1.55; }
+
+/* ── CONTACT / CTA ── */
+#contact {
+  background:radial-gradient(ellipse at 30% 50%, rgba(90,42,158,0.2), transparent 60%),
+             radial-gradient(ellipse at 80% 80%, rgba(201,149,42,0.08), transparent 50%),
+             var(--ink);
+}
+.contact-inner { text-align:center; max-width:700px; margin:0 auto; }
+.contact-inner h2 { margin:16px 0 20px; }
+.contact-sub { font-size:1rem; color:var(--muted); line-height:1.7; margin-bottom:40px; }
+.contact-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:40px; }
+.contact-card {
+  padding:22px 16px; border:1px solid var(--card-border); border-radius:6px;
+  background:rgba(255,255,255,0.03); text-align:center;
+  transition:all 0.3s;
+}
+.contact-card:hover { background:rgba(201,149,42,0.06); border-color:var(--gold-light); }
+.cc-icon { font-size:1.4rem; margin-bottom:10px; }
+.cc-label { font-family:'DM Mono',monospace; font-size:0.58rem; color:var(--muted); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:5px; }
+.cc-val { font-size:0.78rem; color:var(--cream); font-weight:500; }
+.contact-btns { display:flex; gap:14px; justify-content:center; }
+
+/* ── FOOTER ── */
+footer {
+  border-top:1px solid rgba(201,149,42,0.12);
+  padding:32px 56px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(14,3,24,0.95);
+}
+.footer-brand { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--gold-light); }
+.footer-copy { font-family:'DM Mono',monospace; font-size:0.58rem; color:var(--muted); letter-spacing:0.1em; }
+.footer-links { display:flex; gap:24px; }
+.footer-links a { font-size:0.65rem; color:var(--muted); text-decoration:none; transition:color 0.3s; letter-spacing:0.08em; }
+.footer-links a:hover { color:var(--gold-light); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+.fade-in { opacity:0; animation:fadeUp 1s forwards; }
+.d1{animation-delay:0.2s} .d2{animation-delay:0.45s} .d3{animation-delay:0.7s}
+.d4{animation-delay:0.95s} .d5{animation-delay:1.2s}
+
+.reveal { opacity:0; transform:translateY(30px); transition:opacity 0.75s ease, transform 0.75s ease; }
+.reveal.on { opacity:1; transform:none; }
+.rd1{transition-delay:0s} .rd2{transition-delay:0.15s} .rd3{transition-delay:0.3s} .rd4{transition-delay:0.45s}
+
+/* ── RESPONSIVE ── */
+@media (max-width:960px) {
+  nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  .hero-inner { grid-template-columns:1fr; gap:40px; padding:100px 24px 60px; }
+  .section-inner { padding:70px 24px; }
+  .div-header { grid-template-columns:1fr; gap:20px; }
+  .about-grid { grid-template-columns:1fr; }
+  .fashion-grid { grid-template-columns:repeat(2,1fr); }
+  .contact-cards { grid-template-columns:1fr; }
+  footer { flex-direction:column; gap:16px; text-align:center; padding:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-circle">BGGC</div>
+    <div class="nav-name">Beyond <span>Global</span> Group</div>
+  </div>
+  <div class="nav-links">
+    <a href="#divisions">Our Brands</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="#contact">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-geo">
+    <div class="geo-circle"></div>
+    <div class="geo-circle"></div>
+    <div class="geo-circle"></div>
+    <div class="geo-line"></div>
+    <div class="geo-line"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-in d1">Beyond Global Group of Companies</div>
+      <h1 class="hero-title fade-in d2">
+        Embrace the
+        <em>extraordinary.</em>
+        <span class="outline">Break limits.</span>
+      </h1>
+      <p class="hero-tagline fade-in d3">
+        Three world-class brands. One uncompromising vision. <strong>Fashion. Cuisine. Experiences.</strong>
+      </p>
+      <div class="hero-divs fade-in d4">
+        <a href="#fashion" class="hdiv-badge">✦ Fashion</a>
+        <a href="#restaurant" class="hdiv-badge">✦ African Cuisine</a>
+        <a href="#rentals" class="hdiv-badge">✦ Rentals</a>
+      </div>
+    </div>
+    <div class="hero-right fade-in d3">
+      <div class="ceo-card">
+        <div class="ceo-label">Founder & Chief Executive Officer</div>
+        <div class="ceo-name">Bolatito Apata</div>
+        <div class="ceo-title">Beyond Global Group of Companies</div>
+        <div class="ceo-quote">
+          "We don't follow trends — we set them. Every brand under BGGC is built to <strong>redefine its category</strong> and deliver an experience that stays with you long after."
+        </div>
+      </div>
+      <div class="bggc-logo-card">
+        <div class="bggc-monogram">BGGC</div>
+        <div class="bggc-text">
+          <strong>Beyond Global Group of Companies</strong>
+          Fashion · African Cuisine · Rental Services<br>
+          Mississauga, ON &nbsp;·&nbsp; Lagos, Nigeria
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Explore our brands</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- DIVISIONS -->
+<section id="divisions">
+  <div class="section-inner">
+    <div class="div-header">
+      <div>
+        <div class="section-tag reveal rd1">Our Divisions</div>
+        <h2 class="sec-title reveal rd2">Three brands.<br><em>One family.</em></h2>
+      </div>
+      <div>
+        <p class="sec-sub reveal rd3">Each division of BGGC is built to lead its category — from borderless fashion to authentic African cuisine to premium event spaces. Preview each brand below, then explore the full experience.</p>
+      </div>
+    </div>
+
+    <!-- FASHION -->
+    <div class="division-card fashion-card reveal rd1" id="fashion">
+      <div class="div-card-header">
+        <div>
+          <div class="div-icon">👗</div>
+          <div class="div-name">Beyond Limits Global</div>
+          <div class="div-tagline">Powering borderless online shopping experiences that drive global sales</div>
+        </div>
+        <div class="div-badge">Fashion & Apparel</div>
+      </div>
+      <div class="div-body">
+        <p class="div-desc">A curated fashion brand built for the global stage. Our collections blend contemporary style with bold African identity — designed to move with you, wherever you go. Available worldwide with seamless online ordering.</p>
+        <div class="preview-grid fashion-grid">
+          <div class="preview-item">
+            <div class="pi-visual fv1">👕</div>
+            <div class="pi-label">Men's Collection</div>
+            <div class="pi-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="preview-item">
+            <div class="pi-visual fv2">👗</div>
+            <div class="pi-label">Women's Collection</div>
+            <div class="pi-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="preview-item">
+            <div class="pi-visual fv3">🧢</div>
+            <div class="pi-label">Accessories</div>
+            <div class="pi-overlay"><span>Shop Now →</span></div>
+          </div>
+          <div class="preview-item">
+            <div class="pi-visual fv4">✨</div>
+            <div class="pi-label">New Arrivals</div>
+            <div class="pi-overlay"><span>Shop Now →</span></div>
+          </div>
+        </div>
+        <div class="div-actions">
+          <a href="https://beyondlimitsglobal.shop/" target="_blank" class="btn-primary">Shop the Collection →</a>
+          <a href="https://beyondlimitsglobal.shop/" target="_blank" class="btn-ghost">View All Products</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESTAURANT -->
+    <div class="division-card restaurant-card reveal rd2" id="restaurant">
+      <div class="div-card-header">
+        <div>
+          <div class="div-icon">🍽️</div>
+          <div class="div-name">Beyond Imagination African Cuisine</div>
+          <div class="div-tagline">Authentic West African flavours — crafted with love, served with pride</div>
+        </div>
+        <div class="div-badge">Restaurant · BIAC</div>
+      </div>
+      <div class="div-body">
+        <p class="div-desc">BIAC brings the vibrant flavours of West Africa to your table. From jollof rice to pepper soup, every dish is prepared from authentic recipes passed through generations. Dine in, take out, or place a party order.</p>
+
+        <div class="menu-categories">
+          <div class="menu-cat active">Main Dishes</div>
+          <div class="menu-cat">Snacks</div>
+          <div class="menu-cat">Sides</div>
+        </div>
+        <div class="menu-list">
+          <div class="menu-row">
+            <span class="menu-row-name">🍛 Jollof Rice with Chicken</span>
+            <span class="menu-row-price">$20.00</span>
+          </div>
+          <div class="menu-row">
+            <span class="menu-row-name">🍛 Jollof Rice with Meat or Fish</span>
+            <span class="menu-row-price">$25.00</span>
+          </div>
+          <div class="menu-row">
+            <span class="menu-row-name">🍲 Seafood Okra with Pounded Yam</span>
+            <span class="menu-row-price">$30.00</span>
+          </div>
+          <div class="menu-row">
+            <span class="menu-row-name">🥘 Efo Riro with Pounded Yam</span>
+            <span class="menu-row-price">$25.00</span>
+          </div>
+          <div class="menu-row">
+            <span class="menu-row-name">🍲 Goat Pepper Soup</span>
+            <span class="menu-row-price">$30.00</span>
+          </div>
+          <div class="menu-divider"></div>
+          <div class="menu-row" style="opacity:0.5; font-size:0.7rem;">
+            <span class="menu-row-name">+ 6 more main dishes available</span>
+            <span class="menu-row-price" style="color:var(--muted);">View full menu →</span>
+          </div>
+        </div>
+        <div class="div-actions">
+          <a href="tel:+14372697467" class="btn-primary">📞 Order Now: +1 (437) 269-7467</a>
+          <a href="mailto:EMT-biafricancuisine@gmail.com" class="btn-ghost">Place Party Order</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RENTALS -->
+    <div class="division-card rentals-card reveal rd3" id="rentals">
+      <div class="div-card-header">
+        <div>
+          <div class="div-icon">🏛️</div>
+          <div class="div-name">BI Rental Services</div>
+          <div class="div-tagline">Premium spaces and equipment for events that leave a lasting impression</div>
+        </div>
+        <div class="div-badge">Rentals & Events</div>
+      </div>
+      <div class="div-body">
+        <p class="div-desc">From intimate gatherings to grand celebrations, BI Rental Services provides premium venue spaces, event equipment, and everything you need to make your occasion extraordinary. Serving Mississauga and the GTA.</p>
+
+        <div class="rental-items">
+          <div class="rental-row">
+            <div class="rental-icon">🎉</div>
+            <div class="rental-info">
+              <div class="rental-name">Party Hall</div>
+              <div class="rental-spec">Capacity up to 200 guests · Full AV included · Catering available</div>
+            </div>
+            <div class="rental-price">Enquire →</div>
+          </div>
+          <div class="rental-row">
+            <div class="rental-icon">🪑</div>
+            <div class="rental-info">
+              <div class="rental-name">Tables & Chairs</div>
+              <div class="rental-spec">Round, rectangular, and banquet-style options available</div>
+            </div>
+            <div class="rental-price">Enquire →</div>
+          </div>
+          <div class="rental-row">
+            <div class="rental-icon">🔊</div>
+            <div class="rental-info">
+              <div class="rental-name">Audio Visual Equipment</div>
+              <div class="rental-spec">Sound systems, projectors, lighting, microphones</div>
+            </div>
+            <div class="rental-price">Enquire →</div>
+          </div>
+          <div class="rental-row">
+            <div class="rental-icon">🌸</div>
+            <div class="rental-info">
+              <div class="rental-name">Decor & Styling</div>
+              <div class="rental-spec">Backdrops, centrepieces, draping, balloon arrangements</div>
+            </div>
+            <div class="rental-price">Enquire →</div>
+          </div>
+        </div>
+        <div class="div-actions">
+          <a href="https://birentalservices.com/" target="_blank" class="btn-primary">Book a Space →</a>
+          <a href="https://birentalservices.com/" target="_blank" class="btn-ghost">View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-left reveal rd1">
+        <div class="ceo-portrait">
+          <div class="portrait-inner">
+            <span class="portrait-monogram">BA</span>
+            <div class="portrait-name">BOLATITO APATA · CEO</div>
+          </div>
+          <div class="portrait-glow"></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="section-tag reveal rd1">The Vision</div>
+        <h2 class="sec-title reveal rd2">Built to break<br><em>every boundary.</em></h2>
+        <p class="sec-sub reveal rd3" style="max-width:100%; margin-bottom:0;">Under the leadership of Bolatito Apata, Beyond Global Group of Companies was built on a single conviction: that African businesses can — and should — compete and win on the global stage. BGGC brings together fashion, cuisine, and event experiences under one extraordinary brand umbrella, each operating at the highest standard.</p>
+        <div class="about-values reveal rd4">
+          <div class="value-card">
+            <div class="value-icon">🌍</div>
+            <div class="value-title">Global Reach</div>
+            <div class="value-desc">Serving customers across Canada, Nigeria, and beyond with seamless cross-border experiences.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">👑</div>
+            <div class="value-title">Uncompromising Quality</div>
+            <div class="value-desc">Every product, dish, and event space meets a standard that reflects the BGGC name.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <div class="value-title">Community First</div>
+            <div class="value-desc">Rooted in the African diaspora, built to uplift communities and celebrate culture.</div>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🚀</div>
+            <div class="value-title">Innovation Driven</div>
+            <div class="value-desc">From digital-first fashion to modern dining experiences, we lead with innovation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="section-tag reveal rd1" style="justify-content:center;">Get in Touch</div>
+      <h2 class="sec-title reveal rd2" style="margin:16px 0 20px;">Ready to experience<br><em>the extraordinary?</em></h2>
+      <p class="contact-sub reveal rd3">Whether you're shopping our latest collection, placing a food order, or planning an unforgettable event — we're here to make it happen.</p>
+      <div class="contact-cards reveal rd3">
+        <div class="contact-card">
+          <div class="cc-icon">📞</div>
+          <div class="cc-label">Phone</div>
+          <div class="cc-val">+1 (437) 269-7467</div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">📍</div>
+          <div class="cc-label">Location</div>
+          <div class="cc-val">2360 Millrace Court, Unit 1<br>Mississauga, ON L5N 1W2</div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">✉️</div>
+          <div class="cc-label">Email</div>
+          <div class="cc-val">EMT-biafricancuisine@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-btns reveal rd4">
+        <a href="https://beyondlimitsglobal.shop/" target="_blank" class="btn-primary">Shop Fashion →</a>
+        <a href="https://birentalservices.com/" target="_blank" class="btn-ghost">Book an Event</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Beyond Global Group of Companies</div>
+  <div class="footer-copy">© 2025 BGGC · All rights reserved · Mississauga, ON</div>
+  <div class="footer-links">
+    <a href="https://beyondlimitsglobal.shop/" target="_blank">Fashion</a>
+    <a href="#restaurant">Cuisine</a>
+    <a href="https://birentalservices.com/" target="_blank">Rentals</a>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.1 });
+revEls.forEach(el => revObs.observe(el));
+
+// Menu category tabs
+document.querySelectorAll('.menu-cat').forEach(cat => {
+  cat.addEventListener('click', () => {
+    document.querySelectorAll('.menu-cat').forEach(c => c.classList.remove('active'));
+    cat.classList.add('active');
+  });
+});
+
+// Smooth nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
