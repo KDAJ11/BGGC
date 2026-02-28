@@ -7,412 +7,406 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Rajdhani:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --purple:      #3B1F6B;
-  --purple-deep: #1A0D35;
-  --purple-mid:  #2D1755;
-  --purple-lt:   #5B3A9B;
-  --gold:        #C9A84C;
-  --gold-lt:     #E2C06A;
-  --gold-pale:   #F0D98A;
-  --gold-dim:    rgba(201,168,76,0.28);
-  --cream:       #FAF6EE;
-  --cream-w:     #F2EBD8;
-  --ink:         #120A24;
-  --muted:       #7A6A9A;
-  --muted-lt:    #A090C0;
-  --red:         #E05555;
-  --green:       #4CAF7D;
+  --purple:     #3B1F6B;
+  --purple-lt:  #5B3A9B;
+  --purple-xs:  #F0EBF8;
+  --purple-sm:  #E4D9F5;
+  --gold:       #B8861A;
+  --gold-lt:    #D4A830;
+  --gold-pale:  #F2D060;
+  --gold-bg:    #FDF6E3;
+  --white:      #FFFFFF;
+  --off-white:  #FAFAF7;
+  --warm-grey:  #F4F1EB;
+  --ink:        #1A1008;
+  --ink-soft:   #3A2E1C;
+  --muted:      #7A6E5C;
+  --muted-lt:   #B0A48C;
+  --border:     rgba(59,31,107,0.10);
+  --border-lt:  rgba(59,31,107,0.06);
+  --red:        #C0392B;
+  --red-bg:     #FDF1F0;
+  --green:      #1E7D4F;
+  --green-bg:   #EDF7F2;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Rajdhani',sans-serif;overflow-x:hidden;background:var(--purple-deep)}
+body{font-family:'Rajdhani',sans-serif;overflow-x:hidden;background:var(--off-white)}
 
-/* DECO */
-.deco-grid{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.055;background-image:linear-gradient(var(--gold) 1px,transparent 1px),linear-gradient(90deg,var(--gold) 1px,transparent 1px);background-size:60px 60px}
-.deco-corner{position:absolute;width:110px;height:110px;pointer-events:none}
-.deco-corner.tl{top:28px;left:28px;border-top:2px solid var(--gold-dim);border-left:2px solid var(--gold-dim)}
-.deco-corner.tr{top:28px;right:28px;border-top:2px solid var(--gold-dim);border-right:2px solid var(--gold-dim)}
-.deco-corner.bl{bottom:28px;left:28px;border-bottom:2px solid var(--gold-dim);border-left:2px solid var(--gold-dim)}
-.deco-corner.br{bottom:28px;right:28px;border-bottom:2px solid var(--gold-dim);border-right:2px solid var(--gold-dim)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;transition:background .4s,border-color .4s}
-nav.dk{background:rgba(18,10,36,.95);border-bottom:1px solid rgba(201,168,76,.12)}
-nav.lt{background:rgba(250,246,238,.97);border-bottom:1px solid rgba(59,31,107,.1)}
-.nav-logo{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.22em;color:var(--gold)}
-.nav-logo em{color:var(--gold-lt);font-style:normal;opacity:.55}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;transition:background .4s,border-color .4s}
+nav.lt{background:rgba(250,250,247,.97);border-bottom:1px solid var(--border)}
+nav.dk{background:rgba(59,31,107,.97);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-logo{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.22em}
+nav.lt .nav-logo{color:var(--purple)}
+nav.dk .nav-logo{color:var(--gold-pale)}
+.nav-logo em{font-style:normal;opacity:.45}
 .nav-dots{display:flex;gap:7px;align-items:center}
 .ndot{width:6px;height:6px;border-radius:50%;cursor:pointer;transition:all .3s}
-.ndot.dk-d{background:rgba(201,168,76,.22)}
-.ndot.lt-d{background:rgba(59,31,107,.18)}
-.ndot.active.dk-d{background:var(--gold);width:20px;border-radius:3px}
-.ndot.active.lt-d{background:var(--purple);width:20px;border-radius:3px}
+nav.lt .ndot{background:rgba(59,31,107,.18)}
+nav.dk .ndot{background:rgba(255,255,255,.22)}
+nav.lt .ndot.active{background:var(--purple);width:20px;border-radius:3px}
+nav.dk .ndot.active{background:var(--gold-pale);width:20px;border-radius:3px}
 
-/* SLIDES */
+/* ── SLIDES ── */
 .slide{min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center;padding:108px 64px 76px;position:relative;overflow:hidden}
-.dk {background:var(--purple-deep);color:var(--cream)}
-.dk2{background:var(--purple-mid);color:var(--cream)}
-.lt {background:var(--cream);color:var(--ink)}
-.lt2{background:var(--cream-w);color:var(--ink)}
+.s-white {background:var(--white);color:var(--ink)}
+.s-off   {background:var(--off-white);color:var(--ink)}
+.s-warm  {background:var(--warm-grey);color:var(--ink)}
+.s-purple-xs{background:var(--purple-xs);color:var(--ink)}
+.s-purple{background:var(--purple);color:var(--white)}
 
-/* TYPOGRAPHY */
-.eyebrow{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;margin-bottom:18px}
-.dk .eyebrow,.dk2 .eyebrow{color:var(--gold-lt)}
-.lt .eyebrow,.lt2 .eyebrow{color:var(--purple-lt)}
-.section-tag{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.3em;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.dk .section-tag,.dk2 .section-tag{color:var(--gold)}
-.dk .section-tag::before,.dk2 .section-tag::before{content:'';display:block;width:28px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-.lt .section-tag,.lt2 .section-tag{color:var(--purple)}
-.lt .section-tag::before,.lt2 .section-tag::before{content:'';display:block;width:28px;height:1px;background:linear-gradient(90deg,var(--purple),transparent)}
-h1.hero{font-family:'Playfair Display',serif;font-size:clamp(3.6rem,8.5vw,8.5rem);font-weight:900;line-height:.92;letter-spacing:-.02em}
-h1.hero em{font-style:italic;color:var(--gold-lt);display:block}
-h2.stitle{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.8vw,3.6rem);font-weight:700;line-height:1.05}
-.dk h2.stitle em,.dk2 h2.stitle em{font-style:italic;color:var(--gold-lt);font-weight:400}
-.lt h2.stitle em,.lt2 h2.stitle em{font-style:italic;color:var(--purple-lt);font-weight:400}
-.body{font-size:1.05rem;line-height:1.72;font-weight:400;letter-spacing:.01em}
-.dk .body,.dk2 .body{color:rgba(250,246,238,.7)}
-.lt .body,.lt2 .body{color:rgba(18,10,36,.65)}
-.dk .body strong,.dk2 .body strong{color:var(--gold-pale);font-weight:600}
-.lt .body strong,.lt2 .body strong{color:var(--purple);font-weight:600}
+/* ── DECO ── */
+.deco-corner{position:absolute;width:90px;height:90px;pointer-events:none}
+.deco-corner.tl{top:24px;left:24px;border-top:2px solid rgba(59,31,107,.12);border-left:2px solid rgba(59,31,107,.12)}
+.deco-corner.tr{top:24px;right:24px;border-top:2px solid rgba(59,31,107,.12);border-right:2px solid rgba(59,31,107,.12)}
+.deco-corner.bl{bottom:24px;left:24px;border-bottom:2px solid rgba(59,31,107,.12);border-left:2px solid rgba(59,31,107,.12)}
+.deco-corner.br{bottom:24px;right:24px;border-bottom:2px solid rgba(59,31,107,.12);border-right:2px solid rgba(59,31,107,.12)}
+.s-purple .deco-corner{border-color:rgba(255,255,255,.12)}
 
-/* HERO S1 */
-#s1{background:radial-gradient(ellipse at 78% 18%,rgba(91,58,155,.45) 0%,transparent 55%),radial-gradient(ellipse at 12% 82%,rgba(201,168,76,.1) 0%,transparent 44%),var(--purple-deep);text-align:center}
-.hero-rule{width:72px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:28px auto}
-.hero-sub{font-family:'Rajdhani',sans-serif;font-size:.95rem;color:rgba(250,246,238,.42);letter-spacing:.1em;font-weight:500;margin-top:6px}
-.badges{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:28px}
-.badge{border:1px solid rgba(201,168,76,.28);padding:6px 16px;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.16em;color:var(--gold-pale);border-radius:2px;text-transform:uppercase;background:rgba(201,168,76,.04)}
-.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;z-index:2;pointer-events:none}
-.scroll-cue span{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.24em;color:rgba(250,246,238,.28)}
-.scroll-pulse{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2s ease infinite}
+/* ── TYPOGRAPHY ── */
+.section-tag{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--purple)}
+.section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--purple)}
+.s-purple .section-tag{color:var(--gold-pale)}
+.s-purple .section-tag::before{background:var(--gold-pale)}
+h1.hero{font-family:'Playfair Display',serif;font-size:clamp(3.4rem,7.5vw,7.8rem);font-weight:900;line-height:.92;letter-spacing:-.02em;color:var(--purple)}
+h1.hero em{font-style:italic;color:var(--gold);display:block}
+.s-purple h1.hero{color:var(--white)}
+.s-purple h1.hero em{color:var(--gold-pale)}
+h2.stitle{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.6vw,3.4rem);font-weight:700;line-height:1.06;color:var(--purple)}
+h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
+.s-purple h2.stitle{color:var(--white)}
+.s-purple h2.stitle em{color:var(--gold-pale)}
+.body{font-size:1.02rem;line-height:1.74;font-weight:400;color:var(--ink-soft)}
+.s-purple .body{color:rgba(255,255,255,.68)}
+.body strong{color:var(--purple);font-weight:600}
+
+/* ── HERO S1 ── */
+#s1{background:linear-gradient(135deg,var(--white) 0%,var(--purple-xs) 60%,#E4D9F5 100%)}
+.hero-rule{width:64px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-pale));margin:26px auto}
+.hero-sub{font-family:'Rajdhani',sans-serif;font-size:.95rem;color:var(--muted);letter-spacing:.06em;font-weight:500;margin-top:6px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.65}
+.badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.badge{border:1px solid var(--border);padding:5px 14px;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--purple);border-radius:2px;text-transform:uppercase;background:white}
+.scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+.scroll-cue span{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.22em;color:var(--muted-lt)}
+.scroll-pulse{width:1px;height:32px;background:linear-gradient(to bottom,var(--purple),transparent);animation:pulse 2s ease infinite}
 @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.9}}
 
-/* TWO COL */
+/* ── TWO COL ── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;max-width:1120px;width:100%;align-items:start}
 
-/* STAT BOXES */
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.sbox{padding:24px 18px;border-radius:3px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.lt .sbox,.lt2 .sbox{background:white;border:1px solid rgba(59,31,107,.1);box-shadow:0 2px 14px rgba(59,31,107,.06)}
-.lt .sbox:hover,.lt2 .sbox:hover{transform:translateY(-3px);box-shadow:0 9px 28px rgba(59,31,107,.12)}
-.dk .sbox,.dk2 .sbox{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.14)}
-.sbox::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
-.snum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;line-height:1}
-.lt .snum,.lt2 .snum{color:var(--purple)}
-.dk .snum,.dk2 .snum{color:var(--gold-lt)}
-.slbl{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;margin-top:5px;text-transform:uppercase}
-.lt .slbl,.lt2 .slbl{color:var(--muted)}
-.dk .slbl,.dk2 .slbl{color:rgba(250,246,238,.38)}
-.sdesc{font-size:.75rem;margin-top:3px;line-height:1.4}
-.lt .sdesc,.lt2 .sdesc{color:rgba(18,10,36,.52)}
-.dk .sdesc,.dk2 .sdesc{color:rgba(250,246,238,.42)}
+/* ── STAT BOXES ── */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sbox{padding:22px 18px;border-radius:4px;border:1px solid var(--border);background:var(--white);position:relative;overflow:hidden;transition:all .3s;box-shadow:0 2px 12px rgba(59,31,107,.05)}
+.sbox::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--gold))}
+.sbox:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(59,31,107,.1)}
+.snum{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--purple);line-height:1}
+.slbl{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;margin-top:4px;text-transform:uppercase;color:var(--muted)}
+.sdesc{font-size:.72rem;margin-top:3px;color:var(--muted-lt);line-height:1.4}
 
-/* CRED LIST */
-.cred-list{display:flex;flex-direction:column;gap:9px;margin-top:26px}
-.cred-item{display:flex;gap:13px;padding:13px 16px;border-radius:4px;transition:all .3s}
-.lt .cred-item,.lt2 .cred-item{border:1px solid rgba(59,31,107,.11);background:rgba(59,31,107,.03)}
-.lt .cred-item:hover,.lt2 .cred-item:hover{border-color:var(--purple-lt);background:rgba(59,31,107,.07)}
-.dk .cred-item,.dk2 .cred-item{border:1px solid rgba(201,168,76,.13);background:rgba(201,168,76,.03)}
-.cred-icon{font-size:1.15rem;margin-top:1px}
-.cred-title{font-size:.82rem;font-weight:700;letter-spacing:.02em}
-.lt .cred-title,.lt2 .cred-title{color:var(--ink)}
-.dk .cred-title,.dk2 .cred-title{color:var(--cream)}
-.cred-desc{font-size:.7rem;margin-top:3px;line-height:1.5}
-.lt .cred-desc,.lt2 .cred-desc{color:var(--muted)}
-.dk .cred-desc,.dk2 .cred-desc{color:rgba(250,246,238,.48)}
+/* ── CRED LIST ── */
+.cred-list{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+.cred-item{display:flex;gap:12px;padding:12px 15px;border-radius:4px;border:1px solid var(--border);background:var(--white);transition:all .3s}
+.cred-item:hover{border-color:var(--purple-lt);box-shadow:0 4px 16px rgba(59,31,107,.08)}
+.cred-icon{font-size:1.1rem;margin-top:1px}
+.cred-title{font-size:.8rem;font-weight:700;color:var(--ink)}
+.cred-desc{font-size:.68rem;margin-top:2px;color:var(--muted);line-height:1.5}
 
-/* S3 PROBLEM */
-#s3{background:radial-gradient(ellipse at 28% 72%,rgba(201,168,76,.07) 0%,transparent 48%),var(--purple-mid)}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:28px}
-.sg-box{background:rgba(255,255,255,.03);padding:26px 20px;transition:background .3s;cursor:default}
-.sg-box:hover{background:rgba(201,168,76,.06)}
-.sg-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--gold-lt);line-height:1;display:block}
-.sg-lbl{font-size:.76rem;color:var(--cream);margin-top:9px;line-height:1.55;font-weight:500}
-.sg-src{font-family:'DM Mono',monospace;font-size:.52rem;color:rgba(250,246,238,.28);margin-top:5px}
-.insight-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
-.insight-card{border-left:3px solid var(--gold);padding:14px 18px;background:rgba(201,168,76,.04)}
-.insight-card p{font-size:.8rem;color:rgba(250,246,238,.75);line-height:1.65}
-.insight-card strong{color:var(--gold-pale)}
-/* cost of inaction banner */
-.coi-banner{margin-top:22px;padding:18px 24px;background:rgba(224,85,85,.08);border:1px solid rgba(224,85,85,.3);border-radius:4px;display:flex;align-items:flex-start;gap:14px}
-.coi-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
-.coi-text{font-size:.8rem;color:rgba(250,246,238,.82);line-height:1.7}
-.coi-text strong{color:#F28B8B}
+/* ── S3 STATS ── */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px}
+.sg-box{background:var(--white);border:1px solid var(--border);padding:24px 20px;transition:all .3s}
+.sg-box:hover{border-color:var(--purple-lt);background:var(--purple-xs)}
+.sg-num{font-family:'Playfair Display',serif;font-size:2.9rem;font-weight:700;color:var(--purple);line-height:1;display:block}
+.sg-lbl{font-size:.73rem;color:var(--ink-soft);margin-top:8px;line-height:1.55;font-weight:500}
+.sg-lbl strong{color:var(--purple)}
+.sg-src{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--muted-lt);margin-top:5px}
+.insight-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.insight-card{border-left:3px solid var(--purple);padding:14px 17px;background:var(--purple-xs);border-radius:0 4px 4px 0}
+.insight-card p{font-size:.78rem;color:var(--ink-soft);line-height:1.68}
+.insight-card strong{color:var(--purple)}
+.coi-banner{margin-top:16px;padding:16px 22px;background:var(--red-bg);border:1px solid rgba(192,57,43,.2);border-radius:4px;display:flex;align-items:flex-start;gap:12px}
+.coi-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px}
+.coi-text{font-size:.77rem;color:var(--ink-soft);line-height:1.72}
+.coi-text strong{color:var(--red)}
 
-/* S4 FOUR BIZ */
-#s4{background:var(--cream);align-items:flex-start;padding-top:116px}
-.biz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;border:1px solid rgba(59,31,107,.1);overflow:hidden;border-radius:6px}
-.biz-card{padding:28px 22px 26px;border-right:1px solid rgba(59,31,107,.1);position:relative;overflow:hidden;transition:all .35s;cursor:default;background:white}
+/* ── S4 FOUR BIZ ── */
+.biz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.biz-card{padding:26px 20px 22px;border-right:1px solid var(--border);background:var(--white);position:relative;transition:all .35s}
 .biz-card:last-child{border-right:none}
-.biz-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.biz-card:hover{background:rgba(59,31,107,.03)}
+.biz-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.biz-card:hover{background:var(--purple-xs)}
 .biz-card:hover::before{transform:scaleX(1)}
-.biz-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:rgba(59,31,107,.07);line-height:1;margin-bottom:14px}
-.biz-icon{font-size:1.5rem;margin-bottom:10px;display:block}
-.biz-name{font-size:.88rem;font-weight:700;color:var(--purple);margin-bottom:7px;letter-spacing:.03em}
-.biz-desc{font-size:.68rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
-.biz-tags{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
-.biz-tag{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--purple-lt);letter-spacing:.08em;display:flex;align-items:center;gap:5px}
+.biz-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:rgba(59,31,107,.07);line-height:1;margin-bottom:12px}
+.biz-icon{font-size:1.4rem;margin-bottom:9px;display:block}
+.biz-name{font-size:.85rem;font-weight:700;color:var(--purple);margin-bottom:6px;letter-spacing:.02em}
+.biz-desc{font-size:.67rem;color:var(--muted);line-height:1.62;margin-bottom:12px}
+.biz-tags{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.biz-tag{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--purple-lt);display:flex;align-items:center;gap:5px}
 .biz-tag::before{content:'→';color:var(--gold)}
-/* opportunity line */
-.biz-opp{margin-top:10px;padding:9px 12px;background:rgba(201,168,76,.07);border-left:2px solid var(--gold);border-radius:0 3px 3px 0}
-.biz-opp p{font-size:.62rem;color:var(--purple);line-height:1.55;font-weight:600}
-.biz-footer{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(59,31,107,.1);border-radius:6px;overflow:hidden}
-.biz-stat{padding:18px 22px;text-align:center;background:white;border-right:1px solid rgba(59,31,107,.1)}
+.biz-opp{padding:8px 11px;background:var(--gold-bg);border-left:2px solid var(--gold);border-radius:0 3px 3px 0}
+.biz-opp p{font-size:.61rem;color:var(--ink-soft);line-height:1.55;font-weight:600}
+.shopify-core{border:2px solid var(--purple)!important}
+.shopify-core::before{transform:scaleX(1)!important}
+.shopify-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;background:var(--purple);color:white;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;border-radius:2px;margin-bottom:10px}
+.biz-footer{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-top:12px}
+.biz-stat{padding:16px 20px;text-align:center;background:var(--white);border-right:1px solid var(--border)}
 .biz-stat:last-child{border-right:none}
-.biz-stat-num{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--purple)}
-.biz-stat-lbl{font-family:'DM Mono',monospace;font-size:.53rem;color:var(--muted);margin-top:4px;letter-spacing:.08em}
+.biz-stat-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--purple)}
+.biz-stat-lbl{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--muted);margin-top:3px}
 
-/* S5 ECOSYSTEM */
-#s5{background:var(--purple-deep);align-items:flex-start;padding-top:116px}
-.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px}
-.eco-col{background:rgba(255,255,255,.03);padding:26px 18px 22px;border:1px solid rgba(201,168,76,.07);transition:all .3s;position:relative;overflow:hidden}
-.eco-col:hover{background:rgba(201,168,76,.05);border-color:rgba(201,168,76,.22)}
-.eco-col:hover .eco-line{transform:scaleX(1)}
-.eco-line{display:block;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s;margin-bottom:16px}
-.eco-icon{font-size:1.4rem;margin-bottom:10px;display:block}
-.eco-title{font-size:.83rem;font-weight:700;color:var(--cream);margin-bottom:10px;letter-spacing:.02em}
+/* ── S5 ECOSYSTEM ── */
+.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:32px}
+.eco-col{background:var(--white);padding:24px 18px 20px;border:1px solid var(--border);border-radius:4px;transition:all .3s;position:relative;overflow:hidden}
+.eco-col:hover{border-color:var(--purple-lt);box-shadow:0 6px 24px rgba(59,31,107,.1);transform:translateY(-3px)}
+.eco-col::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--purple),var(--gold));margin-bottom:16px;border-radius:2px}
+.eco-icon{font-size:1.3rem;margin-bottom:9px;display:block}
+.eco-title{font-size:.82rem;font-weight:700;color:var(--purple);margin-bottom:9px}
 .eco-ul{list-style:none}
-.eco-ul li{font-size:.67rem;color:rgba(250,246,238,.48);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.44}
-.eco-ul li::before{content:'→ ';color:var(--gold);font-size:.58rem}
-/* ROI lens line */
-.eco-roi{margin-top:12px;padding:8px 10px;background:rgba(201,168,76,.07);border-radius:3px}
-.eco-roi p{font-size:.6rem;color:var(--gold-pale);line-height:1.55;font-style:italic}
+.eco-ul li{font-size:.65rem;color:var(--muted);padding:3px 0;border-bottom:1px solid var(--border-lt);line-height:1.44}
+.eco-ul li::before{content:'→ ';color:var(--gold);font-size:.56rem}
+.eco-roi{margin-top:12px;padding:8px 10px;background:var(--purple-xs);border-radius:3px}
+.eco-roi p{font-size:.59rem;color:var(--purple);line-height:1.55;font-style:italic}
+/* phased badge */
+.eco-phase{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;margin-bottom:8px}
+.phase-now{background:var(--purple);color:white}
+.phase-next{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold)}
+.phase-later{background:var(--warm-grey);color:var(--muted);border:1px solid var(--border)}
+/* compounding banner */
+.compound-banner{margin-top:20px;padding:16px 22px;background:var(--purple);border-radius:6px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.cb-icon{font-size:1.4rem}
+.cb-text{font-size:.78rem;color:rgba(255,255,255,.82);line-height:1.72}
+.cb-text strong{color:var(--gold-pale)}
 
-/* S6 DIFFERENTIATORS */
-#s6{background:var(--cream-w);align-items:flex-start;padding-top:116px}
-.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:40px}
-.diff-card{padding:22px 20px 20px;border-radius:4px;position:relative;overflow:hidden;background:white;border:1px solid rgba(59,31,107,.1);transition:all .3s}
-.diff-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple-lt),var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.diff-card:hover{border-color:rgba(59,31,107,.24);box-shadow:0 8px 28px rgba(59,31,107,.1);transform:translateY(-3px)}
+/* ── S6 DIFFERENTIATORS ── */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:36px}
+.diff-card{padding:22px 20px;border-radius:4px;background:var(--white);border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+.diff-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.diff-card:hover{border-color:rgba(59,31,107,.22);box-shadow:0 8px 28px rgba(59,31,107,.09);transform:translateY(-3px)}
 .diff-card:hover::after{transform:scaleX(1)}
-.diff-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
-.diff-icon{font-size:1.3rem}
-.diff-pill{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:var(--purple-lt);border:1px solid rgba(91,58,155,.22);padding:2px 8px;border-radius:20px;text-transform:uppercase}
-.diff-title{font-size:.85rem;font-weight:700;color:var(--purple);margin-bottom:7px;line-height:1.3}
-.diff-desc{font-size:.69rem;color:var(--muted);line-height:1.65;margin-bottom:10px}
-.diff-without{font-size:.64rem;padding:8px 11px;background:rgba(224,85,85,.06);border-left:2px solid rgba(224,85,85,.4);line-height:1.5;color:rgba(18,10,36,.55)}
+.diff-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.diff-icon{font-size:1.2rem}
+.diff-pill{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.1em;color:var(--purple);border:1px solid var(--border);padding:2px 7px;border-radius:20px}
+.diff-title{font-size:.83rem;font-weight:700;color:var(--purple);margin-bottom:6px;line-height:1.3}
+.diff-desc{font-size:.68rem;color:var(--muted);line-height:1.66;margin-bottom:9px}
+.diff-without{font-size:.63rem;padding:7px 10px;background:var(--red-bg);border-left:2px solid rgba(192,57,43,.35);line-height:1.52;color:var(--ink-soft)}
 .diff-without strong{color:var(--red)}
-.diff-impact{font-size:.64rem;margin-top:8px;padding:8px 11px;border-top:1px solid rgba(59,31,107,.07);line-height:1.45;color:rgba(18,10,36,.45)}
+.diff-impact{font-size:.63rem;margin-top:7px;padding:7px 10px;border-top:1px solid var(--border-lt);color:var(--muted)}
 .diff-impact strong{color:var(--purple)}
 
-/* S7 ARCHITECTURE */
-#s7{background:radial-gradient(ellipse at 82% 28%,rgba(91,58,155,.32),transparent 52%),var(--purple-deep);align-items:flex-start;padding-top:116px}
-.plat-labels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.plat-label{padding:9px 16px;border:1px solid rgba(201,168,76,.22);border-radius:4px;background:rgba(201,168,76,.04);display:flex;align-items:center;gap:10px}
-.plat-label-tag{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--gold);letter-spacing:.16em;text-transform:uppercase}
-.plat-label-desc{font-size:.7rem;color:rgba(250,246,238,.5);margin-top:2px}
-.browsers{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.full-browser{background:#111;border-radius:9px;overflow:hidden;border:1px solid rgba(201,168,76,.14);box-shadow:0 36px 90px rgba(0,0,0,.55),0 0 0 1px rgba(91,58,155,.18)}
-.fb-bar{background:#1a1a1a;padding:10px 13px;display:flex;align-items:center;gap:9px}
-.fb-dots{display:flex;gap:5px}
-.fb-dot{width:9px;height:9px;border-radius:50%}
-.fb-url{flex:1;background:#0d0d0d;border-radius:3px;padding:3px 10px;font-family:'DM Mono',monospace;font-size:.56rem;color:#555}
-.fb-nav{background:#09050f;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border-bottom:1px solid rgba(201,168,76,.1)}
-.fb-nav-links{display:flex;gap:14px;font-family:'DM Mono',monospace;font-size:.48rem;color:rgba(250,246,238,.32);letter-spacing:.14em}
-.fb-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-lt)}
-.fb-nav-cta{font-size:.48rem;padding:4px 12px;background:var(--gold);color:#0A0614;letter-spacing:.1em;border-radius:2px;font-weight:700}
-.fb-hero{background:linear-gradient(135deg,#09050f,#1E0F3A,#120820);padding:32px 22px;text-align:center;border-bottom:1px solid rgba(201,168,76,.09)}
-.fb-ht{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--cream);line-height:1.1}
-.fb-ht em{color:var(--gold-lt);font-style:italic}
-.fb-sub{font-size:.5rem;color:rgba(201,168,76,.55);letter-spacing:.2em;margin-top:9px;font-family:'DM Mono',monospace}
-.fb-cta{display:inline-block;margin-top:12px;padding:6px 18px;background:var(--gold);color:#0A0614;font-size:.54rem;letter-spacing:.13em;font-weight:700;border-radius:2px}
-.fb-secs{display:grid;gap:1px;background:rgba(201,168,76,.05)}
-.fb-sec{background:#0d0a18;padding:12px;text-align:center}
-.fb-sec-i{font-size:1rem;margin-bottom:5px}
-.fb-sec-t{font-size:.5rem;color:var(--gold-pale);letter-spacing:.1em;font-weight:600}
-.fb-sec-s{font-size:.45rem;color:#4a3d60;margin-top:2px}
-.callouts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}
-.callout{background:rgba(255,255,255,.03);padding:13px 15px;border:1px solid rgba(201,168,76,.09);border-radius:4px}
-.callout-icon{font-size:1rem;margin-bottom:5px}
-.callout-title{font-size:.7rem;font-weight:700;color:var(--cream);margin-bottom:3px}
-.callout-desc{font-size:.59rem;color:rgba(250,246,238,.42);line-height:1.55}
+/* ── S7 ARCHITECTURE ── */
+.single-browser{background:#0F0A1A;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 32px 80px rgba(0,0,0,.22),0 0 0 1px rgba(59,31,107,.2);margin-top:20px}
+.sb-bar{background:#1a1525;padding:10px 14px;display:flex;align-items:center;gap:9px}
+.sb-dots{display:flex;gap:5px}
+.sb-dot{width:9px;height:9px;border-radius:50%}
+.sb-url{flex:1;background:#100d1a;border-radius:3px;padding:3px 10px;font-family:'DM Mono',monospace;font-size:.55rem;color:#666}
+.sb-nav{background:#09050f;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;border-bottom:1px solid rgba(255,255,255,.06)}
+.sb-links{display:flex;gap:10px;font-family:'DM Mono',monospace;font-size:.45rem;color:rgba(255,255,255,.3);letter-spacing:.14em}
+.sb-links .active-link{color:rgba(255,255,255,.85);border-bottom:1px solid var(--gold)}
+.sb-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-pale);font-style:italic}
+.sb-cta{font-size:.45rem;padding:4px 12px;background:var(--purple);color:white;letter-spacing:.1em;border-radius:2px;font-weight:700;font-family:'DM Mono',monospace}
+.sb-hero{background:linear-gradient(135deg,#09050f,#1A0D35);padding:30px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.05)}
+.sb-ht{font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1.1}
+.sb-ht em{color:var(--gold-pale);font-style:italic}
+.sb-tag{font-size:.46rem;color:rgba(184,134,26,.6);letter-spacing:.2em;margin-top:8px;font-family:'DM Mono',monospace}
+.sb-sections{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04)}
+.sb-sec{background:#0d0a18;padding:14px 10px;text-align:center;transition:background .2s;cursor:default}
+.sb-sec:hover{background:#160f28}
+.sb-sec-i{font-size:1.1rem;margin-bottom:5px}
+.sb-sec-t{font-size:.48rem;color:rgba(255,255,255,.65);letter-spacing:.12em;font-family:'DM Mono',monospace;font-weight:700}
+.sb-sec-s{font-size:.42rem;color:rgba(255,255,255,.28);margin-top:2px}
+.sb-sec.active-sec{background:#1E0F3A}
+.sb-sec.active-sec .sb-sec-t{color:var(--gold-pale)}
+/* arch callouts */
+.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.arch-box{padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px}
+.arch-box-icon{font-size:1rem;margin-bottom:5px}
+.arch-box-title{font-size:.7rem;font-weight:700;color:var(--purple);margin-bottom:3px}
+.arch-box-desc{font-size:.59rem;color:var(--muted);line-height:1.55}
+/* shopify page note */
+.shopify-note{margin-bottom:18px;padding:14px 20px;background:var(--purple-xs);border:1px solid var(--border);border-radius:4px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.sn-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;color:var(--purple);text-transform:uppercase;margin-bottom:4px}
+.sn-text{font-size:.74rem;color:var(--ink-soft);line-height:1.68}
+.sn-text strong{color:var(--purple)}
 
-/* S8 MARKETING ENGINE */
-#s8{background:radial-gradient(ellipse at 20% 60%,rgba(201,168,76,.08),transparent 48%),var(--purple-mid);align-items:flex-start;padding-top:116px}
-.engine-intro{font-size:1rem;color:rgba(250,246,238,.62);max-width:580px;line-height:1.75;margin:14px 0 40px}
-.engine-layers{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:28px}
-.eng-layer{background:rgba(255,255,255,.03);padding:28px 22px;border:1px solid rgba(201,168,76,.08);transition:all .3s;position:relative}
-.eng-layer:hover{background:rgba(201,168,76,.05);border-color:rgba(201,168,76,.25)}
-.eng-layer-num{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;color:rgba(201,168,76,.1);position:absolute;top:14px;right:18px;line-height:1}
-.eng-icon{font-size:1.6rem;margin-bottom:14px;display:block}
-.eng-title{font-size:.9rem;font-weight:700;color:var(--cream);margin-bottom:8px;letter-spacing:.02em}
-.eng-timeline{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--gold);letter-spacing:.1em;margin-bottom:12px;text-transform:uppercase}
-.eng-desc{font-size:.72rem;color:rgba(250,246,238,.6);line-height:1.68;margin-bottom:12px}
+/* ── S8 MARKETING ENGINE ── */
+.engine-layers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.eng-layer{background:var(--white);padding:26px 20px;border:1px solid var(--border);border-radius:4px;transition:all .3s;position:relative}
+.eng-layer:hover{border-color:var(--purple-lt);box-shadow:0 6px 22px rgba(59,31,107,.09)}
+.eng-layer-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:rgba(59,31,107,.06);position:absolute;top:12px;right:16px;line-height:1}
+.eng-icon{font-size:1.5rem;margin-bottom:12px;display:block}
+.eng-title{font-size:.88rem;font-weight:700;color:var(--purple);margin-bottom:6px}
+.eng-timeline{font-family:'DM Mono',monospace;font-size:.53rem;color:var(--gold);letter-spacing:.1em;margin-bottom:10px;text-transform:uppercase}
+.eng-desc{font-size:.7rem;color:var(--muted);line-height:1.68;margin-bottom:10px}
 .eng-ul{list-style:none}
-.eng-ul li{font-size:.67rem;color:rgba(250,246,238,.48);padding:3px 0;line-height:1.4}
-.eng-ul li::before{content:'✓ ';color:var(--gold);font-size:.6rem}
-.eng-without{margin-top:14px;padding:10px 13px;background:rgba(224,85,85,.08);border-left:2px solid rgba(224,85,85,.35)}
-.eng-without p{font-size:.62rem;color:#F28B8B;line-height:1.6}
-/* synergy row */
-.synergy-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;border:1px solid rgba(201,168,76,.12);border-radius:6px;overflow:hidden;margin-bottom:28px}
-.syn-box{background:rgba(255,255,255,.03);padding:18px 20px;text-align:center}
-.syn-arrow{display:flex;align-items:center;justify-content:center;padding:0 8px;color:var(--gold);font-size:1.2rem;background:rgba(255,255,255,.02)}
-.syn-icon{font-size:1.4rem;margin-bottom:6px}
-.syn-title{font-size:.72rem;font-weight:700;color:var(--cream);margin-bottom:4px}
-.syn-desc{font-size:.6rem;color:rgba(250,246,238,.45);line-height:1.45}
-.syn-result{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--gold);margin-top:6px;letter-spacing:.06em}
-/* missing layer warning */
-.missing-banner{padding:16px 22px;background:rgba(224,85,85,.07);border:1px solid rgba(224,85,85,.25);border-radius:4px;display:flex;gap:14px;align-items:flex-start}
-.miss-icon{font-size:1.3rem;flex-shrink:0}
-.miss-text{font-size:.78rem;color:rgba(250,246,238,.8);line-height:1.7}
-.miss-text strong{color:#F28B8B}
+.eng-ul li{font-size:.65rem;color:var(--ink-soft);padding:3px 0;line-height:1.4}
+.eng-ul li::before{content:'✓ ';color:var(--green);font-size:.58rem}
+.eng-without{margin-top:12px;padding:9px 12px;background:var(--red-bg);border-left:2px solid rgba(192,57,43,.3)}
+.eng-without p{font-size:.61rem;color:var(--red);line-height:1.6}
+/* throttle section */
+.throttle-title{font-size:.8rem;font-weight:700;color:var(--purple);margin-bottom:12px;letter-spacing:.02em}
+.throttle-phases{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.tp{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:12px;padding:11px 16px;border-radius:4px;border:1px solid var(--border);background:var(--white)}
+.tp-phase{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;font-weight:700}
+.tp.now .tp-phase{color:var(--purple)}
+.tp.next .tp-phase{color:var(--gold)}
+.tp.later .tp-phase{color:var(--muted)}
+.tp-desc{font-size:.7rem;color:var(--ink-soft);line-height:1.5}
+.tp-desc strong{font-weight:700}
+.tp-roas{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--green);font-weight:600;text-align:right;white-space:nowrap}
+.tp.now{border-color:var(--purple);background:var(--purple-xs)}
+.tp.next{border-color:var(--gold);background:var(--gold-bg)}
+/* synergy */
+.synergy-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.syn-box{background:var(--white);padding:16px 18px;text-align:center}
+.syn-arrow{display:flex;align-items:center;justify-content:center;padding:0 8px;color:var(--gold);font-size:1.1rem;background:var(--warm-grey)}
+.syn-icon{font-size:1.3rem;margin-bottom:5px}
+.syn-title{font-size:.7rem;font-weight:700;color:var(--purple);margin-bottom:3px}
+.syn-desc{font-size:.58rem;color:var(--muted);line-height:1.45}
+.syn-result{font-family:'DM Mono',monospace;font-size:.53rem;color:var(--green);margin-top:5px}
+.missing-banner{padding:14px 20px;background:var(--red-bg);border:1px solid rgba(192,57,43,.2);border-radius:4px;display:flex;gap:12px;align-items:flex-start;margin-top:16px}
+.miss-text{font-size:.76rem;color:var(--ink-soft);line-height:1.72}
+.miss-text strong{color:var(--red)}
 
-/* S9 ROAS */
-#s9{background:var(--cream);align-items:flex-start;padding-top:116px}
-.roas-intro{font-size:1rem;color:rgba(18,10,36,.6);max-width:580px;line-height:1.75;margin:14px 0 36px}
-.roas-tabs{display:flex;gap:3px;margin-bottom:28px;border:1px solid rgba(59,31,107,.14);border-radius:6px;padding:3px;background:white;width:fit-content}
-.r-tab{padding:8px 22px;font-size:.7rem;font-weight:700;letter-spacing:.07em;border-radius:4px;cursor:pointer;transition:all .25s;color:var(--muted);border:none;background:none;font-family:'Rajdhani',sans-serif}
-.r-tab.active{background:var(--purple);color:var(--gold-lt)}
+/* ── S9 ROAS ── */
+.roas-tabs{display:flex;gap:3px;margin-bottom:24px;border:1px solid var(--border);border-radius:5px;padding:3px;background:var(--white);width:fit-content}
+.r-tab{padding:7px 20px;font-size:.68rem;font-weight:700;letter-spacing:.07em;border-radius:3px;cursor:pointer;transition:all .25s;color:var(--muted);border:none;background:none;font-family:'Rajdhani',sans-serif}
+.r-tab.active{background:var(--purple);color:white}
 .roas-panel{display:none}
 .roas-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-.roas-left{}
-.roas-right{}
-/* slider */
-.slider-wrap{margin-bottom:22px}
-.slider-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.slider-name{font-size:.75rem;font-weight:700;color:var(--ink)}
-.slider-val{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--purple);font-weight:600}
-input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:rgba(59,31,107,.15);outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--purple);cursor:pointer;box-shadow:0 2px 8px rgba(59,31,107,.3)}
-.roas-results{display:flex;flex-direction:column;gap:10px;margin-top:22px}
-.roas-result-row{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:white;border:1px solid rgba(59,31,107,.1);border-radius:4px}
-.rr-label{font-size:.75rem;color:var(--muted);font-weight:600}
-.rr-val{font-family:'DM Mono',monospace;font-size:.88rem;font-weight:600}
-.rr-val.positive{color:var(--green)}
-.rr-val.neutral{color:var(--purple)}
-.roas-summary{padding:20px 24px;background:var(--purple);border-radius:6px;margin-top:18px}
-.rs-label{font-family:'DM Mono',monospace;font-size:.57rem;color:rgba(250,246,238,.42);letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}
-.rs-total{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--gold-lt);font-weight:700;line-height:1}
-.rs-sub{font-size:.68rem;color:rgba(250,246,238,.45);margin-top:6px;line-height:1.55}
-.rs-sub span{color:var(--gold-pale)}
-/* what website alone gets you */
-.website-only{padding:18px 22px;border:1px solid rgba(59,31,107,.14);border-radius:6px;background:white;margin-bottom:22px}
-.wo-title{font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.wo-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(59,31,107,.06);font-size:.72rem}
+.wo-box{margin-bottom:18px;padding:14px 18px;background:var(--warm-grey);border:1px solid var(--border);border-radius:4px}
+.wo-title{font-size:.75rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.wo-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border-lt);font-size:.7rem}
 .wo-row:last-child{border-bottom:none}
 .wo-key{color:var(--muted)}
-.wo-val{font-family:'DM Mono',monospace;font-weight:600;color:var(--ink)}
+.wo-val{font-family:'DM Mono',monospace;font-weight:600}
 .wo-val.red{color:var(--red)}
 .wo-val.green{color:var(--green)}
-.roas-disclaimer{font-family:'DM Mono',monospace;font-size:.53rem;color:var(--muted-lt);margin-top:16px;line-height:1.6;letter-spacing:.03em}
+.slider-wrap{margin-bottom:18px}
+.slider-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.slider-name{font-size:.74rem;font-weight:700;color:var(--ink)}
+.slider-val{font-family:'DM Mono',monospace;font-size:.84rem;color:var(--purple);font-weight:600}
+input[type=range]{width:100%;-webkit-appearance:none;height:3px;border-radius:2px;background:rgba(59,31,107,.15);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--purple);cursor:pointer;box-shadow:0 2px 8px rgba(59,31,107,.25)}
+.roas-results{display:flex;flex-direction:column;gap:7px}
+.roas-rrow{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:3px}
+.rr-label{font-size:.72rem;color:var(--muted)}
+.rr-val{font-family:'DM Mono',monospace;font-size:.84rem;font-weight:600}
+.rr-val.pos{color:var(--green)}
+.rr-val.neu{color:var(--purple)}
+.roas-summary{padding:20px 22px;background:var(--purple);border-radius:5px;margin-top:16px}
+.rs-label{font-family:'DM Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.38);letter-spacing:.14em;margin-bottom:4px}
+.rs-total{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--gold-pale);font-weight:700;line-height:1}
+.rs-sub{font-size:.67rem;color:rgba(255,255,255,.46);margin-top:5px;line-height:1.58}
+.rs-sub span{color:rgba(255,255,255,.75)}
+.roas-insight{padding:14px 16px;border-radius:4px;margin-top:12px;font-size:.68rem;line-height:1.7}
+.roas-insight.seo{background:var(--green-bg);border-left:2px solid rgba(30,125,79,.35);color:var(--ink-soft)}
+.roas-insight.seo strong{color:var(--green)}
+.roas-disclaimer{font-family:'DM Mono',monospace;font-size:.51rem;color:var(--muted-lt);margin-top:14px;line-height:1.65}
 
-/* S10 TIMELINE */
-#s10{background:var(--cream-w);align-items:flex-start;padding-top:116px}
-.phase-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;position:relative}
-.phase-track::before{content:'';position:absolute;top:48px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--purple-lt),var(--purple-lt),transparent);opacity:.2}
-.phase{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px}
-.phase-node{width:96px;height:96px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:18px;border:2px solid rgba(59,31,107,.14);background:white;box-shadow:0 4px 18px rgba(59,31,107,.08);transition:all .3s}
-.phase-node:hover{border-color:var(--purple-lt);box-shadow:0 8px 28px rgba(59,31,107,.14);transform:translateY(-3px)}
-.phase-emoji{font-size:1.5rem}
-.phase-wk{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--purple);letter-spacing:.09em;margin-top:4px}
-.phase-name{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--purple);margin-bottom:12px}
-.ph-items{display:flex;flex-direction:column;gap:5px;width:100%}
-.ph-item{font-size:.65rem;color:var(--muted);text-align:left;padding:5px 9px;border-left:2px solid rgba(201,168,76,.38);line-height:1.5}
-.ph-item strong{color:var(--ink);display:block;font-size:.68rem;font-weight:700}
-.ph-ms{margin-top:10px;font-family:'DM Mono',monospace;font-size:.52rem;color:var(--purple);letter-spacing:.06em;padding:5px 9px;border:1px solid rgba(59,31,107,.14);border-radius:3px;background:rgba(59,31,107,.03)}
-.tl-footer{display:flex;align-items:stretch;margin-top:32px;border:1px solid rgba(59,31,107,.1);border-radius:6px;overflow:hidden}
-.tf-item{padding:18px 24px;text-align:center;flex:1;background:white}
-.tf-divider{width:1px;background:rgba(59,31,107,.08)}
-.tf-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--purple);line-height:1}
-.tf-lbl{font-family:'DM Mono',monospace;font-size:.53rem;color:var(--muted);margin-top:4px;letter-spacing:.06em}
+/* ── S10 TIMELINE ── */
+.phase-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;position:relative}
+.phase-track::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent)}
+.phase{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px}
+.phase-node{width:92px;height:92px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:16px;border:2px solid var(--border);background:var(--white);box-shadow:0 4px 16px rgba(59,31,107,.07);transition:all .3s}
+.phase-node:hover{border-color:var(--purple);box-shadow:0 8px 28px rgba(59,31,107,.14);transform:translateY(-3px)}
+.phase-emoji{font-size:1.4rem}
+.phase-wk{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--purple);letter-spacing:.09em;margin-top:3px}
+.phase-name{font-family:'Playfair Display',serif;font-size:.95rem;font-style:italic;color:var(--purple);margin-bottom:10px}
+.ph-items{display:flex;flex-direction:column;gap:4px;width:100%}
+.ph-item{font-size:.63rem;color:var(--muted);text-align:left;padding:4px 8px;border-left:2px solid rgba(184,134,26,.35);line-height:1.5}
+.ph-item strong{color:var(--ink);display:block;font-size:.66rem;font-weight:700}
+.ph-ms{margin-top:9px;font-family:'DM Mono',monospace;font-size:.5rem;color:var(--purple);padding:4px 8px;border:1px solid var(--border);border-radius:3px;background:var(--white)}
+.tl-footer{display:flex;align-items:stretch;margin-top:28px;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.tf-item{padding:16px 22px;text-align:center;flex:1;background:var(--white)}
+.tf-divider{width:1px;background:var(--border)}
+.tf-num{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--purple);line-height:1}
+.tf-lbl{font-family:'DM Mono',monospace;font-size:.51rem;color:var(--muted);margin-top:4px}
 
-/* S11 PRICING */
-#s11{background:var(--cream-w)}
-.price-intro{font-size:1rem;color:rgba(18,10,36,.6);max-width:580px;line-height:1.75;margin:14px 0 32px}
-.price-tabs{display:flex;gap:3px;margin-bottom:28px;border:1px solid rgba(59,31,107,.14);border-radius:6px;padding:3px;background:white;width:fit-content}
-.p-tab{padding:8px 22px;font-size:.7rem;font-weight:700;letter-spacing:.07em;border-radius:4px;cursor:pointer;transition:all .25s;color:var(--muted);border:none;background:none;font-family:'Rajdhani',sans-serif}
-.p-tab.active{background:var(--purple);color:var(--gold-lt)}
+/* ── S11 PRICING ── */
+.price-intro{font-size:.98rem;color:var(--muted);max-width:560px;line-height:1.75;margin:14px 0 28px}
+.price-tabs{display:flex;gap:3px;margin-bottom:24px;border:1px solid var(--border);border-radius:5px;padding:3px;background:var(--white);width:fit-content}
+.p-tab{padding:7px 20px;font-size:.68rem;font-weight:700;letter-spacing:.07em;border-radius:3px;cursor:pointer;transition:all .25s;color:var(--muted);border:none;background:none;font-family:'Rajdhani',sans-serif}
+.p-tab.active{background:var(--purple);color:white}
 .price-panel{display:none}
 .price-panel.active{display:block}
-.p-items{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
-.p-item{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:14px;padding:13px 16px;background:white;border:1px solid rgba(59,31,107,.1);border-radius:4px;transition:all .25s;cursor:pointer;position:relative}
+.p-items{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.p-item{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:12px;padding:12px 15px;background:var(--white);border:1px solid var(--border);border-radius:4px;transition:all .25s;cursor:pointer;position:relative}
 .p-item:hover{border-color:var(--purple-lt)}
-.p-item.selected{border-color:var(--purple);background:rgba(59,31,107,.03);box-shadow:0 2px 14px rgba(59,31,107,.1)}
+.p-item.selected{border-color:var(--purple);background:var(--purple-xs);box-shadow:0 2px 12px rgba(59,31,107,.09)}
 .p-item.selected::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--purple),var(--gold));border-radius:4px 0 0 4px}
-.pi-name{font-size:.82rem;font-weight:700;color:var(--ink)}
-.pi-desc{font-size:.65rem;color:var(--muted);line-height:1.4;margin-top:2px}
-.pi-market{font-family:'DM Mono',monospace;font-size:.63rem;color:var(--muted-lt);text-decoration:line-through;text-align:right;white-space:nowrap}
-.pi-our{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--purple);font-weight:600;text-align:right;white-space:nowrap}
-.pi-check{width:17px;height:17px;border-radius:50%;border:2px solid rgba(59,31,107,.18);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.pi-name{font-size:.8rem;font-weight:700;color:var(--ink)}
+.pi-desc{font-size:.63rem;color:var(--muted);margin-top:2px;line-height:1.4}
+.pi-market{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted-lt);text-decoration:line-through;text-align:right;white-space:nowrap}
+.pi-our{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--purple);font-weight:600;text-align:right;white-space:nowrap}
+.pi-check{width:16px;height:16px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
 .p-item.selected .pi-check{background:var(--purple);border-color:var(--purple)}
-.pi-check::after{content:'✓';font-size:.6rem;color:white;opacity:0;transition:opacity .2s}
+.pi-check::after{content:'✓';font-size:.55rem;color:white;opacity:0;transition:opacity .2s}
 .p-item.selected .pi-check::after{opacity:1}
-.price-summary{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:var(--purple);border-radius:6px}
-.ps-label{font-family:'DM Mono',monospace;font-size:.57rem;color:rgba(250,246,238,.42);letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
-.ps-total{font-family:'Playfair Display',serif;font-size:2.1rem;color:var(--gold-lt);font-weight:700;line-height:1}
-.ps-saving{font-size:.66rem;color:rgba(250,246,238,.42);margin-top:4px}
-.ps-saving span{color:var(--gold-pale)}
-.ps-note{font-size:.64rem;color:rgba(250,246,238,.46);text-align:right;line-height:1.6}
-/* retainer */
-.ret-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:20px}
-.r-card{padding:24px 20px;border:1px solid rgba(59,31,107,.14);border-radius:6px;background:white;cursor:pointer;transition:all .25s;position:relative}
-.r-card:hover{border-color:var(--purple-lt);box-shadow:0 4px 18px rgba(59,31,107,.1)}
-.r-card.selected{border-color:var(--purple);background:rgba(59,31,107,.03);box-shadow:0 4px 22px rgba(59,31,107,.14)}
-.r-card.recommended::after{content:'RECOMMENDED';position:absolute;top:-1px;right:14px;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.14em;background:var(--purple);color:var(--gold-lt);padding:3px 9px;border-radius:0 0 4px 4px}
-.r-name{font-size:.76rem;font-weight:700;letter-spacing:.09em;color:var(--purple);margin-bottom:7px;text-transform:uppercase}
-.r-price{font-family:'Playfair Display',serif;font-size:2rem;color:var(--purple);font-weight:700;line-height:1;margin-bottom:3px}
-.r-price span{font-size:.75rem;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:400}
-.r-market{font-size:.6rem;color:var(--muted-lt);margin-bottom:8px;font-family:'DM Mono',monospace}
-/* projected return badge */
-.r-return{display:flex;align-items:center;gap:7px;padding:8px 11px;background:rgba(76,175,125,.08);border:1px solid rgba(76,175,125,.2);border-radius:3px;margin-bottom:12px}
-.r-return-icon{font-size:.9rem}
-.r-return-text{font-size:.62rem;color:var(--green);line-height:1.45;font-weight:600}
+.price-summary{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--purple);border-radius:5px}
+.ps-label{font-family:'DM Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.38);letter-spacing:.14em;margin-bottom:3px}
+.ps-total{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-pale);font-weight:700;line-height:1}
+.ps-saving{font-size:.64rem;color:rgba(255,255,255,.4);margin-top:4px}
+.ps-saving span{color:rgba(255,255,255,.72)}
+.ps-note{font-size:.63rem;color:rgba(255,255,255,.4);text-align:right;line-height:1.6}
+.ret-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.r-card{padding:22px 18px;border:1px solid var(--border);border-radius:5px;background:var(--white);cursor:pointer;transition:all .25s;position:relative}
+.r-card:hover{border-color:var(--purple-lt);box-shadow:0 4px 16px rgba(59,31,107,.09)}
+.r-card.selected{border-color:var(--purple);background:var(--purple-xs)}
+.r-card.recommended::after{content:'RECOMMENDED';position:absolute;top:-1px;right:14px;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.12em;background:var(--purple);color:white;padding:3px 9px;border-radius:0 0 4px 4px}
+.r-name{font-size:.74rem;font-weight:700;letter-spacing:.09em;color:var(--purple);margin-bottom:6px;text-transform:uppercase}
+.r-price{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--purple);font-weight:700;line-height:1;margin-bottom:2px}
+.r-price span{font-size:.73rem;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:400}
+.r-market{font-size:.58rem;color:var(--muted-lt);margin-bottom:8px;font-family:'DM Mono',monospace}
+.r-return{display:flex;align-items:flex-start;gap:6px;padding:8px 10px;background:var(--green-bg);border:1px solid rgba(30,125,79,.2);border-radius:3px;margin-bottom:10px}
+.r-return-text{font-size:.6rem;color:var(--green);line-height:1.45;font-weight:600}
 .r-ul{list-style:none}
-.r-ul li{font-size:.68rem;color:var(--ink-soft,#2A1945);padding:4px 0;border-bottom:1px solid rgba(59,31,107,.06);line-height:1.4}
-.r-ul li::before{content:'✓ ';color:var(--gold);font-size:.62rem}
-/* budget breakdown */
-.bb{margin-top:20px;border:1px solid rgba(59,31,107,.11);border-radius:8px;overflow:hidden;background:white}
-.bb-hdr{background:var(--purple-deep);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
-.bb-title{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--gold-lt);text-transform:uppercase}
-.bb-total{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--cream)}
-.bb-total span{font-family:'DM Mono',monospace;font-size:.56rem;color:rgba(250,246,238,.38);margin-left:5px}
-.bb-tag{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.13em;color:rgba(201,168,76,.65);padding:8px 22px;background:rgba(59,31,107,.03);border-bottom:1px solid rgba(59,31,107,.07)}
-.bb-rows{padding:6px 0}
-.bb-row{display:grid;grid-template-columns:190px 1fr 68px 50px;align-items:center;gap:10px;padding:9px 22px;border-bottom:1px solid rgba(59,31,107,.04);transition:background .2s}
+.r-ul li{font-size:.67rem;color:var(--ink-soft);padding:3px 0;border-bottom:1px solid var(--border-lt);line-height:1.4}
+.r-ul li::before{content:'✓ ';color:var(--gold);font-size:.6rem}
+.bb{margin-top:16px;border:1px solid var(--border);border-radius:5px;overflow:hidden;background:var(--white)}
+.bb-hdr{background:var(--purple);padding:13px 20px;display:flex;align-items:center;justify-content:space-between}
+.bb-title{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.16em;color:rgba(255,255,255,.55);text-transform:uppercase}
+.bb-total{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold-pale)}
+.bb-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--muted);padding:7px 20px;background:var(--warm-grey);border-bottom:1px solid var(--border)}
+.bb-rows{padding:4px 0}
+.bb-row{display:grid;grid-template-columns:190px 1fr 68px 50px;align-items:center;gap:10px;padding:8px 20px;border-bottom:1px solid var(--border-lt);transition:background .2s}
 .bb-row:last-child{border-bottom:none}
-.bb-row:hover{background:rgba(59,31,107,.02)}
-.bb-cat{font-size:.71rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:7px}
-.bb-bw{height:5px;background:rgba(59,31,107,.07);border-radius:2px;overflow:hidden}
+.bb-row:hover{background:var(--warm-grey)}
+.bb-cat{font-size:.7rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
+.bb-bw{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
 .bb-bar{height:100%;border-radius:2px;transition:width .6s ease}
-.bb-amt{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--ink);font-weight:600;text-align:right}
-.bb-pct{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--muted-lt);text-align:right}
+.bb-amt{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--ink);font-weight:600;text-align:right}
+.bb-pct{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--muted-lt);text-align:right}
 
-/* S12 NEXT STEPS */
-#s12{background:radial-gradient(ellipse at 68% 78%,rgba(201,168,76,.07),transparent 48%),var(--purple-deep)}
-.ns-steps{display:flex;flex-direction:column;gap:0;margin-top:40px;margin-bottom:32px}
-.ns-step{display:flex;gap:0;position:relative;padding-bottom:32px}
+/* ── S12 NEXT STEPS ── */
+#s12{background:linear-gradient(135deg,var(--purple) 0%,#2D1755 100%)}
+.ns-steps{display:flex;flex-direction:column;gap:0;margin-top:36px;margin-bottom:28px}
+.ns-step{display:flex;gap:0;position:relative;padding-bottom:28px}
 .ns-step:last-child{padding-bottom:0}
-.ns-step::before{content:'';position:absolute;left:21px;top:52px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,.05))}
+.ns-step::before{content:'';position:absolute;left:20px;top:50px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(255,255,255,.15),transparent)}
 .ns-step:last-child::before{display:none}
-.ns-num-w{width:42px;height:42px;border-radius:50%;background:var(--purple-mid);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:22px;z-index:1}
-.ns-num{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gold-lt);line-height:1}
-.ns-body{}
-.ns-title{font-size:.92rem;font-weight:700;color:var(--cream);margin-bottom:5px;letter-spacing:.02em}
-.ns-desc{font-size:.73rem;color:rgba(250,246,238,.52);line-height:1.7;max-width:540px}
-.ns-contact{padding:22px 26px;border:1px solid rgba(201,168,76,.18);border-radius:6px;background:rgba(201,168,76,.04);text-align:center}
-.nc-text{font-family:'DM Mono',monospace;font-size:.62rem;color:rgba(250,246,238,.42);line-height:2.5}
-.nc-text strong{color:var(--gold-lt)}
+.ns-num-w{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-right:20px;z-index:1}
+.ns-num{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold-pale);line-height:1}
+.ns-title{font-size:.9rem;font-weight:700;color:white;margin-bottom:5px}
+.ns-desc{font-size:.71rem;color:rgba(255,255,255,.5);line-height:1.72;max-width:520px}
+.ns-contact{padding:20px 24px;border:1px solid rgba(255,255,255,.12);border-radius:5px;background:rgba(255,255,255,.04);text-align:center}
+.nc-text{font-family:'DM Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.38);line-height:2.6}
+.nc-text strong{color:var(--gold-pale)}
+.email-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:white;color:var(--purple);border:none;border-radius:4px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.07em;transition:all .3s;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.email-btn:hover{background:var(--gold-pale);transform:translateY(-2px)}
 
-/* EMAIL BTN */
-.email-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 26px;background:var(--purple);color:var(--gold-lt);border:none;border-radius:4px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.07em;transition:all .3s;text-decoration:none;box-shadow:0 4px 18px rgba(59,31,107,.24)}
-.email-btn:hover{background:var(--purple-lt);transform:translateY(-2px);box-shadow:0 8px 26px rgba(59,31,107,.32)}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
 .reveal.on{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.05s}.rd2{transition-delay:.2s}.rd3{transition-delay:.35s}.rd4{transition-delay:.5s}
-
-/* FADE IN (hero) */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .fade-in{opacity:0;animation:fadeUp .9s forwards}
-.d1{animation-delay:.15s}.d2{animation-delay:.4s}.d3{animation-delay:.65s}.d4{animation-delay:.9s}
+.d1{animation-delay:.15s}.d2{animation-delay:.38s}.d3{animation-delay:.6s}.d4{animation-delay:.82s}
 
 @media(max-width:900px){
-  .slide{padding:80px 22px 58px}
-  .two-col,.stats-grid,.insight-row,.phase-track,.ret-grid,.diff-grid,.eco-grid,.engine-layers,.browsers,.plat-labels,.roas-panel.active{grid-template-columns:1fr}
-  .biz-grid,.fb-secs,.callouts,.biz-footer{grid-template-columns:repeat(2,1fr)}
-  nav{padding:16px 22px}
-  .synergy-row{grid-template-columns:1fr}
+  .slide{padding:80px 22px 56px}
+  .two-col,.stat-grid,.insight-row,.phase-track,.ret-grid,.diff-grid,.eco-grid,.engine-layers,.roas-panel.active,.synergy-row{grid-template-columns:1fr}
+  .biz-grid,.biz-footer,.sb-sections,.arch-grid{grid-template-columns:repeat(2,1fr)}
+  nav{padding:14px 22px}
   .syn-arrow{display:none}
 }
 </style>
@@ -420,58 +414,57 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
 <body>
 
 <!-- NAV -->
-<nav id="main-nav" class="dk">
+<nav id="main-nav" class="lt">
   <div class="nav-logo">DOT<em>x</em>LABS</div>
   <div class="nav-dots" id="nav-dots">
-    <div class="ndot dk-d active" data-s="s1"></div>
-    <div class="ndot dk-d" data-s="s2"></div>
-    <div class="ndot dk-d" data-s="s3"></div>
-    <div class="ndot dk-d" data-s="s4"></div>
-    <div class="ndot dk-d" data-s="s5"></div>
-    <div class="ndot dk-d" data-s="s6"></div>
-    <div class="ndot dk-d" data-s="s7"></div>
-    <div class="ndot dk-d" data-s="s8"></div>
-    <div class="ndot dk-d" data-s="s9"></div>
-    <div class="ndot dk-d" data-s="s10"></div>
-    <div class="ndot dk-d" data-s="s11"></div>
-    <div class="ndot dk-d" data-s="s12"></div>
+    <div class="ndot active" data-s="s1"></div>
+    <div class="ndot" data-s="s2"></div>
+    <div class="ndot" data-s="s3"></div>
+    <div class="ndot" data-s="s4"></div>
+    <div class="ndot" data-s="s5"></div>
+    <div class="ndot" data-s="s6"></div>
+    <div class="ndot" data-s="s7"></div>
+    <div class="ndot" data-s="s8"></div>
+    <div class="ndot" data-s="s9"></div>
+    <div class="ndot" data-s="s10"></div>
+    <div class="ndot" data-s="s11"></div>
+    <div class="ndot" data-s="s12"></div>
   </div>
 </nav>
 
 <!-- S1: HERO -->
-<section class="slide dk" id="s1">
-  <div class="deco-grid"></div>
+<section class="slide" id="s1" style="background:linear-gradient(135deg,#FFFFFF 0%,#F0EBF8 55%,#E4D9F5 100%);text-align:center">
   <div class="deco-corner tl"></div><div class="deco-corner tr"></div>
   <div class="deco-corner bl"></div><div class="deco-corner br"></div>
-  <div style="text-align:center;max-width:860px;position:relative;z-index:1">
-    <p class="eyebrow fade-in d1">Prepared exclusively for Beyond Global Group of Companies</p>
+  <div style="position:relative;z-index:1;max-width:860px">
+    <p class="eyebrow fade-in d1" style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--purple);margin-bottom:18px">Prepared exclusively for Beyond Global Group of Companies</p>
     <h1 class="hero fade-in d2">One Group.<br><em>Fully Found.</em></h1>
     <div class="hero-rule fade-in d3"></div>
-    <p class="hero-sub fade-in d3">A complete digital growth strategy for your fashion store, event centre, grocery, and restaurant — unified, discoverable, and built to bring you customers across all four businesses.</p>
+    <p class="hero-sub fade-in d3">A complete digital growth strategy for your fashion store, event centre, grocery, and restaurant — all under one premium Shopify presence, built to bring customers across every business.</p>
     <div class="badges fade-in d4">
       <span class="badge">Fashion & Lifestyle</span>
       <span class="badge">Event Centre</span>
       <span class="badge">Grocery Store</span>
       <span class="badge">Restaurant</span>
+      <span class="badge">Shopify Premium</span>
       <span class="badge">SEO & Local Search</span>
       <span class="badge">Paid Ads</span>
-      <span class="badge">Email Retention</span>
     </div>
   </div>
   <div class="scroll-cue"><span>Scroll to explore</span><div class="scroll-pulse"></div></div>
 </section>
 
 <!-- S2: WHO WE ARE -->
-<section class="slide lt" id="s2">
+<section class="slide s-white" id="s2">
   <div class="two-col">
     <div class="reveal rd1">
       <div class="section-tag">Who We Are</div>
       <h2 class="stitle">Built for growth.<br><em>Obsessed with results.</em></h2>
-      <p class="body" style="margin-top:20px">DOTxLabs is a Toronto-based AI-powered digital growth agency. We specialise in helping multi-business operators like Beyond Global get found online, build trust with their community, and turn digital traffic into real walk-ins, bookings, and sales.</p>
+      <p class="body" style="margin-top:18px">DOTxLabs is a Toronto-based AI-powered digital growth agency. We specialise in helping multi-business operators like Beyond Global build a unified digital presence that works across every venture — one login, one strategy, one team.</p>
       <div class="cred-list">
-        <div class="cred-item"><div class="cred-icon">🏗️</div><div><div class="cred-title">Full-Stack Web & E-Commerce</div><div class="cred-desc">React, Next.js, Shopify — every site built fast, beautiful, and optimised to convert visitors into customers.</div></div></div>
+        <div class="cred-item"><div class="cred-icon">🛒</div><div><div class="cred-title">Shopify Development & Migration</div><div class="cred-desc">Premium theme builds, store consolidations, and custom page development — e-commerce that converts and scales.</div></div></div>
         <div class="cred-item"><div class="cred-icon">📍</div><div><div class="cred-title">Local SEO & Google Presence</div><div class="cred-desc">We get businesses found on Google Maps and local search — exactly where GTA customers look before spending money.</div></div></div>
-        <div class="cred-item"><div class="cred-icon">📣</div><div><div class="cred-title">Digital Marketing & Paid Ads</div><div class="cred-desc">Meta, Google, and email campaigns — reaching the right audience for each of your four businesses, not a generic blast.</div></div></div>
+        <div class="cred-item"><div class="cred-icon">📣</div><div><div class="cred-title">Digital Marketing & Paid Ads</div><div class="cred-desc">Meta and Google campaigns — throttled intelligently across your four businesses to maximise ROAS at every stage.</div></div></div>
       </div>
     </div>
     <div class="reveal rd2">
@@ -481,25 +474,29 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
         <div class="sbox"><div class="snum">1</div><div class="slbl">Point of Contact</div><div class="sdesc">One team. One invoice. Zero chaos.</div></div>
         <div class="sbox"><div class="snum">∞</div><div class="slbl">Commitment</div><div class="sdesc">Your growth is our mission, start to finish.</div></div>
       </div>
+      <div style="margin-top:12px;padding:14px 18px;background:var(--purple-xs);border:1px solid var(--border);border-radius:4px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:6px">What this means for Beyond Global specifically</div>
+        <div style="font-size:.67rem;color:var(--ink-soft);line-height:1.7">Four businesses, zero digital presence today. That means four untapped revenue streams — and competitors who are already ranking for the searches your customers are making right now. We've done this for multi-venture operators before. We know what to build first, what to throttle, and how to compound the results over time.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- S3: THE PROBLEM -->
-<section class="slide dk2" id="s3">
+<!-- S3: THE OPPORTUNITY -->
+<section class="slide s-warm" id="s3">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">The Opportunity</div>
       <h2 class="stitle">Your GTA customers are searching.<br><em>They can't find you.</em></h2>
-      <p style="font-size:1rem;color:rgba(250,246,238,.62);max-width:600px;line-height:1.75;margin:16px 0 36px">Across all four businesses, the same problem exists — no digital presence means customers go to your competitors without ever knowing Beyond Global exists. Here's what the data says.</p>
+      <p class="body" style="margin-top:14px;max-width:600px;margin-bottom:32px">Across all four businesses, the same problem exists — no digital presence means customers go to your competitors without ever knowing Beyond Global exists.</p>
     </div>
     <div class="stats-grid reveal rd2">
-      <div class="sg-box"><span class="sg-num">97%</span><div class="sg-lbl">of consumers search online before visiting a <strong style="color:var(--cream)">local business in Canada</strong></div><div class="sg-src">BrightLocal 2024</div></div>
-      <div class="sg-box"><span class="sg-num">76%</span><div class="sg-lbl">of local searches lead to an <strong style="color:var(--cream)">in-person visit within 24 hours</strong></div><div class="sg-src">Google</div></div>
-      <div class="sg-box"><span class="sg-num">64%</span><div class="sg-lbl">of customers click the <strong style="color:var(--cream)">top 3 results</strong> — businesses below that get almost no traffic</div><div class="sg-src">Search Engine Journal</div></div>
-      <div class="sg-box"><span class="sg-num">4×</span><div class="sg-lbl">more leads generated by businesses with <strong style="color:var(--cream)">complete Google profiles</strong> vs. incomplete</div><div class="sg-src">Google</div></div>
-      <div class="sg-box"><span class="sg-num">88%</span><div class="sg-lbl">of consumers <strong style="color:var(--cream)">trust online reviews</strong> as much as personal recommendations</div><div class="sg-src">BrightLocal</div></div>
-      <div class="sg-box"><span class="sg-num">$0</span><div class="sg-lbl"><strong style="color:var(--cream)">current digital investment</strong> across any of the four businesses — every month is lost opportunity</div><div class="sg-src">Beyond Global — Today</div></div>
+      <div class="sg-box"><span class="sg-num">97%</span><div class="sg-lbl">of consumers search online before visiting a <strong>local business in Canada</strong></div><div class="sg-src">BrightLocal 2024</div></div>
+      <div class="sg-box"><span class="sg-num">76%</span><div class="sg-lbl">of local searches lead to an <strong>in-person visit within 24 hours</strong></div><div class="sg-src">Google</div></div>
+      <div class="sg-box"><span class="sg-num">64%</span><div class="sg-lbl">of customers click the <strong>top 3 results</strong> — businesses below that get almost no traffic</div><div class="sg-src">Search Engine Journal</div></div>
+      <div class="sg-box"><span class="sg-num">4×</span><div class="sg-lbl">more leads from businesses with <strong>complete Google profiles</strong> vs. incomplete</div><div class="sg-src">Google</div></div>
+      <div class="sg-box"><span class="sg-num">88%</span><div class="sg-lbl">of consumers <strong>trust online reviews</strong> as much as personal recommendations</div><div class="sg-src">BrightLocal</div></div>
+      <div class="sg-box"><span class="sg-num">$0</span><div class="sg-lbl"><strong>current digital investment</strong> across any of the four businesses — every month is lost ground</div><div class="sg-src">Beyond Global — Today</div></div>
     </div>
     <div class="insight-row reveal rd3">
       <div class="insight-card"><p>The GTA is one of the most competitive local markets in Canada. <strong>Every week without a digital presence</strong> is a week your competitors capture customers who would have chosen you.</p></div>
@@ -507,156 +504,221 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
     </div>
     <div class="coi-banner reveal rd4">
       <div class="coi-icon">⚠️</div>
-      <div class="coi-text">
-        <strong>The cost of inaction isn't zero — it's compounding.</strong> Every month without SEO is a month your competitors build rankings you'll have to fight to take back. Every month without ads is revenue that went to someone else. A website alone without marketing is a storefront with no signs, no lights, and no street address. It exists, but nobody finds it.
-      </div>
+      <div class="coi-text"><strong>The cost of inaction isn't zero — it's compounding.</strong> Every month without SEO is a month your competitors build rankings you'll have to fight to take back. A website without marketing is a storefront with no signs and no address. It exists, but nobody finds it.</div>
     </div>
   </div>
 </section>
 
 <!-- S4: FOUR BUSINESSES -->
-<section class="slide lt" id="s4">
+<section class="slide s-white" id="s4">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">The Four Pillars</div>
-      <h2 class="stitle">Four businesses.<br><em>Four digital opportunities.</em></h2>
-      <p class="body" style="margin-top:14px;max-width:620px">Each of your businesses serves a different customer — and each has a distinct, untapped opportunity online. Here's what's at stake for every one of them.</p>
+      <h2 class="stitle">One Shopify store.<br><em>Four businesses. Zero confusion.</em></h2>
+      <p class="body" style="margin-top:12px;max-width:640px">All four businesses live under one premium Shopify store — one login, one checkout, one brand. The fashion store is the e-commerce engine at the core. The other three get dedicated, full-page experiences within the same store. When any of them scales far enough, it earns its own standalone site.</p>
     </div>
     <div class="biz-grid reveal rd2">
-      <div class="biz-card">
+      <div class="biz-card shopify-core">
+        <div class="shopify-badge">🛒 Shopify Core</div>
         <div class="biz-num">01</div>
         <span class="biz-icon">👗</span>
-        <div class="biz-name">Fashion Store — Shopify</div>
-        <div class="biz-desc">Beyond Limits Global on Shopify — women's, men's, kids', footwear, home & living, and delectables. The right e-commerce platform, built to convert.</div>
+        <div class="biz-name">Fashion Store — E-Commerce Engine</div>
+        <div class="biz-desc">Beyond Limits Global — women's, men's, kids', footwear, home & living, delectables. Full product catalogue, collections, checkout, and Google Shopping. This is the revenue engine everything else is built around.</div>
         <div class="biz-tags">
-          <div class="biz-tag">Shopify redesign & consolidation</div>
+          <div class="biz-tag">Premium theme migration</div>
+          <div class="biz-tag">All 6 category collections</div>
           <div class="biz-tag">Google Shopping integration</div>
-          <div class="biz-tag">Cart & email automation</div>
+          <div class="biz-tag">Abandoned cart automation</div>
         </div>
-        <div class="biz-opp"><p>🎯 Toronto fashion searches: 22,000+/month. Without SEO and ads, you capture 0 of them.</p></div>
+        <div class="biz-opp"><p>🎯 Direct online revenue from day one. Every ad dollar is trackable to a sale — highest ROAS of all four. Marketing starts here.</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-num">02</div>
         <span class="biz-icon">🎉</span>
-        <div class="biz-name">Event Centre</div>
-        <div class="biz-desc">Corporate planners and families search Google before booking any venue. A premium digital presence with enquiry flows and availability captures every lead.</div>
+        <div class="biz-name">Event Centre — Shopify Page</div>
+        <div class="biz-desc">A full dedicated page within the Shopify store — package tiers, capacity info, photo gallery, enquiry form, and WhatsApp CTA. Corporate planners and families search Google before booking any venue.</div>
         <div class="biz-tags">
-          <div class="biz-tag">Dedicated landing page</div>
-          <div class="biz-tag">Online enquiry & booking flow</div>
-          <div class="biz-tag">Local SEO for "event venues Toronto"</div>
+          <div class="biz-tag">Custom Shopify landing page</div>
+          <div class="biz-tag">Enquiry & booking flow</div>
+          <div class="biz-tag">Local SEO — "event venues Toronto"</div>
         </div>
-        <div class="biz-opp"><p>🎯 One booked event = $2,000–$8,000. Without a ranking presence, corporate buyers never find you.</p></div>
+        <div class="biz-opp"><p>🎯 One booked event = $2,000–$8,000. When volume justifies it, this branches to its own site. For now, one store wins.</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-num">03</div>
         <span class="biz-icon">🛒</span>
-        <div class="biz-name">Grocery Store</div>
-        <div class="biz-desc">Local grocery customers check Google Maps before they drive. A complete profile, reviews, and hours means showing up when they're making that decision.</div>
+        <div class="biz-name">Grocery Store — Shopify Page</div>
+        <div class="biz-desc">Location, hours, Google Maps embed, weekly specials, and a community feel — all as a dedicated page. Customers check online before they drive. This page makes sure they drive to you.</div>
         <div class="biz-tags">
+          <div class="biz-tag">Custom Shopify landing page</div>
           <div class="biz-tag">Google Business Profile optimisation</div>
           <div class="biz-tag">Local SEO & Maps ranking</div>
-          <div class="biz-tag">Community social presence</div>
         </div>
-        <div class="biz-opp"><p>🎯 Grocery is a repeat purchase — one new loyal customer is worth $3,000–$6,000/year in lifetime value.</p></div>
+        <div class="biz-opp"><p>🎯 One loyal grocery customer = $3,000–$6,000/year lifetime value. Local SEO and Maps do the heavy lifting here.</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-num">04</div>
         <span class="biz-icon">🍽️</span>
-        <div class="biz-name">Restaurant</div>
-        <div class="biz-desc">90% of diners research online before choosing where to eat. A reservation-ready site, digital menu, and Google presence converts browsers into bookings 24/7.</div>
+        <div class="biz-name">Restaurant — Shopify Page</div>
+        <div class="biz-desc">Digital menu, hours, reservation link (WhatsApp or booking widget), and Google presence. 90% of diners research online before choosing where to eat — this page captures every one who finds Beyond Global.</div>
         <div class="biz-tags">
-          <div class="biz-tag">Website with online reservations</div>
+          <div class="biz-tag">Custom Shopify landing page</div>
+          <div class="biz-tag">Digital menu & reservation link</div>
           <div class="biz-tag">Google Maps & local SEO</div>
-          <div class="biz-tag">Review generation & management</div>
         </div>
         <div class="biz-opp"><p>🎯 Restaurant searches in Toronto: 40,000+/month. Every missing review and ranking costs you tables.</p></div>
       </div>
     </div>
     <div class="biz-footer reveal rd3">
-      <div class="biz-stat"><div class="biz-stat-num">4</div><div class="biz-stat-lbl">Businesses, 1 Strategy</div></div>
-      <div class="biz-stat"><div class="biz-stat-num">GTA</div><div class="biz-stat-lbl">Market Focused</div></div>
-      <div class="biz-stat"><div class="biz-stat-num">7wk</div><div class="biz-stat-lbl">To Full Launch</div></div>
-      <div class="biz-stat"><div class="biz-stat-num">∞</div><div class="biz-stat-lbl">Compounding Growth</div></div>
+      <div class="biz-stat"><div class="biz-stat-num">1</div><div class="biz-stat-lbl">Shopify Store</div></div>
+      <div class="biz-stat"><div class="biz-stat-num">4</div><div class="biz-stat-lbl">Business Experiences</div></div>
+      <div class="biz-stat"><div class="biz-stat-num">4</div><div class="biz-stat-lbl">Google Profiles</div></div>
+      <div class="biz-stat"><div class="biz-stat-num">1</div><div class="biz-stat-lbl">Login, Invoice & Team</div></div>
     </div>
   </div>
 </section>
 
 <!-- S5: ECOSYSTEM -->
-<section class="slide dk" id="s5">
+<section class="slide s-off" id="s5">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">Everything We Cover</div>
       <h2 class="stitle">One partner.<br><em>All bases covered.</em></h2>
-      <p style="font-size:1rem;color:rgba(250,246,238,.6);max-width:560px;line-height:1.75;margin:14px 0 36px">From web development to paid ads to SEO to reputation management — the complete digital picture for all four businesses. No coordinating between multiple agencies. No gaps. And every pillar is built to generate a return.</p>
+      <p class="body" style="margin-top:12px;max-width:560px;margin-bottom:28px">Every pillar feeds the next. Brand builds trust. Shopify converts it. SEO brings in customers for free. Ads accelerate what's already working. Remove any one and the machine leaks.</p>
     </div>
     <div class="eco-grid reveal rd2">
-      <div class="eco-col"><span class="eco-line"></span><div class="eco-icon">🛒</div><div class="eco-title">Shopify — Fashion Store</div><ul class="eco-ul"><li>Store redesign & consolidation</li><li>All 6 category collections</li><li>Mobile-first checkout</li><li>Google Shopping integration</li><li>Abandoned cart flows</li></ul><div class="eco-roi"><p>Without this: your competitors rank for the fashion keywords your customers are typing right now.</p></div></div>
-      <div class="eco-col"><span class="eco-line"></span><div class="eco-icon">🌐</div><div class="eco-title">Group Hub Website</div><ul class="eco-ul"><li>Event centre enquiry & booking</li><li>Restaurant reservations & menu</li><li>Grocery location, hours & map</li><li>Group landing page</li><li>Cross-links between all businesses</li></ul><div class="eco-roi"><p>Without this: 4 chances to appear before a customer chooses a competitor — missed completely.</p></div></div>
-      <div class="eco-col"><span class="eco-line"></span><div class="eco-icon">📍</div><div class="eco-title">Local SEO — All 4</div><ul class="eco-ul"><li>4 Google Business Profiles</li><li>Google Maps optimisation</li><li>Local keyword targeting per biz</li><li>Schema markup per business</li><li>Review generation strategy</li></ul><div class="eco-roi"><p>Without this: customers in your neighbourhood can't find you — even when they're looking for exactly what you offer.</p></div></div>
-      <div class="eco-col"><span class="eco-line"></span><div class="eco-icon">📣</div><div class="eco-title">Marketing & Retention</div><ul class="eco-ul"><li>Meta & Google Ads per business</li><li>Retargeting campaigns</li><li>Email campaigns & automation</li><li>Content creation & copywriting</li><li>Monthly growth dashboards</li></ul><div class="eco-roi"><p>Without this: SEO takes time. Ads get you customers today while organic rankings build. Skip ads, skip revenue.</p></div></div>
+      <div class="eco-col">
+        <span class="eco-phase phase-now">▶ Phase 1 — Now</span>
+        <div class="eco-icon">🛒</div>
+        <div class="eco-title">Premium Shopify Build</div>
+        <ul class="eco-ul">
+          <li>Premium theme migration</li>
+          <li>Fashion store — all 6 collections</li>
+          <li>Event centre page</li>
+          <li>Grocery page</li>
+          <li>Restaurant page</li>
+          <li>Mobile-first, fast checkout</li>
+        </ul>
+        <div class="eco-roi"><p>Without this: no online presence across any of the four businesses. Every competitor with a site is winning customers you can't see.</p></div>
+      </div>
+      <div class="eco-col">
+        <span class="eco-phase phase-now">▶ Phase 1 — Now</span>
+        <div class="eco-icon">📍</div>
+        <div class="eco-title">Local SEO — All 4</div>
+        <ul class="eco-ul">
+          <li>4 Google Business Profiles</li>
+          <li>Google Maps optimisation</li>
+          <li>Local keyword targeting per biz</li>
+          <li>Schema markup per business</li>
+          <li>Review generation strategy</li>
+        </ul>
+        <div class="eco-roi"><p>Without this: customers in your neighbourhood can't find you — even when they're searching for exactly what you offer.</p></div>
+      </div>
+      <div class="eco-col">
+        <span class="eco-phase phase-next">► Phase 2 — Fashion First</span>
+        <div class="eco-icon">📣</div>
+        <div class="eco-title">Paid Ads — Phased</div>
+        <ul class="eco-ul">
+          <li>Fashion store ads first (direct ROAS)</li>
+          <li>Event centre ads second (high ticket)</li>
+          <li>Restaurant & grocery on SEO/organic</li>
+          <li>Meta & Google campaigns</li>
+          <li>Retargeting across all four</li>
+        </ul>
+        <div class="eco-roi"><p>Without this: SEO builds slowly. Ads put the fashion store in front of buyers today — proving return before expanding to the other three.</p></div>
+      </div>
+      <div class="eco-col">
+        <span class="eco-phase phase-later">◌ Phase 2 — Ongoing</span>
+        <div class="eco-icon">📧</div>
+        <div class="eco-title">Email & Retention</div>
+        <ul class="eco-ul">
+          <li>Abandoned cart (fashion store)</li>
+          <li>Event enquiry follow-up sequences</li>
+          <li>Post-visit re-engagement</li>
+          <li>New arrivals & promotions</li>
+          <li>Monthly growth dashboards</li>
+        </ul>
+        <div class="eco-roi"><p>Without this: you pay to acquire a customer once, they visit once, and you never bring them back. Retention is where margin lives.</p></div>
+      </div>
+    </div>
+    <div class="compound-banner reveal rd3">
+      <div class="cb-icon">⚡</div>
+      <div class="cb-text"><strong>Each pillar makes the others stronger.</strong> A premium Shopify store without SEO is invisible. SEO without a great site wastes every click. Ads without email throw money away after the first visit. And a business that cross-promotes all four ventures gets compounding lifetime value that none could achieve alone.</div>
     </div>
   </div>
 </section>
 
 <!-- S6: DIFFERENTIATORS -->
-<section class="slide lt2" id="s6">
+<section class="slide s-warm" id="s6">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">What Sets Us Apart</div>
       <h2 class="stitle">Beyond the <em>expected.</em></h2>
     </div>
     <div class="diff-grid reveal rd2">
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🏢</span><span class="diff-pill">Group Strategy</span></div><div class="diff-title">We Treat You as a Group, Not Four Clients</div><div class="diff-desc">One strategy across all four — shared brand equity, cross-promotion, and SEO that strengthens the Beyond Global name.</div><div class="diff-without"><strong>Without this:</strong> four siloed presences that don't reinforce each other, and four times the coordination overhead.</div><div class="diff-impact">Impact: <strong>Each business makes the others stronger</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📍</span><span class="diff-pill">Local Dominance</span></div><div class="diff-title">Own Your GTA Neighbourhood on Google</div><div class="diff-desc">Four Google Business Profiles — one per business — so Beyond Global shows up in four search categories simultaneously.</div><div class="diff-without"><strong>Without this:</strong> you appear nowhere on Maps. Your competitor with a complete profile gets the walk-in.</div><div class="diff-impact">Impact: <strong>4× the Google Maps visibility</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🔁</span><span class="diff-pill">Cross-Business</span></div><div class="diff-title">Customers Who Visit One Discover All Four</div><div class="diff-desc">Restaurant customers become event leads. Grocery shoppers find the fashion store. Cross-promotion built into every channel.</div><div class="diff-without"><strong>Without this:</strong> customers stay in one business silo, never knowing the others exist.</div><div class="diff-impact">Impact: <strong>Higher lifetime value per customer</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">⭐</span><span class="diff-pill">Reputation</span></div><div class="diff-title">Reviews Built on Autopilot</div><div class="diff-desc">Automated review requests after great meals, events, and grocery runs. Reviews compound. Reputation builds. Rankings rise.</div><div class="diff-without"><strong>Without this:</strong> competitors with 50+ reviews rank above you even if you're better.</div><div class="diff-impact">Impact: <strong>More 5-star reviews, more conversions</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📊</span><span class="diff-pill">Transparency</span></div><div class="diff-title">One Report. Every Business. Plain English.</div><div class="diff-desc">One consolidated monthly dashboard — traffic, rankings, ad performance across all four. No jargon. No surprises.</div><div class="diff-without"><strong>Without this:</strong> you don't know what's working, so you can't double down or cut losses.</div><div class="diff-impact">Impact: <strong>Always know where every dollar goes</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🚀</span><span class="diff-pill">Speed</span></div><div class="diff-title">Momentum From Day One</div><div class="diff-desc">Google Profiles live in week 1. All four websites by week 6. Ads running in week 3. Results before most agencies finish discovery.</div><div class="diff-without"><strong>Without urgency:</strong> every week delayed is market share gifted to whoever moves first.</div><div class="diff-impact">Impact: <strong>Compounding advantage starts immediately</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🏢</span><span class="diff-pill">Group Strategy</span></div><div class="diff-title">We Treat You as a Group, Not Four Clients</div><div class="diff-desc">One Shopify store, one strategy across all four — shared brand equity, cross-promotion, and SEO that strengthens the Beyond Global name on every search.</div><div class="diff-without"><strong>Without this:</strong> four disconnected presences that don't reinforce each other, and four times the coordination overhead.</div><div class="diff-impact">Impact: <strong>Each business makes the others stronger</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📍</span><span class="diff-pill">Local Dominance</span></div><div class="diff-title">Own Your GTA Neighbourhood on Google</div><div class="diff-desc">Four Google Business Profiles — one per business — so Beyond Global shows up in four search categories simultaneously from one domain.</div><div class="diff-without"><strong>Without this:</strong> you appear nowhere on Maps. Your competitor with a complete profile gets the walk-in you never knew you lost.</div><div class="diff-impact">Impact: <strong>4× the Google Maps visibility</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🔁</span><span class="diff-pill">Cross-Business</span></div><div class="diff-title">Customers Who Visit One Discover All Four</div><div class="diff-desc">Restaurant customers see the event centre. Grocery shoppers find the fashion store. Every page on the Shopify store links to every other business.</div><div class="diff-without"><strong>Without this:</strong> customers stay siloed in one business, never knowing the other three exist — leaving lifetime value on the table.</div><div class="diff-impact">Impact: <strong>Higher customer lifetime value across all four</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">⭐</span><span class="diff-pill">Reputation</span></div><div class="diff-title">Reviews Built on Autopilot</div><div class="diff-desc">Automated review requests after great meals, events, and grocery runs. Reviews compound. Reputation builds. Google rankings rise — for free.</div><div class="diff-without"><strong>Without this:</strong> competitors with 50+ reviews rank above you even if your product is better. Reviews are the silent sales team you never hired.</div><div class="diff-impact">Impact: <strong>More 5-star reviews, more organic conversions</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📊</span><span class="diff-pill">Transparency</span></div><div class="diff-title">One Dashboard. Every Business. Plain English.</div><div class="diff-desc">One consolidated monthly report — Shopify sales, traffic, rankings, and ad performance across all four businesses. No jargon. No surprises.</div><div class="diff-without"><strong>Without this:</strong> you can't see what's working across which businesses, so you can't double down or cut what's wasting money.</div><div class="diff-impact">Impact: <strong>Always know where every dollar goes</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🚀</span><span class="diff-pill">Speed</span></div><div class="diff-title">Momentum From Week One</div><div class="diff-desc">Google Profiles live in week 1. Full Shopify store with all four pages by week 6. Fashion ads running by week 3. Results before most agencies finish their kickoff deck.</div><div class="diff-without"><strong>Without urgency:</strong> every week delayed is market share gifted to whoever moves first in your neighbourhood.</div><div class="diff-impact">Impact: <strong>Compounding advantage starts immediately</strong></div></div>
     </div>
   </div>
 </section>
 
 <!-- S7: WEB ARCHITECTURE -->
-<section class="slide dk" id="s7">
+<section class="slide s-purple-xs" id="s7">
   <div style="max-width:1120px;width:100%">
-    <div class="reveal rd1" style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:28px">
-      <div><div class="section-tag">The Web Architecture</div><h2 class="stitle">Two platforms.<br><em>One seamless group.</em></h2></div>
-      <p class="body" style="max-width:340px;margin-top:8px">The right tool for each job — Shopify for e-commerce, a premium group website for everything else. Each platform does what it's best at.</p>
-    </div>
-    <div class="plat-labels reveal rd2">
-      <div class="plat-label"><span style="font-size:1.1rem">🛒</span><div><div class="plat-label-tag">Platform 1 — Shopify</div><div class="plat-label-desc">beyondlimitsglobal.shop — full e-commerce for fashion & lifestyle</div></div></div>
-      <div class="plat-label"><span style="font-size:1.1rem">🌐</span><div><div class="plat-label-tag">Platform 2 — Group Website</div><div class="plat-label-desc">beyondglobalgroup.com — hub for events, restaurant & grocery</div></div></div>
-    </div>
-    <div class="browsers reveal rd2">
-      <div class="full-browser">
-        <div class="fb-bar"><div class="fb-dots"><div class="fb-dot" style="background:#FF5F57"></div><div class="fb-dot" style="background:#FEBC2E"></div><div class="fb-dot" style="background:#28C840"></div></div><div class="fb-url">beyondlimitsglobal.shop</div></div>
-        <div class="fb-nav"><div class="fb-nav-links"><span>WOMEN</span><span>MEN</span><span>KIDS</span><span>FOOTWEAR</span><span>LIFESTYLE</span></div><div class="fb-logo">Beyond Limits</div><div class="fb-nav-cta">SHOP NOW</div></div>
-        <div class="fb-hero"><div class="fb-ht">Style Without <em>Limits</em></div><div class="fb-sub">WOMEN · MEN · KIDS · FOOTWEAR · HOME & LIVING · DELECTABLES</div><div class="fb-cta">SHOP NEW ARRIVALS</div></div>
-        <div class="fb-secs" style="grid-template-columns:repeat(3,1fr)"><div class="fb-sec"><div class="fb-sec-i">👗</div><div class="fb-sec-t">WOMEN</div><div class="fb-sec-s">New arrivals</div></div><div class="fb-sec"><div class="fb-sec-i">👟</div><div class="fb-sec-t">FOOTWEAR</div><div class="fb-sec-s">All shoes</div></div><div class="fb-sec"><div class="fb-sec-i">🏠</div><div class="fb-sec-t">LIFESTYLE</div><div class="fb-sec-s">Home & more</div></div></div>
+    <div class="reveal rd1" style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:20px">
+      <div>
+        <div class="section-tag">The Web Architecture</div>
+        <h2 class="stitle">One Shopify store.<br><em>Four front doors.</em></h2>
       </div>
-      <div class="full-browser">
-        <div class="fb-bar"><div class="fb-dots"><div class="fb-dot" style="background:#FF5F57"></div><div class="fb-dot" style="background:#FEBC2E"></div><div class="fb-dot" style="background:#28C840"></div></div><div class="fb-url">beyondglobalgroup.com</div></div>
-        <div class="fb-nav"><div class="fb-nav-links"><span>EVENTS</span><span>RESTAURANT</span><span>GROCERY</span><span>FASHION</span><span>ABOUT</span></div><div class="fb-logo">Beyond Global</div><div class="fb-nav-cta">CONTACT US</div></div>
-        <div class="fb-hero"><div class="fb-ht">Beyond <em>Every Limit</em></div><div class="fb-sub">EVENTS · RESTAURANT · GROCERY · TORONTO GTA</div><div class="fb-cta">EXPLORE THE GROUP</div></div>
-        <div class="fb-secs" style="grid-template-columns:repeat(3,1fr)"><div class="fb-sec"><div class="fb-sec-i">🎉</div><div class="fb-sec-t">EVENTS</div><div class="fb-sec-s">Book your venue</div></div><div class="fb-sec"><div class="fb-sec-i">🍽️</div><div class="fb-sec-t">RESTAURANT</div><div class="fb-sec-s">Reserve a table</div></div><div class="fb-sec"><div class="fb-sec-i">🛒</div><div class="fb-sec-t">GROCERY</div><div class="fb-sec-s">Find us + hours</div></div></div>
+      <p class="body" style="max-width:360px;margin-top:8px">All four businesses live under one premium Shopify store — one domain, one login, one brand experience. Each gets a full dedicated page. When any business scales to the point it needs its own site, it branches out cleanly.</p>
+    </div>
+    <div class="shopify-note reveal rd2">
+      <div style="font-size:1.4rem">🛒</div>
+      <div>
+        <div class="sn-label">beyondlimitsglobal.shop — One Shopify Store, Four Experiences</div>
+        <div class="sn-text">The fashion store is the native e-commerce engine. The event centre, grocery, and restaurant each get a <strong>custom-built Shopify page</strong> — full design, enquiry flows, Google Maps integration, and cross-links to the other businesses. Visitors navigate between all four without ever leaving the store. Built with a premium theme and Shopify's page editor — manageable by the client, no dev required for content updates.</div>
       </div>
     </div>
-    <div class="callouts reveal rd3">
-      <div class="callout"><div class="callout-icon">🛒</div><div class="callout-title">Shopify for Fashion</div><div class="callout-desc">Cart, checkout, product pages & Google Shopping — native to Shopify</div></div>
-      <div class="callout"><div class="callout-icon">🌐</div><div class="callout-title">Hub Site for the Group</div><div class="callout-desc">Events get enquiry forms, restaurant gets reservations, grocery gets maps</div></div>
-      <div class="callout"><div class="callout-icon">🔗</div><div class="callout-title">Cross-Linked Always</div><div class="callout-desc">Every platform links to the others — customers flow across all four</div></div>
-      <div class="callout"><div class="callout-icon">📍</div><div class="callout-title">4 Google Profiles</div><div class="callout-desc">Four independent Maps presences — four times the local search visibility</div></div>
+    <div class="single-browser reveal rd2">
+      <div class="sb-bar"><div class="sb-dots"><div class="sb-dot" style="background:#FF5F57"></div><div class="sb-dot" style="background:#FEBC2E"></div><div class="sb-dot" style="background:#28C840"></div></div><div class="sb-url">beyondlimitsglobal.shop</div></div>
+      <div class="sb-nav">
+        <div class="sb-links">
+          <span class="active-link">SHOP</span><span>EVENTS</span><span>GROCERY</span><span>RESTAURANT</span><span>ABOUT</span>
+        </div>
+        <div class="sb-logo">Beyond Global</div>
+        <div class="sb-cta">SHOP NOW</div>
+      </div>
+      <div class="sb-hero">
+        <div class="sb-ht">Beyond Every <em>Limit</em></div>
+        <div class="sb-tag">FASHION · EVENTS · GROCERY · RESTAURANT · TORONTO GTA</div>
+      </div>
+      <div class="sb-sections">
+        <div class="sb-sec active-sec"><div class="sb-sec-i">👗</div><div class="sb-sec-t">FASHION</div><div class="sb-sec-s">Shop all collections</div></div>
+        <div class="sb-sec"><div class="sb-sec-i">🎉</div><div class="sb-sec-t">EVENTS</div><div class="sb-sec-s">Book your venue</div></div>
+        <div class="sb-sec"><div class="sb-sec-i">🛒</div><div class="sb-sec-t">GROCERY</div><div class="sb-sec-s">Location & hours</div></div>
+        <div class="sb-sec"><div class="sb-sec-i">🍽️</div><div class="sb-sec-t">RESTAURANT</div><div class="sb-sec-s">Menu & reservations</div></div>
+      </div>
+    </div>
+    <div class="arch-grid reveal rd3">
+      <div class="arch-box"><div class="arch-box-icon">👗</div><div class="arch-box-title">Fashion — Native Shopify</div><div class="arch-box-desc">Full e-commerce: collections, cart, checkout, Google Shopping, abandoned cart flows</div></div>
+      <div class="arch-box"><div class="arch-box-icon">🎉</div><div class="arch-box-title">Events — Custom Page</div><div class="arch-box-desc">Packages, gallery, enquiry form, WhatsApp CTA. Branches to own site when bookings scale</div></div>
+      <div class="arch-box"><div class="arch-box-icon">🛒</div><div class="arch-box-title">Grocery — Custom Page</div><div class="arch-box-desc">Location, hours, Google Maps embed, weekly specials. Local SEO does the heavy lifting</div></div>
+      <div class="arch-box"><div class="arch-box-icon">🍽️</div><div class="arch-box-title">Restaurant — Custom Page</div><div class="arch-box-desc">Digital menu, hours, reservation link, review widget. Branches to own site when tables fill digitally</div></div>
     </div>
   </div>
 </section>
 
 <!-- S8: MARKETING ENGINE -->
-<section class="slide dk2" id="s8">
+<section class="slide s-white" id="s8">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">Why a Website Alone Isn't Enough</div>
       <h2 class="stitle">The marketing engine<br><em>that drives customers in.</em></h2>
-      <p class="engine-intro">A website is your foundation — not your growth engine. Think of it as your storefront. Without SEO, no one knows the address. Without paid ads, no one walks past. Without email, customers never come back. Here's how each layer works — and what you lose without it.</p>
+      <p class="body" style="margin-top:12px;max-width:580px;margin-bottom:28px">A Shopify store is your foundation — not your growth engine. Without SEO, nobody finds it. Without ads, it only reaches people who already know you. Without email, every customer is a one-time visitor. Here's how each layer works — and the smart way to activate them across four businesses on one budget.</p>
     </div>
     <div class="engine-layers reveal rd2">
       <div class="eng-layer">
@@ -664,198 +726,175 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
         <span class="eng-icon">🔍</span>
         <div class="eng-title">SEO — Long-Term Compounding</div>
         <div class="eng-timeline">Builds over 3–6 months → Compounds forever</div>
-        <div class="eng-desc">SEO is the only channel that gets cheaper the longer you run it. Every optimised page, every review, every local keyword ranking is an asset that earns traffic 24/7 with no ongoing ad spend.</div>
-        <ul class="eng-ul"><li>Google Maps & local search rankings</li><li>Organic traffic with no per-click cost</li><li>Compounds month over month</li><li>Trust signal: higher rankings = more credibility</li></ul>
-        <div class="eng-without"><p>Without SEO: you pay for every single visitor forever. The moment you stop spending, traffic drops to zero.</p></div>
+        <div class="eng-desc">SEO is the only channel that gets cheaper the longer you run it. Every optimised page, review, and local keyword ranking earns traffic 24/7 — for all four businesses simultaneously.</div>
+        <ul class="eng-ul"><li>Google Maps & local search rankings</li><li>Organic traffic with no per-click cost</li><li>Compounds month over month</li><li>4 GBPs = 4× the local search surface area</li></ul>
+        <div class="eng-without"><p>Without SEO: every visitor costs money forever. Stop spending, traffic drops to zero.</p></div>
       </div>
       <div class="eng-layer">
         <div class="eng-layer-num">2</div>
         <span class="eng-icon">📣</span>
-        <div class="eng-title">Paid Ads — Immediate Revenue</div>
-        <div class="eng-timeline">Day 1 traffic → Optimises over 30–60 days</div>
-        <div class="eng-desc">Ads put you in front of customers who are actively searching for what you offer — right now. While SEO is building, ads keep revenue flowing. For events and restaurant, a single conversion pays for weeks of ad spend.</div>
-        <ul class="eng-ul"><li>Immediate visibility before SEO kicks in</li><li>Precision targeting by location, interest, intent</li><li>Retargeting: re-engage visitors who didn't convert</li><li>Measurable ROAS — every dollar tracked</li></ul>
-        <div class="eng-without"><p>Without ads: you wait 6+ months for organic results. Your competitors running ads take those customers today.</p></div>
+        <div class="eng-title">Paid Ads — Immediate & Phased</div>
+        <div class="eng-timeline">Day 1 for fashion → Expands as ROAS proves</div>
+        <div class="eng-desc">With four businesses and one budget, ads are throttled intelligently. Fashion store first — every dollar is trackable to a sale. Events second — one booking justifies weeks of spend. Restaurant and grocery grow on organic while the budget scales.</div>
+        <ul class="eng-ul"><li>Fashion: Meta + Google Shopping, direct ROAS</li><li>Events: Google Search — corporate planners</li><li>Restaurant & Grocery: local SEO first</li><li>Retargeting: cross-sell all four to existing visitors</li></ul>
+        <div class="eng-without"><p>Without phased ads: you spread a small budget thin across four businesses and prove ROAS on none of them.</p></div>
       </div>
       <div class="eng-layer">
         <div class="eng-layer-num">3</div>
         <span class="eng-icon">📧</span>
-        <div class="eng-title">Email & Retention — Repeat Revenue</div>
-        <div class="eng-timeline">Activates from Week 1 → Perpetual value</div>
-        <div class="eng-desc">Getting a new customer costs 5–7× more than keeping an existing one. Email turns one-time buyers and visitors into repeat customers — for the fashion store, restaurant, and grocery especially.</div>
-        <ul class="eng-ul"><li>Abandoned cart recovery (fashion store)</li><li>Post-visit re-engagement (restaurant, grocery)</li><li>Event enquiry follow-up sequences</li><li>New arrivals, seasonal promotions, loyalty</li></ul>
-        <div class="eng-without"><p>Without email: you pay to acquire a customer, they visit once, and you never hear from them again.</p></div>
+        <div class="eng-title">Email & Retention — Perpetual Value</div>
+        <div class="eng-timeline">Activates from Week 1 → Compounds forever</div>
+        <div class="eng-desc">Getting a new customer costs 5–7× more than keeping one. Shopify's built-in email tools make this easy — abandoned cart for fashion, event enquiry follow-ups, restaurant re-engagement, grocery loyalty.</div>
+        <ul class="eng-ul"><li>Abandoned cart recovery (fashion store)</li><li>Event enquiry nurture sequences</li><li>Post-purchase cross-sell to other businesses</li><li>New arrivals, seasonal promotions</li></ul>
+        <div class="eng-without"><p>Without email: you pay to acquire a customer, they buy once, and they're gone. Shopify's native tools make this almost free to run.</p></div>
       </div>
     </div>
-    <div class="synergy-row reveal rd3">
-      <div class="syn-box"><div class="syn-icon">🔍</div><div class="syn-title">SEO</div><div class="syn-desc">Builds organic rankings</div><div class="syn-result">Free traffic, month 3+</div></div>
-      <div class="syn-arrow">→</div>
-      <div class="syn-box"><div class="syn-icon">📣</div><div class="syn-title">Paid Ads</div><div class="syn-desc">Captures intent today</div><div class="syn-result">Immediate customers</div></div>
-      <div class="syn-arrow">→</div>
-      <div class="syn-box"><div class="syn-icon">📧</div><div class="syn-title">Email</div><div class="syn-desc">Keeps them coming back</div><div class="syn-result">3–5× higher LTV</div></div>
+
+    <div class="throttle-title reveal rd3">🎯 Smart Budget Throttle — Four Businesses, One Budget</div>
+    <div class="throttle-phases reveal rd3">
+      <div class="tp now">
+        <div class="tp-phase">PHASE 1 — NOW</div>
+        <div class="tp-desc"><strong>Fashion Store ads active.</strong> Direct e-commerce ROAS — every dollar tracked to a sale. Proves return, funds expansion.</div>
+        <div class="tp-roas">Highest trackable ROAS</div>
+      </div>
+      <div class="tp next">
+        <div class="tp-phase">PHASE 2 — NEXT</div>
+        <div class="tp-desc"><strong>Add Event Centre ads.</strong> High ticket value ($2k–$8k/booking) means one conversion justifies weeks of spend. Google Search targeting corporate planners.</div>
+        <div class="tp-roas">Highest single-conversion value</div>
+      </div>
+      <div class="tp">
+        <div class="tp-phase">PHASE 3 — SCALE</div>
+        <div class="tp-desc"><strong>Restaurant & Grocery activated.</strong> By now SEO is compounding, reviews are building, and the budget has room to expand. Full four-business activation.</div>
+        <div class="tp-roas">Full group momentum</div>
+      </div>
     </div>
-    <div class="missing-banner reveal rd4">
-      <div class="miss-icon">⚡</div>
-      <div class="miss-text">Together, these three layers generate <strong>3–5× more leads</strong> than any one channel alone. Remove any layer and the machine leaks. A website without SEO is invisible. SEO without ads is slow. Ads without retention throw money away. <strong>The retainer keeps all three running in sync — that's where the ROI lives.</strong></div>
+
+    <div class="synergy-row reveal rd4">
+      <div class="syn-box"><div class="syn-icon">🔍</div><div class="syn-title">SEO</div><div class="syn-desc">Builds organic rankings across all 4</div><div class="syn-result">Free traffic, month 3+</div></div>
+      <div class="syn-arrow">→</div>
+      <div class="syn-box"><div class="syn-icon">📣</div><div class="syn-title">Paid Ads</div><div class="syn-desc">Immediate traffic, phased by ROAS</div><div class="syn-result">Revenue from day 1</div></div>
+      <div class="syn-arrow">→</div>
+      <div class="syn-box"><div class="syn-icon">📧</div><div class="syn-title">Email</div><div class="syn-desc">Keeps every customer returning</div><div class="syn-result">3–5× higher LTV</div></div>
     </div>
   </div>
 </section>
 
 <!-- S9: ROAS CALCULATOR -->
-<section class="slide lt" id="s9">
+<section class="slide s-warm" id="s9">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">What This Actually Returns</div>
-      <h2 class="stitle">Your marketing budget<br><em>as a growth lever.</em></h2>
-      <p class="roas-intro">This isn't a cost — it's a lever. See what a realistic monthly marketing investment returns for each of your four businesses based on GTA market benchmarks.</p>
+      <h2 class="stitle">Your fashion store ad budget<br><em>as a growth lever.</em></h2>
+      <p class="body" style="margin-top:12px;max-width:600px;margin-bottom:28px">Phase 1 marketing starts with the fashion store — the only business with direct, trackable online revenue. This is where you prove ROAS before expanding to events and beyond. See what a realistic monthly ad investment returns.</p>
     </div>
+
     <div class="roas-tabs reveal rd2">
-      <button class="r-tab active" onclick="switchRoas('fashion',this)">👗 Fashion</button>
-      <button class="r-tab" onclick="switchRoas('events',this)">🎉 Events</button>
-      <button class="r-tab" onclick="switchRoas('grocery',this)">🛒 Grocery</button>
-      <button class="r-tab" onclick="switchRoas('restaurant',this)">🍽️ Restaurant</button>
+      <button class="r-tab active" onclick="switchRoas('fashion',this)">👗 Fashion Store</button>
+      <button class="r-tab" onclick="switchRoas('events',this)">🎉 Events (Phase 2)</button>
+      <button class="r-tab" onclick="switchRoas('combined',this)">⚡ Combined (Phase 3)</button>
     </div>
+
+    <!-- FASHION -->
     <div id="roas-fashion" class="roas-panel active reveal rd3">
-      <div class="roas-left">
-        <div class="website-only">
-          <div class="wo-title">🌐 Website alone (no marketing)</div>
+      <div>
+        <div class="wo-box">
+          <div class="wo-title">🌐 Store without marketing (no ads)</div>
           <div class="wo-row"><span class="wo-key">Monthly organic visitors</span><span class="wo-val red">~0–40</span></div>
           <div class="wo-row"><span class="wo-key">Orders per month</span><span class="wo-val red">0–2</span></div>
           <div class="wo-row"><span class="wo-key">Monthly revenue</span><span class="wo-val red">~$0–$180</span></div>
-          <div class="wo-row"><span class="wo-key">Time to any traffic</span><span class="wo-val red">6–18 months</span></div>
+          <div class="wo-row"><span class="wo-key">Time to meaningful organic traffic</span><span class="wo-val red">6–18 months</span></div>
         </div>
         <div class="slider-wrap">
-          <div class="slider-label"><span class="slider-name">Monthly Ad Budget</span><span class="slider-val" id="fashion-budget-val">$600/mo</span></div>
-          <input type="range" min="300" max="2000" step="100" value="600" oninput="calcRoas('fashion',this.value)">
+          <div class="slider-label"><span class="slider-name">Monthly Fashion Ad Budget</span><span class="slider-val" id="fashion-bval">$600/mo</span></div>
+          <input type="range" min="300" max="2000" step="100" value="600" oninput="calcFashion(this.value)">
         </div>
-        <div class="roas-results" id="fashion-results">
-          <div class="roas-result-row"><span class="rr-label">👁️ Monthly Impressions</span><span class="rr-val neutral" id="fashion-imp">45,000</span></div>
-          <div class="roas-result-row"><span class="rr-label">🖱️ Website Clicks</span><span class="rr-val neutral" id="fashion-clicks">1,800</span></div>
-          <div class="roas-result-row"><span class="rr-label">🛒 Estimated Orders</span><span class="rr-val neutral" id="fashion-conv">54</span></div>
-          <div class="roas-result-row"><span class="rr-label">💰 Est. Monthly Revenue</span><span class="rr-val positive" id="fashion-rev">$2,700</span></div>
+        <div class="roas-results">
+          <div class="roas-rrow"><span class="rr-label">👁️ Monthly Impressions</span><span class="rr-val neu" id="f-imp">45,000</span></div>
+          <div class="roas-rrow"><span class="rr-label">🖱️ Website Clicks</span><span class="rr-val neu" id="f-clicks">1,800</span></div>
+          <div class="roas-rrow"><span class="rr-label">🛒 Est. Orders</span><span class="rr-val neu" id="f-orders">54</span></div>
+          <div class="roas-rrow"><span class="rr-label">💰 Est. Monthly Revenue</span><span class="rr-val pos" id="f-rev">$2,700</span></div>
         </div>
-        <div class="roas-disclaimer">* Projections based on GTA fashion e-commerce benchmarks: 4% CTR, 3% conversion, avg order $50. Actual results vary. SEO compounds these numbers over time.</div>
+        <p class="roas-disclaimer">* GTA fashion e-commerce benchmarks: 4% CTR, 3% conversion, avg order $50. SEO compounds these over time. Month 6: est. $3,800–$5,200 combined organic + paid.</p>
       </div>
-      <div class="roas-right">
+      <div>
         <div class="roas-summary">
           <div class="rs-label">Estimated Monthly Return</div>
-          <div class="rs-total" id="fashion-return">$2,700</div>
-          <div class="rs-sub" id="fashion-roas-txt">For every <span>$1</span> spent on ads → <span id="fashion-ratio">$4.50</span> returned<br>Ad spend: <span id="fashion-spend">$600</span> · Est. profit margin after spend: <span id="fashion-profit" style="color:var(--gold-pale)">$2,100</span></div>
+          <div class="rs-total" id="f-return">$2,700</div>
+          <div class="rs-sub">Every <span>$1</span> on ads → <span id="f-ratio">$4.50</span> returned · Ad spend: <span id="f-spend">$600</span> · Est. profit: <span id="f-profit">$2,100</span></div>
         </div>
-        <div style="margin-top:16px;padding:16px 20px;border:1px solid rgba(59,31,107,.12);border-radius:6px;background:rgba(59,31,107,.03)">
-          <div style="font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:10px">📈 Why SEO Makes This Better Over Time</div>
-          <div style="font-size:.67rem;color:var(--muted);line-height:1.7">As your SEO rankings build (months 3–6), organic traffic supplements your paid traffic. By month 6, you're generating sales from both channels — your effective cost per acquisition drops while revenue grows. The combination of SEO + ads is where the real compounding return happens.</div>
+        <div class="roas-insight seo">
+          <strong>Why start with fashion?</strong> It's the only one of the four businesses with direct, traceable online revenue. Every Meta and Google Shopping dollar maps to a sale in Shopify. Proven ROAS here funds expanding ads to events in Phase 2 — without guessing.
         </div>
-        <div style="margin-top:10px;padding:14px 18px;border:1px solid rgba(76,175,125,.2);border-radius:6px;background:rgba(76,175,125,.05)">
-          <div style="font-size:.7rem;font-weight:700;color:var(--green);margin-bottom:6px">✓ What this looks like at 6 months</div>
-          <div style="font-size:.65rem;color:rgba(18,10,36,.6);line-height:1.65">SEO traffic begins contributing ~30% of total visitors. Monthly revenue from combined channels: <strong style="color:var(--purple)">$3,800–$5,200</strong>. Cost per acquisition decreasing month over month.</div>
+        <div class="roas-insight seo" style="margin-top:8px">
+          <strong>Month 6 — SEO compounding:</strong> As fashion store rankings build organically, paid ads become a multiplier on top of free traffic. Effective cost per acquisition drops each month while revenue grows.
         </div>
       </div>
     </div>
-    <div id="roas-events" class="roas-panel">
-      <div class="roas-left">
-        <div class="website-only">
-          <div class="wo-title">🌐 Website alone (no marketing)</div>
-          <div class="wo-row"><span class="wo-key">Monthly enquiries</span><span class="wo-val red">0–1</span></div>
-          <div class="wo-row"><span class="wo-key">Bookings per month</span><span class="wo-val red">~0</span></div>
-          <div class="wo-row"><span class="wo-key">Monthly revenue</span><span class="wo-val red">~$0</span></div>
-          <div class="wo-row"><span class="wo-key">Discovery by corporates</span><span class="wo-val red">Near zero</span></div>
+
+    <!-- EVENTS -->
+    <div id="roas-events" class="roas-panel reveal rd3">
+      <div>
+        <div class="wo-box">
+          <div class="wo-title">🌐 Events page without ads</div>
+          <div class="wo-row"><span class="wo-key">Corporate enquiries from search/month</span><span class="wo-val red">0–1</span></div>
+          <div class="wo-row"><span class="wo-key">Bookings from digital channels</span><span class="wo-val red">~0</span></div>
+          <div class="wo-row"><span class="wo-key">Discovery by corporate planners</span><span class="wo-val red">Near zero</span></div>
+          <div class="wo-row"><span class="wo-key">Revenue from digital</span><span class="wo-val red">Referral only</span></div>
         </div>
         <div class="slider-wrap">
-          <div class="slider-label"><span class="slider-name">Monthly Ad Budget</span><span class="slider-val" id="events-budget-val">$600/mo</span></div>
-          <input type="range" min="300" max="2000" step="100" value="600" oninput="calcRoas('events',this.value)">
+          <div class="slider-label"><span class="slider-name">Monthly Events Ad Budget</span><span class="slider-val" id="ev-bval">$600/mo</span></div>
+          <input type="range" min="300" max="2000" step="100" value="600" oninput="calcEvents(this.value)">
         </div>
-        <div class="roas-results" id="events-results">
-          <div class="roas-result-row"><span class="rr-label">👁️ Monthly Impressions</span><span class="rr-val neutral" id="events-imp">32,000</span></div>
-          <div class="roas-result-row"><span class="rr-label">📋 Enquiries Generated</span><span class="rr-val neutral" id="events-clicks">12</span></div>
-          <div class="roas-result-row"><span class="rr-label">✅ Bookings Closed (40%)</span><span class="rr-val neutral" id="events-conv">5</span></div>
-          <div class="roas-result-row"><span class="rr-label">💰 Est. Monthly Revenue</span><span class="rr-val positive" id="events-rev">$15,000</span></div>
+        <div class="roas-results">
+          <div class="roas-rrow"><span class="rr-label">👁️ Monthly Impressions</span><span class="rr-val neu" id="ev-imp">32,000</span></div>
+          <div class="roas-rrow"><span class="rr-label">📋 Enquiries Generated</span><span class="rr-val neu" id="ev-enq">12</span></div>
+          <div class="roas-rrow"><span class="rr-label">✅ Bookings Closed (40%)</span><span class="rr-val neu" id="ev-book">5</span></div>
+          <div class="roas-rrow"><span class="rr-label">💰 Est. Monthly Revenue</span><span class="rr-val pos" id="ev-rev">$15,000</span></div>
         </div>
-        <div class="roas-disclaimer">* Based on GTA event venue benchmarks: avg booking value $3,000, 40% close rate on enquiries. Single corporate event recovers months of ad spend.</div>
+        <p class="roas-disclaimer">* GTA event venue benchmarks: avg booking value $3,000, 40% close rate. One corporate event covers months of ad spend. Google Search targets planners at the exact moment they're researching.</p>
       </div>
-      <div class="roas-right">
+      <div>
         <div class="roas-summary">
           <div class="rs-label">Estimated Monthly Return</div>
-          <div class="rs-total" id="events-return">$15,000</div>
-          <div class="rs-sub">For every <span>$1</span> spent on ads → <span id="events-ratio">$25.00</span> returned<br>Ad spend: <span id="events-spend">$600</span> · Est. profit after spend: <span id="events-profit" style="color:var(--gold-pale)">$14,400</span></div>
+          <div class="rs-total" id="ev-return">$15,000</div>
+          <div class="rs-sub">Every <span>$1</span> spent → <span id="ev-ratio">$25.00</span> returned · Ad spend: <span id="ev-spend">$600</span> · Est. profit: <span id="ev-profit">$14,400</span></div>
         </div>
-        <div style="margin-top:16px;padding:16px 20px;border:1px solid rgba(59,31,107,.12);border-radius:6px;background:rgba(59,31,107,.03)">
-          <div style="font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:10px">🎯 The event centre has the highest ROAS of all four businesses</div>
-          <div style="font-size:.67rem;color:var(--muted);line-height:1.7">Because average booking value is so high ($2,000–$8,000), even a single conversion from ads pays for weeks of spend. Google Ads targeting "event venues Toronto" puts you in front of corporate planners at the exact moment they're researching. This is where ad spend has the most leverage.</div>
-        </div>
-        <div style="margin-top:10px;padding:14px 18px;border:1px solid rgba(76,175,125,.2);border-radius:6px;background:rgba(76,175,125,.05)">
-          <div style="font-size:.7rem;font-weight:700;color:var(--green);margin-bottom:6px">✓ What 1 corporate booking covers</div>
-          <div style="font-size:.65rem;color:rgba(18,10,36,.6);line-height:1.65">A single corporate event at $3,000 covers <strong style="color:var(--purple)">5 months</strong> of the Starter retainer. One booking. That's the math.</div>
+        <div class="roas-insight seo">
+          <strong>Highest ROAS of all four businesses.</strong> A single corporate booking at $3,000 covers 5 months of the Starter retainer. This is why events is activated second — once the fashion store has proven the model, events multiplies it.
         </div>
       </div>
     </div>
-    <div id="roas-grocery" class="roas-panel">
-      <div class="roas-left">
-        <div class="website-only">
-          <div class="wo-title">🌐 Website alone (no marketing)</div>
-          <div class="wo-row"><span class="wo-key">New customers/month from search</span><span class="wo-val red">0–3</span></div>
-          <div class="wo-row"><span class="wo-key">Google Maps visibility</span><span class="wo-val red">Near zero</span></div>
-          <div class="wo-row"><span class="wo-key">Review count</span><span class="wo-val red">Low / none</span></div>
-          <div class="wo-row"><span class="wo-key">Repeat customer rate</span><span class="wo-val red">Untracked</span></div>
+
+    <!-- COMBINED -->
+    <div id="roas-combined" class="roas-panel reveal rd3">
+      <div>
+        <div class="wo-box">
+          <div class="wo-title">⚡ Phase 3 — All four businesses active</div>
+          <div class="wo-row"><span class="wo-key">Fashion store (SEO + ads)</span><span class="wo-val green">$3,800–$5,200/mo</span></div>
+          <div class="wo-row"><span class="wo-key">Event centre (SEO + ads)</span><span class="wo-val green">$12,000–$20,000/mo</span></div>
+          <div class="wo-row"><span class="wo-key">Restaurant (SEO + organic)</span><span class="wo-val green">40–60 covers/mo</span></div>
+          <div class="wo-row"><span class="wo-key">Grocery (Maps + local SEO)</span><span class="wo-val green">20+ new regulars/mo</span></div>
         </div>
         <div class="slider-wrap">
-          <div class="slider-label"><span class="slider-name">Monthly Ad Budget</span><span class="slider-val" id="grocery-budget-val">$400/mo</span></div>
-          <input type="range" min="200" max="1000" step="100" value="400" oninput="calcRoas('grocery',this.value)">
+          <div class="slider-label"><span class="slider-name">Total Monthly Ad Budget (all four)</span><span class="slider-val" id="cb-bval">$1,500/mo</span></div>
+          <input type="range" min="800" max="4000" step="100" value="1500" oninput="calcCombined(this.value)">
         </div>
-        <div class="roas-results" id="grocery-results">
-          <div class="roas-result-row"><span class="rr-label">👁️ Monthly Impressions</span><span class="rr-val neutral" id="grocery-imp">28,000</span></div>
-          <div class="roas-result-row"><span class="rr-label">🚶 New In-Store Visitors</span><span class="rr-val neutral" id="grocery-clicks">40</span></div>
-          <div class="roas-result-row"><span class="rr-label">🔁 Retained as Regulars (50%)</span><span class="rr-val neutral" id="grocery-conv">20</span></div>
-          <div class="roas-result-row"><span class="rr-label">💰 Est. Lifetime Value Added</span><span class="rr-val positive" id="grocery-rev">$80,000</span></div>
+        <div class="roas-results">
+          <div class="roas-rrow"><span class="rr-label">👗 Fashion revenue est.</span><span class="rr-val pos" id="cb-fash">$4,500</span></div>
+          <div class="roas-rrow"><span class="rr-label">🎉 Events revenue est.</span><span class="rr-val pos" id="cb-ev">$18,000</span></div>
+          <div class="roas-rrow"><span class="rr-label">🍽️🛒 Restaurant + Grocery (organic)</span><span class="rr-val neu">Compounding</span></div>
+          <div class="roas-rrow"><span class="rr-label">💰 Est. Combined Monthly Revenue</span><span class="rr-val pos" id="cb-total">$22,500</span></div>
         </div>
-        <div class="roas-disclaimer">* Grocery LTV calc: avg $80/week × 50 weeks × 50% retention = $2,000/customer LTV. 20 retained customers × $2,000 = $40,000 annual, $80,000 over 2yrs. Maps optimisation is a force multiplier here.</div>
+        <p class="roas-disclaimer">* Phase 3 projections assume 6+ months of SEO compounding. Fashion and events ad split: 40% fashion, 60% events. Restaurant and grocery growing primarily via organic search and Maps at this stage.</p>
       </div>
-      <div class="roas-right">
+      <div>
         <div class="roas-summary">
-          <div class="rs-label">2-Year Lifetime Value Added</div>
-          <div class="rs-total" id="grocery-return">$80,000</div>
-          <div class="rs-sub">Grocery is a <span>repeat purchase</span> business — the real ROI is LTV.<br>20 loyal regulars acquired this month = <span id="grocery-ltv">$80,000</span> over 2 years from a <span id="grocery-spend">$400</span> investment.</div>
+          <div class="rs-label">Est. Combined Monthly Return</div>
+          <div class="rs-total" id="cb-return">$22,500</div>
+          <div class="rs-sub">Total ad spend: <span id="cb-spend">$1,500</span> · Overall ROAS: <span id="cb-ratio">15×</span><br>This is where the group strategy compounds — <span>four businesses reinforcing each other</span></div>
         </div>
-        <div style="margin-top:16px;padding:16px 20px;border:1px solid rgba(59,31,107,.12);border-radius:6px;background:rgba(59,31,107,.03)">
-          <div style="font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:10px">🗺️ Google Maps is the grocery store's biggest lever</div>
-          <div style="font-size:.67rem;color:var(--muted);line-height:1.7">When someone searches "grocery store near me" on their phone, the top 3 Map results get 80%+ of the clicks. Optimising your Google Business Profile, getting reviews, and running local ads puts you in those top 3 results. This is high-leverage, low-cost work.</div>
-        </div>
-      </div>
-    </div>
-    <div id="roas-restaurant" class="roas-panel">
-      <div class="roas-left">
-        <div class="website-only">
-          <div class="wo-title">🌐 Website alone (no marketing)</div>
-          <div class="wo-row"><span class="wo-key">Monthly reservations from search</span><span class="wo-val red">0–5</span></div>
-          <div class="wo-row"><span class="wo-key">Google Maps ranking</span><span class="wo-val red">Page 2+</span></div>
-          <div class="wo-row"><span class="wo-key">Review generation</span><span class="wo-val red">None / manual</span></div>
-          <div class="wo-row"><span class="wo-key">Return diners</span><span class="wo-val red">Untracked</span></div>
-        </div>
-        <div class="slider-wrap">
-          <div class="slider-label"><span class="slider-name">Monthly Ad Budget</span><span class="slider-val" id="restaurant-budget-val">$500/mo</span></div>
-          <input type="range" min="300" max="1500" step="100" value="500" oninput="calcRoas('restaurant',this.value)">
-        </div>
-        <div class="roas-results" id="restaurant-results">
-          <div class="roas-result-row"><span class="rr-label">👁️ Monthly Impressions</span><span class="rr-val neutral" id="restaurant-imp">38,000</span></div>
-          <div class="roas-result-row"><span class="rr-label">📅 New Reservations</span><span class="rr-val neutral" id="restaurant-clicks">28</span></div>
-          <div class="roas-result-row"><span class="rr-label">👥 Avg Party Size × Spend</span><span class="rr-val neutral" id="restaurant-conv">$140/visit</span></div>
-          <div class="roas-result-row"><span class="rr-label">💰 Est. Monthly Revenue</span><span class="rr-val positive" id="restaurant-rev">$3,920</span></div>
-        </div>
-        <div class="roas-disclaimer">* Based on Toronto restaurant benchmarks: avg party size 2.8, avg spend $50/head. Review-driven organic traffic adds significantly to these numbers over time.</div>
-      </div>
-      <div class="roas-right">
-        <div class="roas-summary">
-          <div class="rs-label">Estimated Monthly Return</div>
-          <div class="rs-total" id="restaurant-return">$3,920</div>
-          <div class="rs-sub">For every <span>$1</span> spent → <span id="restaurant-ratio">$7.84</span> returned<br>Ad spend: <span id="restaurant-spend">$500</span> · Est. profit after spend: <span id="restaurant-profit" style="color:var(--gold-pale)">$3,420</span></div>
-        </div>
-        <div style="margin-top:16px;padding:16px 20px;border:1px solid rgba(59,31,107,.12);border-radius:6px;background:rgba(59,31,107,.03)">
-          <div style="font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:10px">⭐ Reviews are the restaurant's silent sales team</div>
-          <div style="font-size:.67rem;color:var(--muted);line-height:1.7">Toronto restaurant searches happen 40,000+ times/month. Restaurants with 50+ reviews and high ratings appear above competitors — without paying for every click. Our review generation system asks happy diners at the perfect moment, building your reputation on autopilot alongside paid ads.</div>
-        </div>
-        <div style="margin-top:10px;padding:14px 18px;border:1px solid rgba(76,175,125,.2);border-radius:6px;background:rgba(76,175,125,.05)">
-          <div style="font-size:.7rem;font-weight:700;color:var(--green);margin-bottom:6px">✓ Month 6 projection (SEO + ads combined)</div>
-          <div style="font-size:.65rem;color:rgba(18,10,36,.6);line-height:1.65">With SEO compounding and reviews building: <strong style="color:var(--purple)">50–70 new reservations/month</strong> from combined organic + paid channels. Cost per new customer dropping each month.</div>
+        <div class="roas-insight seo">
+          <strong>The group multiplier effect.</strong> By Phase 3, every business is cross-promoting the others. A fashion store customer sees the event centre. A restaurant diner gets retargeted with fashion ads. One Shopify store, four revenue streams, all compounding from one marketing budget.
         </div>
       </div>
     </div>
@@ -863,7 +902,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
 </section>
 
 <!-- S10: TIMELINE -->
-<section class="slide lt2" id="s10">
+<section class="slide s-white" id="s10">
   <div style="max-width:1120px;width:100%">
     <div class="section-tag reveal rd1">The Roadmap</div>
     <h2 class="stitle reveal rd1">From day one<br><em>to fully live.</em></h2>
@@ -872,32 +911,32 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
         <div class="phase-node"><div class="phase-emoji">🔍</div><div class="phase-wk">WEEK 1–2</div></div>
         <div class="phase-name">Discovery</div>
         <div class="ph-items">
-          <div class="ph-item"><strong>Audit All Four Businesses</strong>Online presence, competitors, quick wins</div>
-          <div class="ph-item"><strong>Google Profiles Setup</strong>All 4 GBPs created and optimised</div>
+          <div class="ph-item"><strong>Audit & Strategy</strong>Current store, competitors, quick wins</div>
+          <div class="ph-item"><strong>4 Google Profiles</strong>All GBPs created & optimised</div>
+          <div class="ph-item"><strong>Theme Selected</strong>Premium Shopify theme agreed</div>
           <div class="ph-item"><strong>Keyword Research</strong>Local GTA keywords per business</div>
-          <div class="ph-item"><strong>Strategy Locked</strong>Full roadmap agreed</div>
         </div>
-        <div class="ph-ms">🎯 All GBPs live by end of Wk 2</div>
+        <div class="ph-ms">🎯 All GBPs live by end Wk 2</div>
       </div>
       <div class="phase">
         <div class="phase-node"><div class="phase-emoji">🏗️</div><div class="phase-wk">WEEK 3–6</div></div>
         <div class="phase-name">Build</div>
         <div class="ph-items">
-          <div class="ph-item"><strong>Websites Built</strong>Fashion store, event centre, restaurant & grocery</div>
+          <div class="ph-item"><strong>Shopify Migration</strong>Premium theme, fashion collections live</div>
+          <div class="ph-item"><strong>3 Custom Pages</strong>Events, grocery, restaurant built</div>
           <div class="ph-item"><strong>SEO Architecture</strong>Schema, meta, local signals all four</div>
-          <div class="ph-item"><strong>Email Flows</strong>Built and tested per business</div>
-          <div class="ph-item"><strong>Ad Campaigns Ready</strong>Meta & Google creatives designed</div>
+          <div class="ph-item"><strong>Fashion Ads Ready</strong>Meta & Google Shopping creatives</div>
         </div>
-        <div class="ph-ms">🌐 All websites live by Wk 6</div>
+        <div class="ph-ms">🛒 Full Shopify store live Wk 6</div>
       </div>
       <div class="phase">
         <div class="phase-node"><div class="phase-emoji">🚀</div><div class="phase-wk">WEEK 7</div></div>
         <div class="phase-name">Launch</div>
         <div class="ph-items">
-          <div class="ph-item"><strong>Everything Goes Live</strong>Sites, profiles, campaigns</div>
-          <div class="ph-item"><strong>Ads Activated</strong>First Meta & Google campaigns</div>
+          <div class="ph-item"><strong>Everything Goes Live</strong>Store, profiles, campaigns</div>
+          <div class="ph-item"><strong>Fashion Ads Active</strong>First Meta & Google Shopping campaigns</div>
+          <div class="ph-item"><strong>Email Flows Live</strong>Abandoned cart, welcome series</div>
           <div class="ph-item"><strong>First Report</strong>Week 1 performance baseline</div>
-          <div class="ph-item"><strong>Review Requests Begin</strong>Automated for restaurant & events</div>
         </div>
         <div class="ph-ms">🎉 Beyond Global — fully online</div>
       </div>
@@ -906,9 +945,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
         <div class="phase-name">Grow</div>
         <div class="ph-items">
           <div class="ph-item"><strong>SEO Compounds</strong>Rankings climb across all four</div>
-          <div class="ph-item"><strong>Ads Optimised</strong>Best audiences scaled</div>
-          <div class="ph-item"><strong>Reviews Accumulate</strong>Reputation builds</div>
-          <div class="ph-item"><strong>Monthly Dashboard</strong>All four businesses in one report</div>
+          <div class="ph-item"><strong>Events Ads Added</strong>Phase 2 ad expansion begins</div>
+          <div class="ph-item"><strong>Reviews Accumulate</strong>Reputation builds across all GBPs</div>
+          <div class="ph-item"><strong>Monthly Dashboard</strong>All four businesses, one report</div>
         </div>
         <div class="ph-ms">📊 Growing every month</div>
       </div>
@@ -916,34 +955,35 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
     <div class="tl-footer reveal rd3">
       <div class="tf-item"><div class="tf-num">7</div><div class="tf-lbl">Weeks to Full Launch</div></div>
       <div class="tf-divider"></div>
-      <div class="tf-item"><div class="tf-num">4</div><div class="tf-lbl">Businesses Online</div></div>
+      <div class="tf-item"><div class="tf-num">1</div><div class="tf-lbl">Shopify Store</div></div>
       <div class="tf-divider"></div>
       <div class="tf-item"><div class="tf-num">4</div><div class="tf-lbl">Google Profiles Live</div></div>
       <div class="tf-divider"></div>
-      <div class="tf-item"><div class="tf-num">Wk2</div><div class="tf-lbl">First Results Visible</div></div>
+      <div class="tf-item"><div class="tf-num">Wk 3</div><div class="tf-lbl">Fashion Ads Running</div></div>
     </div>
   </div>
 </section>
 
 <!-- S11: PRICING -->
-<section class="slide lt2" id="s11">
+<section class="slide s-off" id="s11">
   <div style="max-width:1160px;width:100%">
     <div class="section-tag">Your Investment</div>
     <h2 class="stitle">Transparent pricing.<br><em>Exceptional value.</em></h2>
-    <p class="price-intro">Select the deliverables that make sense for where you are now. Send your selection directly to David — it takes 30 seconds.</p>
+    <p class="price-intro">Select what makes sense for where you are now. Send your selection to David in one click.</p>
     <div class="price-tabs">
       <button class="p-tab active" onclick="switchTab('phase1',this)">Phase 1 — Foundation</button>
       <button class="p-tab" onclick="switchTab('phase2',this)">Phase 2 — Monthly Retainer</button>
     </div>
+
     <div class="price-panel active" id="panel-phase1">
       <div class="p-items" id="item-list">
-        <div class="p-item selected" onclick="toggleItem(this)" data-price="2500" data-market="6000" data-label="Fashion Store — Shopify Redesign & Consolidation">
-          <div><div class="pi-name">Fashion Store — Shopify Redesign & Consolidation</div><div class="pi-desc">Full premium redesign of Beyond Limits Global on Shopify — unified categories, editorial navigation, mobile-first, Google Shopping integration.</div></div>
+        <div class="p-item selected" onclick="toggleItem(this)" data-price="2500" data-market="6000" data-label="Premium Shopify Migration & Fashion Store Build">
+          <div><div class="pi-name">Premium Shopify Migration & Fashion Store Build</div><div class="pi-desc">Full premium theme migration, all 6 fashion collections, mobile-first checkout, Google Shopping integration, and abandoned cart flows.</div></div>
           <div class="pi-market">$6,000</div><div class="pi-our">$2,500</div><div class="pi-check"></div>
         </div>
-        <div class="p-item selected" onclick="toggleItem(this)" data-price="1800" data-market="4500" data-label="Group Hub Website — Events, Restaurant & Grocery (Next.js)">
-          <div><div class="pi-name">Group Hub Website — Events, Restaurant & Grocery</div><div class="pi-desc">Premium group website (Next.js) with event centre enquiry flows, restaurant reservations + digital menu, grocery location & hours. Cross-linked to Shopify.</div></div>
-          <div class="pi-market">$4,500</div><div class="pi-our">$1,800</div><div class="pi-check"></div>
+        <div class="p-item selected" onclick="toggleItem(this)" data-price="1200" data-market="3200" data-label="Three Custom Shopify Pages — Events, Grocery & Restaurant">
+          <div><div class="pi-name">Three Custom Shopify Pages — Events, Grocery & Restaurant</div><div class="pi-desc">Full-design custom pages for each business within the Shopify store — enquiry flows, maps, menus, hours, and cross-links to the fashion store.</div></div>
+          <div class="pi-market">$3,200</div><div class="pi-our">$1,200</div><div class="pi-check"></div>
         </div>
         <div class="p-item selected" onclick="toggleItem(this)" data-price="1200" data-market="3000" data-label="Local SEO Setup — All 4 Businesses">
           <div><div class="pi-name">Local SEO Setup — All 4 Businesses</div><div class="pi-desc">4 Google Business Profiles created, verified, and optimised. Schema markup, local keywords, and Google Maps positioning across every business.</div></div>
@@ -954,18 +994,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
           <div class="pi-market">$2,000</div><div class="pi-our">$800</div><div class="pi-check"></div>
         </div>
         <div class="p-item" onclick="toggleItem(this)" data-price="600" data-market="1500" data-label="Brand Identity Refresh — Group Level">
-          <div><div class="pi-name">Brand Identity Refresh — Group Level</div><div class="pi-desc">Unified visual language across all four businesses — consistent colours, typography, and logo treatment so Beyond Global looks like a premium group.</div></div>
+          <div><div class="pi-name">Brand Identity Refresh — Group Level</div><div class="pi-desc">Unified visual language across all four businesses — consistent colours, typography, and logo treatment so Beyond Global looks premium everywhere.</div></div>
           <div class="pi-market">$1,500</div><div class="pi-our">$600</div><div class="pi-check"></div>
         </div>
       </div>
       <div class="price-summary">
         <div>
           <div class="ps-label">Your Total</div>
-          <div class="ps-total" id="our-total">$5,500 CAD</div>
-          <div class="ps-saving">Market value: <span id="market-total">$13,500</span> — you save <span id="saving-amt">$8,000</span></div>
+          <div class="ps-total" id="our-total">$4,900 CAD</div>
+          <div class="ps-saving">Market value: <span id="market-total">$12,200</span> — you save <span id="saving-amt">$7,300</span></div>
         </div>
         <div style="text-align:right">
-          <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:rgba(250,246,238,.38);margin-bottom:5px" id="items-count">3 deliverables selected</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.38);margin-bottom:5px" id="items-count">3 deliverables selected</div>
           <div class="ps-note">50% to begin · 50% on delivery<br>All four businesses live in 7 weeks</div>
         </div>
       </div>
@@ -973,36 +1013,37 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
         <a href="#" onclick="sendPhase1Email(event)" class="email-btn">✉️ &nbsp;Send My Phase 1 Selection to David</a>
       </div>
     </div>
+
     <div class="price-panel" id="panel-phase2">
       <div class="ret-grid">
         <div class="r-card" onclick="selectRetainer(this,'1800','starter')">
           <div class="r-name">Starter</div>
           <div class="r-price">$1,800 <span>/ month</span></div>
           <div class="r-market">Market rate: ~$3,500/mo</div>
-          <div class="r-return"><span class="r-return-icon">📈</span><div class="r-return-text">Est. $4,200–$6,000/mo return<br>across SEO + organic growth</div></div>
+          <div class="r-return"><span>📈</span><div class="r-return-text">Est. $4,200–$6,000/mo return<br>SEO + organic growth</div></div>
           <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Google Business Profile management</li><li>Website hosting & maintenance</li><li>Monthly performance report</li></ul>
         </div>
         <div class="r-card recommended selected" onclick="selectRetainer(this,'3000','growth')">
           <div class="r-name">Growth</div>
           <div class="r-price">$3,000 <span>/ month</span></div>
           <div class="r-market">Market rate: ~$6,000/mo</div>
-          <div class="r-return"><span class="r-return-icon">📈</span><div class="r-return-text">Est. $9,000–$14,000/mo return<br>SEO + ads + email combined</div></div>
-          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Google Business Profile management</li><li>Meta & Google Ads (2 businesses)</li><li>Email campaigns (4/month)</li><li>Website hosting & maintenance</li><li>Monthly growth dashboard</li></ul>
+          <div class="r-return"><span>📈</span><div class="r-return-text">Est. $9,000–$14,000/mo return<br>SEO + fashion ads + events</div></div>
+          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Google Business Profile management</li><li>Paid ads — fashion + events (phased)</li><li>Email campaigns (4/month)</li><li>Website hosting & maintenance</li><li>Monthly growth dashboard</li></ul>
         </div>
         <div class="r-card" onclick="selectRetainer(this,'4500','fullscale')">
           <div class="r-name">Full Scale</div>
           <div class="r-price">$4,500 <span>/ month</span></div>
           <div class="r-market">Market rate: ~$9,000/mo</div>
-          <div class="r-return"><span class="r-return-icon">📈</span><div class="r-return-text">Est. $18,000–$28,000/mo return<br>All 4 businesses fully activated</div></div>
-          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Meta & Google Ads — all 4 businesses</li><li>Email campaigns + full automation</li><li>Content creation & copywriting</li><li>Website hosting & maintenance</li><li>Monthly strategy + growth report</li></ul>
+          <div class="r-return"><span>📈</span><div class="r-return-text">Est. $18,000–$28,000/mo return<br>All 4 businesses fully activated</div></div>
+          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Paid ads — all 4 businesses active</li><li>Email + full Shopify automation</li><li>Content creation & copywriting</li><li>Website hosting & maintenance</li><li>Monthly strategy + growth report</li></ul>
         </div>
       </div>
       <div class="bb" id="budget-breakdown">
-        <div class="bb-hdr"><div class="bb-title">Where Your Budget Goes</div><div class="bb-total" id="bb-total-display">$3,000 <span>/ month</span></div></div>
+        <div class="bb-hdr"><div class="bb-title">Where Your Budget Goes</div><div class="bb-total" id="bb-total-display">$3,000 <span style="font-size:.7rem;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif">/ month</span></div></div>
         <div class="bb-tag">ONE INVOICE. ALL FOUR BUSINESSES. ZERO HIDDEN EXTRAS.</div>
         <div class="bb-rows" id="bb-rows"></div>
       </div>
-      <div style="margin-top:18px;text-align:center">
+      <div style="margin-top:16px;text-align:center">
         <a href="#" onclick="sendRetainerEmail(event)" class="email-btn">✉️ &nbsp;Send My Phase 2 Selection to David</a>
       </div>
     </div>
@@ -1010,24 +1051,24 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
 </section>
 
 <!-- S12: NEXT STEPS -->
-<section class="slide dk" id="s12">
-  <div class="deco-grid"></div>
-  <div class="deco-corner tl"></div><div class="deco-corner br"></div>
+<section class="slide" id="s12" style="background:linear-gradient(135deg,#3B1F6B 0%,#2D1755 100%)">
+  <div class="deco-corner tl" style="border-color:rgba(255,255,255,.1)"></div>
+  <div class="deco-corner br" style="border-color:rgba(255,255,255,.1)"></div>
   <div style="max-width:900px;width:100%;position:relative;z-index:1">
-    <div class="section-tag reveal rd1">What Happens Next</div>
-    <h2 class="stitle reveal rd1" style="margin-bottom:6px">We've talked.<br><em>Now let's move.</em></h2>
+    <div class="section-tag reveal rd1" style="color:var(--gold-pale)"><span style="display:block;width:24px;height:1px;background:var(--gold-pale)"></span>What Happens Next</div>
+    <h2 class="stitle reveal rd1" style="color:white;margin-bottom:6px">We've talked.<br><em style="color:var(--gold-pale)">Now let's move.</em></h2>
     <div class="ns-steps reveal rd2">
       <div class="ns-step">
         <div class="ns-num-w"><div class="ns-num">1</div></div>
-        <div class="ns-body"><div class="ns-title">Review this proposal and select your deliverables.</div><div class="ns-desc">Use the pricing section to pick Phase 1 items. Hit "Send to David" — it fires a pre-filled email directly to us. Takes 30 seconds.</div></div>
+        <div class="ns-body"><div class="ns-title">Review this proposal and select your deliverables.</div><div class="ns-desc">Use the pricing section above to pick Phase 1 items. Hit "Send to David" — it fires a pre-filled email directly to us. Takes 30 seconds.</div></div>
       </div>
       <div class="ns-step">
         <div class="ns-num-w"><div class="ns-num">2</div></div>
-        <div class="ns-body"><div class="ns-title">David follows up within 24 hours.</div><div class="ns-desc">We confirm scope, answer any questions, and lock in the kickoff date. No lengthy back-and-forth. We're ready to start the moment you are.</div></div>
+        <div class="ns-body"><div class="ns-title">David follows up within 24 hours.</div><div class="ns-desc">We confirm scope, agree the premium Shopify theme, and lock in the kickoff date. No lengthy back-and-forth. We're ready to start the moment you are.</div></div>
       </div>
       <div class="ns-step">
         <div class="ns-num-w"><div class="ns-num">3</div></div>
-        <div class="ns-body"><div class="ns-title">Week 2: All four Google Business Profiles are live.</div><div class="ns-desc">Before anything else, your four businesses appear on Google Maps and search. That alone starts generating visibility — before the full build is even complete.</div></div>
+        <div class="ns-body"><div class="ns-title">Week 2: All four Google Business Profiles are live.</div><div class="ns-desc">Before the full build is even complete, your four businesses appear on Google Maps and local search. That alone starts generating visibility — and it's the fastest win we can put on the board.</div></div>
       </div>
     </div>
     <div class="ns-contact reveal rd3">
@@ -1044,201 +1085,168 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
 <script>
 (function(){
 
-var budgetPlans={
-  starter:[{icon:'📍',label:'SEO & Google Profile Mgmt',amt:800,color:'#3B1F6B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#5B3A9B'},{icon:'📊',label:'Monthly Reporting',amt:400,color:'#C9A84C'}],
-  growth:[{icon:'📍',label:'SEO & Google Profile Mgmt',amt:800,color:'#3B1F6B'},{icon:'📣',label:'Meta & Google Ads',amt:1100,color:'#C9A84C'},{icon:'📧',label:'Email Campaigns',amt:500,color:'#5B3A9B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#7A5AB8'}],
-  fullscale:[{icon:'📍',label:'SEO & Google Profile Mgmt',amt:900,color:'#3B1F6B'},{icon:'📣',label:'Ads — All 4 Businesses',amt:1800,color:'#C9A84C'},{icon:'📧',label:'Email & Automation',amt:600,color:'#5B3A9B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#7A5AB8'},{icon:'✍️',label:'Content & Copywriting',amt:600,color:'#9B7AD4'}]
+/* ── BUDGET PLANS ── */
+var budgetPlans = {
+  starter:   [{icon:'📍',label:'SEO & Google Profile Mgmt',amt:800,color:'#3B1F6B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#5B3A9B'},{icon:'📊',label:'Monthly Reporting',amt:400,color:'#B8861A'}],
+  growth:    [{icon:'📍',label:'SEO & Google Profile Mgmt',amt:800,color:'#3B1F6B'},{icon:'📣',label:'Paid Ads — Fashion + Events (Phased)',amt:1000,color:'#B8861A'},{icon:'📧',label:'Email Campaigns',amt:500,color:'#5B3A9B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:700,color:'#7A6E5C'}],
+  fullscale: [{icon:'📍',label:'SEO & Google Profile Mgmt',amt:900,color:'#3B1F6B'},{icon:'📣',label:'Paid Ads — All 4 Businesses',amt:1800,color:'#B8861A'},{icon:'📧',label:'Email & Shopify Automation',amt:600,color:'#5B3A9B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#7A6E5C'},{icon:'✍️',label:'Content & Copywriting',amt:600,color:'#9B7AD4'}]
 };
 
-function renderBB(planKey,total){
-  var rows=document.getElementById('bb-rows');
-  var disp=document.getElementById('bb-total-display');
-  if(!rows)return;
-  var plan=budgetPlans[planKey];
-  if(!plan)return;
-  if(disp)disp.innerHTML='$'+parseInt(total).toLocaleString()+' <span>/ month</span>';
-  var html='';
-  plan.forEach(function(item){
-    var pct=Math.round((item.amt/total)*100);
-    html+='<div class="bb-row"><div class="bb-cat"><span>'+item.icon+'</span>'+item.label+'</div><div class="bb-bw"><div class="bb-bar" style="width:'+pct+'%;background:'+item.color+'"></div></div><div class="bb-amt">$'+item.amt.toLocaleString()+'</div><div class="bb-pct">'+pct+'%</div></div>';
+function renderBB(planKey, total) {
+  var rows = document.getElementById('bb-rows');
+  var disp = document.getElementById('bb-total-display');
+  if (!rows) return;
+  var plan = budgetPlans[planKey];
+  if (!plan) return;
+  if (disp) disp.innerHTML = '$' + parseInt(total).toLocaleString() + ' <span style="font-size:.7rem;color:rgba(255,255,255,.4);font-family:\'Rajdhani\',sans-serif">/ month</span>';
+  var html = '';
+  plan.forEach(function(item) {
+    var pct = Math.round((item.amt / total) * 100);
+    html += '<div class="bb-row"><div class="bb-cat"><span>' + item.icon + '</span>' + item.label + '</div><div class="bb-bw"><div class="bb-bar" style="width:' + pct + '%;background:' + item.color + '"></div></div><div class="bb-amt">$' + item.amt.toLocaleString() + '</div><div class="bb-pct">' + pct + '%</div></div>';
   });
-  rows.innerHTML=html;
+  rows.innerHTML = html;
 }
 
-// REVEAL
-var rObs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');rObs.unobserve(e.target);}});
-},{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(function(el){rObs.observe(el);});
-setTimeout(function(){
-  document.querySelectorAll('.reveal').forEach(function(el){
-    var r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight-40)el.classList.add('on');
+/* ── REVEAL ── */
+var rObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('on'); rObs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { rObs.observe(el); });
+setTimeout(function() {
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    var r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight - 40) el.classList.add('on');
   });
-},80);
+}, 80);
 
-// NAV
-var ltSlides={s2:1,s4:1,s6:1,s9:1,s10:1,s11:1};
-var navEl=document.getElementById('main-nav');
-var allDots=document.querySelectorAll('.ndot');
-var sObs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting&&e.intersectionRatio>0.38){
-      var id=e.target.id;
-      var lt=!!ltSlides[id];
-      navEl.className=lt?'lt':'dk';
-      allDots.forEach(function(d){
-        d.className='ndot '+(lt?'lt-d':'dk-d');
-        if(d.dataset.s===id)d.classList.add('active');
+/* ── NAV ── */
+var darkSlides = { s12: 1 };
+var navEl = document.getElementById('main-nav');
+var allDots = document.querySelectorAll('.ndot');
+var sObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting && e.intersectionRatio > 0.38) {
+      var id = e.target.id;
+      var dk = !!darkSlides[id];
+      navEl.className = dk ? 'dk' : 'lt';
+      allDots.forEach(function(d) {
+        d.classList.toggle('active', d.dataset.s === id);
       });
     }
   });
-},{threshold:0.38});
-document.querySelectorAll('.slide').forEach(function(s){sObs.observe(s);});
-allDots.forEach(function(d){
-  d.addEventListener('click',function(){
-    var t=document.getElementById(d.dataset.s);
-    if(t)t.scrollIntoView({behavior:'smooth'});
+}, { threshold: 0.38 });
+document.querySelectorAll('.slide').forEach(function(s) { sObs.observe(s); });
+allDots.forEach(function(d) {
+  d.addEventListener('click', function() {
+    var t = document.getElementById(d.dataset.s);
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-// TABS
-window.switchTab=function(panel,btn){
-  document.querySelectorAll('.price-panel').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.p-tab').forEach(function(t){t.classList.remove('active');});
-  document.getElementById('panel-'+panel).classList.add('active');
+/* ── TABS ── */
+window.switchTab = function(panel, btn) {
+  document.querySelectorAll('.price-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.p-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('panel-' + panel).classList.add('active');
   btn.classList.add('active');
 };
 
-// PHASE 1
-window.toggleItem=function(el){
-  el.classList.toggle('selected');
-  updateSummary();
-};
-function updateSummary(){
-  var our=0,mkt=0,cnt=0;
-  document.querySelectorAll('#item-list .p-item').forEach(function(item){
-    if(item.classList.contains('selected')){
-      our+=parseInt(item.dataset.price,10);
-      mkt+=parseInt(item.dataset.market,10);
+/* ── PHASE 1 ── */
+window.toggleItem = function(el) { el.classList.toggle('selected'); updateSummary(); };
+function updateSummary() {
+  var our = 0, mkt = 0, cnt = 0;
+  document.querySelectorAll('#item-list .p-item').forEach(function(item) {
+    if (item.classList.contains('selected')) {
+      our += parseInt(item.dataset.price, 10);
+      mkt += parseInt(item.dataset.market, 10);
       cnt++;
     }
   });
-  document.getElementById('our-total').textContent='$'+our.toLocaleString()+' CAD';
-  document.getElementById('market-total').textContent='$'+mkt.toLocaleString();
-  document.getElementById('saving-amt').textContent='$'+(mkt-our).toLocaleString();
-  document.getElementById('items-count').textContent=cnt+' deliverable'+(cnt!==1?'s':'')+' selected';
+  document.getElementById('our-total').textContent = '$' + our.toLocaleString() + ' CAD';
+  document.getElementById('market-total').textContent = '$' + mkt.toLocaleString();
+  document.getElementById('saving-amt').textContent = '$' + (mkt - our).toLocaleString();
+  document.getElementById('items-count').textContent = cnt + ' deliverable' + (cnt !== 1 ? 's' : '') + ' selected';
 }
 
-// RETAINER
-var selRet=3000,selRetName='Growth - $3,000/month';
-window.selectRetainer=function(el,price,planKey){
-  document.querySelectorAll('.r-card').forEach(function(c){c.classList.remove('selected');});
+/* ── RETAINER ── */
+var selRet = 3000, selRetName = 'Growth - $3,000/month';
+window.selectRetainer = function(el, price, planKey) {
+  document.querySelectorAll('.r-card').forEach(function(c) { c.classList.remove('selected'); });
   el.classList.add('selected');
-  selRet=parseInt(price,10);
-  var n=el.querySelector('.r-name');
-  selRetName=(n?n.textContent:'Plan')+' - $'+selRet.toLocaleString()+'/month';
-  renderBB(planKey,selRet);
+  selRet = parseInt(price, 10);
+  var n = el.querySelector('.r-name');
+  selRetName = (n ? n.textContent : 'Plan') + ' - $' + selRet.toLocaleString() + '/month';
+  renderBB(planKey, selRet);
 };
 
-// ROAS CALCULATOR
-var roasData={
-  fashion:{budgetMin:300,budgetMax:2000,impRate:75,ctrRate:0.04,convRate:0.03,avgVal:50,labelConv:'Est. Orders',labelRev:'Est. Monthly Revenue',idPrefix:'fashion'},
-  events:{budgetMin:300,budgetMax:2000,impRate:54,ctrRate:0.018,convRate:0.4,avgVal:3000,labelConv:'Bookings Closed (40%)',labelRev:'Est. Monthly Revenue',idPrefix:'events'},
-  grocery:{budgetMin:200,budgetMax:1000,impRate:70,ctrRate:0.012,convRate:0.5,avgVal:2000,labelConv:'Retained as Regulars (50%)',labelRev:'Est. Lifetime Value Added',idPrefix:'grocery'},
-  restaurant:{budgetMin:300,budgetMax:1500,impRate:76,ctrRate:0.028,convRate:1,avgVal:140,labelConv:'Avg Party Spend',labelRev:'Est. Monthly Revenue',idPrefix:'restaurant'}
-};
-
-window.switchRoas=function(biz,btn){
-  document.querySelectorAll('.roas-panel').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.r-tab').forEach(function(t){t.classList.remove('active');});
-  document.getElementById('roas-'+biz).classList.add('active');
+/* ── ROAS ── */
+window.switchRoas = function(biz, btn) {
+  document.querySelectorAll('.roas-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.r-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById('roas-' + biz).classList.add('active');
   btn.classList.add('active');
 };
 
-window.calcRoas=function(biz,val){
-  val=parseInt(val,10);
-  var d=roasData[biz];
-  var p=d.idPrefix;
-  var budgetEl=document.getElementById(p+'-budget-val');
-  if(budgetEl)budgetEl.textContent='$'+val+'/mo';
-
-  if(biz==='fashion'){
-    var imp=Math.round(val*d.impRate);
-    var clicks=Math.round(imp*d.ctrRate);
-    var conv=Math.round(clicks*d.convRate);
-    var rev=conv*d.avgVal;
-    document.getElementById('fashion-imp').textContent=imp.toLocaleString();
-    document.getElementById('fashion-clicks').textContent=clicks.toLocaleString();
-    document.getElementById('fashion-conv').textContent=conv;
-    document.getElementById('fashion-rev').textContent='$'+rev.toLocaleString();
-    document.getElementById('fashion-return').textContent='$'+rev.toLocaleString();
-    var ratio=(rev/val).toFixed(2);
-    document.getElementById('fashion-ratio').textContent='$'+ratio;
-    document.getElementById('fashion-spend').textContent='$'+val;
-    document.getElementById('fashion-profit').textContent='$'+(rev-val).toLocaleString();
-  } else if(biz==='events'){
-    var imp=Math.round(val*d.impRate);
-    var enquiries=Math.round(val/50);
-    var bookings=Math.round(enquiries*d.convRate);
-    var rev=bookings*d.avgVal;
-    document.getElementById('events-imp').textContent=imp.toLocaleString();
-    document.getElementById('events-clicks').textContent=enquiries;
-    document.getElementById('events-conv').textContent=bookings;
-    document.getElementById('events-rev').textContent='$'+rev.toLocaleString();
-    document.getElementById('events-return').textContent='$'+rev.toLocaleString();
-    var ratio=rev>0?(rev/val).toFixed(1):'0';
-    document.getElementById('events-ratio').textContent='$'+ratio;
-    document.getElementById('events-spend').textContent='$'+val;
-    document.getElementById('events-profit').textContent='$'+(rev-val).toLocaleString();
-  } else if(biz==='grocery'){
-    var imp=Math.round(val*d.impRate);
-    var visitors=Math.round(val/10);
-    var retained=Math.round(visitors*d.convRate);
-    var ltv=retained*d.avgVal;
-    document.getElementById('grocery-imp').textContent=imp.toLocaleString();
-    document.getElementById('grocery-clicks').textContent=visitors;
-    document.getElementById('grocery-conv').textContent=retained;
-    document.getElementById('grocery-rev').textContent='$'+ltv.toLocaleString();
-    document.getElementById('grocery-return').textContent='$'+ltv.toLocaleString();
-    document.getElementById('grocery-ltv').textContent='$'+ltv.toLocaleString();
-    document.getElementById('grocery-spend').textContent='$'+val;
-  } else if(biz==='restaurant'){
-    var imp=Math.round(val*d.impRate);
-    var reservations=Math.round(val/18);
-    var rev=reservations*d.avgVal;
-    document.getElementById('restaurant-imp').textContent=imp.toLocaleString();
-    document.getElementById('restaurant-clicks').textContent=reservations;
-    document.getElementById('restaurant-rev').textContent='$'+rev.toLocaleString();
-    document.getElementById('restaurant-return').textContent='$'+rev.toLocaleString();
-    var ratio=rev>0?(rev/val).toFixed(2):'0';
-    document.getElementById('restaurant-ratio').textContent='$'+ratio;
-    document.getElementById('restaurant-spend').textContent='$'+val;
-    document.getElementById('restaurant-profit').textContent='$'+(rev-val).toLocaleString();
-  }
+window.calcFashion = function(val) {
+  val = parseInt(val, 10);
+  document.getElementById('fashion-bval').textContent = '$' + val + '/mo';
+  var imp = Math.round(val * 75), clicks = Math.round(imp * 0.04), orders = Math.round(clicks * 0.03), rev = orders * 50;
+  document.getElementById('f-imp').textContent = imp.toLocaleString();
+  document.getElementById('f-clicks').textContent = clicks.toLocaleString();
+  document.getElementById('f-orders').textContent = orders;
+  document.getElementById('f-rev').textContent = '$' + rev.toLocaleString();
+  document.getElementById('f-return').textContent = '$' + rev.toLocaleString();
+  document.getElementById('f-ratio').textContent = '$' + (rev / val).toFixed(2);
+  document.getElementById('f-spend').textContent = '$' + val;
+  document.getElementById('f-profit').textContent = '$' + (rev - val).toLocaleString();
 };
 
-// EMAIL
-window.sendPhase1Email=function(e){
+window.calcEvents = function(val) {
+  val = parseInt(val, 10);
+  document.getElementById('ev-bval').textContent = '$' + val + '/mo';
+  var imp = Math.round(val * 54), enq = Math.round(val / 50), book = Math.round(enq * 0.4), rev = book * 3000;
+  document.getElementById('ev-imp').textContent = imp.toLocaleString();
+  document.getElementById('ev-enq').textContent = enq;
+  document.getElementById('ev-book').textContent = book;
+  document.getElementById('ev-rev').textContent = '$' + rev.toLocaleString();
+  document.getElementById('ev-return').textContent = '$' + rev.toLocaleString();
+  document.getElementById('ev-ratio').textContent = '$' + (rev > 0 ? (rev / val).toFixed(1) : '0');
+  document.getElementById('ev-spend').textContent = '$' + val;
+  document.getElementById('ev-profit').textContent = '$' + (rev - val).toLocaleString();
+};
+
+window.calcCombined = function(val) {
+  val = parseInt(val, 10);
+  document.getElementById('cb-bval').textContent = '$' + val + '/mo';
+  var fashBudget = Math.round(val * 0.4), evBudget = Math.round(val * 0.6);
+  var fashRev = Math.round((fashBudget * 75 * 0.04 * 0.03) * 50);
+  var evRev = Math.round((evBudget / 50) * 0.4) * 3000;
+  var total = fashRev + evRev;
+  document.getElementById('cb-fash').textContent = '$' + fashRev.toLocaleString();
+  document.getElementById('cb-ev').textContent = '$' + evRev.toLocaleString();
+  document.getElementById('cb-total').textContent = '$' + total.toLocaleString();
+  document.getElementById('cb-return').textContent = '$' + total.toLocaleString();
+  document.getElementById('cb-spend').textContent = '$' + val;
+  document.getElementById('cb-ratio').textContent = (total > 0 ? (total / val).toFixed(1) : '0') + '×';
+};
+
+/* ── EMAIL ── */
+window.sendPhase1Email = function(e) {
   e.preventDefault();
-  var sel=document.querySelectorAll('#item-list .p-item.selected');
-  if(!sel.length){alert('Please select at least one deliverable.');return;}
-  var lines=[];
-  sel.forEach(function(el){lines.push('  - '+el.dataset.label);});
-  var total=document.getElementById('our-total').textContent;
-  var subj='Beyond Global Group — Phase 1 Selection';
-  var body='Hi David,\n\nHere is my Phase 1 selection for Beyond Global Group of Companies:\n\n'+lines.join('\n')+'\n\nTotal: '+total+'\n\nLooking forward to moving forward.';
-  window.location.href='mailto:david@dotxlabs.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  var sel = document.querySelectorAll('#item-list .p-item.selected');
+  if (!sel.length) { alert('Please select at least one deliverable.'); return; }
+  var lines = [];
+  sel.forEach(function(el) { lines.push('  - ' + el.dataset.label); });
+  var total = document.getElementById('our-total').textContent;
+  window.location.href = 'mailto:david@dotxlabs.com?subject=' + encodeURIComponent('Beyond Global Group — Phase 1 Selection') + '&body=' + encodeURIComponent('Hi David,\n\nHere is my Phase 1 selection for Beyond Global Group of Companies:\n\n' + lines.join('\n') + '\n\nTotal: ' + total + '\n\nLooking forward to moving forward.');
 };
 
-window.sendRetainerEmail=function(e){
+window.sendRetainerEmail = function(e) {
   e.preventDefault();
-  var subj='Beyond Global Group — Phase 2 Retainer Selection';
-  var body='Hi David,\n\nHere is my Phase 2 retainer selection:\n\n  - Plan: '+selRetName+'\n  - Monthly investment: $'+selRet.toLocaleString()+'\n\nLooking forward to moving forward.';
-  window.location.href='mailto:david@dotxlabs.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  window.location.href = 'mailto:david@dotxlabs.com?subject=' + encodeURIComponent('Beyond Global Group — Phase 2 Retainer Selection') + '&body=' + encodeURIComponent('Hi David,\n\nHere is my Phase 2 retainer selection:\n\n  - Plan: ' + selRetName + '\n  - Monthly investment: $' + selRet.toLocaleString() + '\n\nLooking forward to moving forward.');
 };
 
-renderBB('growth',3000);
+renderBB('growth', 3000);
 updateSummary();
 
 })();
