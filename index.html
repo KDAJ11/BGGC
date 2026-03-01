@@ -7,34 +7,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Rajdhani:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --purple:     #3B1F6B;
-  --purple-lt:  #5B3A9B;
-  --purple-xs:  #F0EBF8;
-  --purple-sm:  #E4D9F5;
-  --gold:       #B8861A;
-  --gold-lt:    #D4A830;
-  --gold-pale:  #F2D060;
-  --gold-bg:    #FDF6E3;
-  --white:      #FFFFFF;
-  --off-white:  #FAFAF7;
-  --warm-grey:  #F4F1EB;
-  --ink:        #1A1008;
-  --ink-soft:   #3A2E1C;
-  --muted:      #7A6E5C;
-  --muted-lt:   #B0A48C;
-  --border:     rgba(59,31,107,0.10);
-  --border-lt:  rgba(59,31,107,0.06);
-  --red:        #C0392B;
-  --red-bg:     #FDF1F0;
-  --green:      #1E7D4F;
-  --green-bg:   #EDF7F2;
+  --purple:    #3B1F6B;
+  --purple-lt: #5B3A9B;
+  --purple-xs: #F0EBF8;
+  --purple-sm: #E4D9F5;
+  --gold:      #B8861A;
+  --gold-lt:   #D4A830;
+  --gold-pale: #F2D060;
+  --gold-bg:   #FDF6E3;
+  --white:     #FFFFFF;
+  --off-white: #FAFAF7;
+  --warm-grey: #F4F1EB;
+  --ink:       #1A1008;
+  --ink-soft:  #3A2E1C;
+  --muted:     #7A6E5C;
+  --muted-lt:  #B0A48C;
+  --border:    rgba(59,31,107,0.10);
+  --border-lt: rgba(59,31,107,0.06);
+  --red:       #C0392B;
+  --red-bg:    #FDF1F0;
+  --green:     #1E7D4F;
+  --green-bg:  #EDF7F2;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Rajdhani',sans-serif;overflow-x:hidden;background:var(--off-white)}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;transition:background .4s,border-color .4s}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 52px;transition:background .4s}
 nav.lt{background:rgba(250,250,247,.97);border-bottom:1px solid var(--border)}
 nav.dk{background:rgba(59,31,107,.97);border-bottom:1px solid rgba(255,255,255,.08)}
 .nav-logo{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.22em}
@@ -48,43 +48,35 @@ nav.dk .ndot{background:rgba(255,255,255,.22)}
 nav.lt .ndot.active{background:var(--purple);width:20px;border-radius:3px}
 nav.dk .ndot.active{background:var(--gold-pale);width:20px;border-radius:3px}
 
-/* ── SLIDES ── */
+/* SLIDES */
 .slide{min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center;padding:108px 64px 76px;position:relative;overflow:hidden}
-.s-white {background:var(--white);color:var(--ink)}
-.s-off   {background:var(--off-white);color:var(--ink)}
-.s-warm  {background:var(--warm-grey);color:var(--ink)}
+.s-white{background:var(--white);color:var(--ink)}
+.s-off{background:var(--off-white);color:var(--ink)}
+.s-warm{background:var(--warm-grey);color:var(--ink)}
 .s-purple-xs{background:var(--purple-xs);color:var(--ink)}
-.s-purple{background:var(--purple);color:var(--white)}
 
-/* ── DECO ── */
+/* DECO */
 .deco-corner{position:absolute;width:90px;height:90px;pointer-events:none}
 .deco-corner.tl{top:24px;left:24px;border-top:2px solid rgba(59,31,107,.12);border-left:2px solid rgba(59,31,107,.12)}
 .deco-corner.tr{top:24px;right:24px;border-top:2px solid rgba(59,31,107,.12);border-right:2px solid rgba(59,31,107,.12)}
 .deco-corner.bl{bottom:24px;left:24px;border-bottom:2px solid rgba(59,31,107,.12);border-left:2px solid rgba(59,31,107,.12)}
 .deco-corner.br{bottom:24px;right:24px;border-bottom:2px solid rgba(59,31,107,.12);border-right:2px solid rgba(59,31,107,.12)}
-.s-purple .deco-corner{border-color:rgba(255,255,255,.12)}
 
-/* ── TYPOGRAPHY ── */
+/* TYPE */
 .section-tag{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--purple)}
 .section-tag::before{content:'';display:block;width:24px;height:1px;background:var(--purple)}
-.s-purple .section-tag{color:var(--gold-pale)}
-.s-purple .section-tag::before{background:var(--gold-pale)}
+.s-purple .section-tag,.purple-slide .section-tag{color:var(--gold-pale)}
+.s-purple .section-tag::before,.purple-slide .section-tag::before{background:var(--gold-pale)}
 h1.hero{font-family:'Playfair Display',serif;font-size:clamp(3.4rem,7.5vw,7.8rem);font-weight:900;line-height:.92;letter-spacing:-.02em;color:var(--purple)}
 h1.hero em{font-style:italic;color:var(--gold);display:block}
-.s-purple h1.hero{color:var(--white)}
-.s-purple h1.hero em{color:var(--gold-pale)}
 h2.stitle{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.6vw,3.4rem);font-weight:700;line-height:1.06;color:var(--purple)}
 h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
-.s-purple h2.stitle{color:var(--white)}
-.s-purple h2.stitle em{color:var(--gold-pale)}
 .body{font-size:1.02rem;line-height:1.74;font-weight:400;color:var(--ink-soft)}
-.s-purple .body{color:rgba(255,255,255,.68)}
 .body strong{color:var(--purple);font-weight:600}
 
-/* ── HERO S1 ── */
-#s1{background:linear-gradient(135deg,var(--white) 0%,var(--purple-xs) 60%,#E4D9F5 100%)}
+/* HERO */
 .hero-rule{width:64px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-pale));margin:26px auto}
-.hero-sub{font-family:'Rajdhani',sans-serif;font-size:.95rem;color:var(--muted);letter-spacing:.06em;font-weight:500;margin-top:6px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.65}
+.hero-sub{font-family:'Rajdhani',sans-serif;font-size:.95rem;color:var(--muted);letter-spacing:.06em;font-weight:500;max-width:600px;margin:6px auto 0;line-height:1.65}
 .badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:26px}
 .badge{border:1px solid var(--border);padding:5px 14px;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--purple);border-radius:2px;text-transform:uppercase;background:white}
 .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
@@ -92,44 +84,7 @@ h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
 .scroll-pulse{width:1px;height:32px;background:linear-gradient(to bottom,var(--purple),transparent);animation:pulse 2s ease infinite}
 @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.9}}
 
-/* ── TWO COL ── */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;max-width:1120px;width:100%;align-items:start}
-
-/* ── STAT BOXES ── */
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.sbox{padding:22px 18px;border-radius:4px;border:1px solid var(--border);background:var(--white);position:relative;overflow:hidden;transition:all .3s;box-shadow:0 2px 12px rgba(59,31,107,.05)}
-.sbox::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--gold))}
-.sbox:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(59,31,107,.1)}
-.snum{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--purple);line-height:1}
-.slbl{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;margin-top:4px;text-transform:uppercase;color:var(--muted)}
-.sdesc{font-size:.72rem;margin-top:3px;color:var(--muted-lt);line-height:1.4}
-
-/* ── CRED LIST ── */
-.cred-list{display:flex;flex-direction:column;gap:8px;margin-top:24px}
-.cred-item{display:flex;gap:12px;padding:12px 15px;border-radius:4px;border:1px solid var(--border);background:var(--white);transition:all .3s}
-.cred-item:hover{border-color:var(--purple-lt);box-shadow:0 4px 16px rgba(59,31,107,.08)}
-.cred-icon{font-size:1.1rem;margin-top:1px}
-.cred-title{font-size:.8rem;font-weight:700;color:var(--ink)}
-.cred-desc{font-size:.68rem;margin-top:2px;color:var(--muted);line-height:1.5}
-
-/* ── S3 STATS ── */
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px}
-.sg-box{background:var(--white);border:1px solid var(--border);padding:24px 20px;transition:all .3s}
-.sg-box:hover{border-color:var(--purple-lt);background:var(--purple-xs)}
-.sg-num{font-family:'Playfair Display',serif;font-size:2.9rem;font-weight:700;color:var(--purple);line-height:1;display:block}
-.sg-lbl{font-size:.73rem;color:var(--ink-soft);margin-top:8px;line-height:1.55;font-weight:500}
-.sg-lbl strong{color:var(--purple)}
-.sg-src{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--muted-lt);margin-top:5px}
-.insight-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
-.insight-card{border-left:3px solid var(--purple);padding:14px 17px;background:var(--purple-xs);border-radius:0 4px 4px 0}
-.insight-card p{font-size:.78rem;color:var(--ink-soft);line-height:1.68}
-.insight-card strong{color:var(--purple)}
-.coi-banner{margin-top:16px;padding:16px 22px;background:var(--red-bg);border:1px solid rgba(192,57,43,.2);border-radius:4px;display:flex;align-items:flex-start;gap:12px}
-.coi-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px}
-.coi-text{font-size:.77rem;color:var(--ink-soft);line-height:1.72}
-.coi-text strong{color:var(--red)}
-
-/* ── S4 FOUR BIZ ── */
+/* FOUR BIZ */
 .biz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .biz-card{padding:26px 20px 22px;border-right:1px solid var(--border);background:var(--white);position:relative;transition:all .35s}
 .biz-card:last-child{border-right:none}
@@ -154,30 +109,139 @@ h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
 .biz-stat-num{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--purple)}
 .biz-stat-lbl{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--muted);margin-top:3px}
 
-/* ── S5 ECOSYSTEM ── */
-.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:32px}
-.eco-col{background:var(--white);padding:24px 18px 20px;border:1px solid var(--border);border-radius:4px;transition:all .3s;position:relative;overflow:hidden}
-.eco-col:hover{border-color:var(--purple-lt);box-shadow:0 6px 24px rgba(59,31,107,.1);transform:translateY(-3px)}
-.eco-col::before{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--purple),var(--gold));margin-bottom:16px;border-radius:2px}
-.eco-icon{font-size:1.3rem;margin-bottom:9px;display:block}
-.eco-title{font-size:.82rem;font-weight:700;color:var(--purple);margin-bottom:9px}
-.eco-ul{list-style:none}
-.eco-ul li{font-size:.65rem;color:var(--muted);padding:3px 0;border-bottom:1px solid var(--border-lt);line-height:1.44}
-.eco-ul li::before{content:'→ ';color:var(--gold);font-size:.56rem}
-.eco-roi{margin-top:12px;padding:8px 10px;background:var(--purple-xs);border-radius:3px}
-.eco-roi p{font-size:.59rem;color:var(--purple);line-height:1.55;font-style:italic}
-/* phased badge */
-.eco-phase{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.08em;margin-bottom:8px}
-.phase-now{background:var(--purple);color:white}
-.phase-next{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold)}
-.phase-later{background:var(--warm-grey);color:var(--muted);border:1px solid var(--border)}
-/* compounding banner */
-.compound-banner{margin-top:20px;padding:16px 22px;background:var(--purple);border-radius:6px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
-.cb-icon{font-size:1.4rem}
-.cb-text{font-size:.78rem;color:rgba(255,255,255,.82);line-height:1.72}
-.cb-text strong{color:var(--gold-pale)}
+/* ── SHOPIFY SHOWCASE ── */
+.showcase-browser{border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(59,31,107,.08),0 20px 60px rgba(59,31,107,.12),0 0 0 1px var(--border);margin-top:20px;background:white}
+.scb-bar{background:#F8F8F8;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #EBEBEB}
+.scb-dots{display:flex;gap:6px}
+.scb-dots span{width:11px;height:11px;border-radius:50%;display:block}
+.scb-url{flex:1;background:white;border:1px solid #E0E0E0;border-radius:6px;padding:4px 12px;font-family:'DM Mono',monospace;font-size:.55rem;color:#555;text-align:center}
+.scb-nav{background:white;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid #F0F0F0;gap:16px}
+.scb-nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--purple);font-weight:700;white-space:nowrap;letter-spacing:-.01em}
+.scb-nav-links{display:flex;gap:16px;font-family:'DM Mono',monospace;font-size:.48rem;color:#999;letter-spacing:.13em}
+.scb-nav-active{color:var(--purple)!important;border-bottom:1.5px solid var(--gold);padding-bottom:1px}
+.scb-nav-right{display:flex;align-items:center;gap:12px;font-size:.75rem;color:#777}
+.scb-nav-cta{background:var(--purple);color:white;font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.14em;padding:6px 14px;border-radius:3px;cursor:pointer;white-space:nowrap}
+/* Page tabs inside browser */
+.scb-page-tabs{display:flex;gap:0;border-bottom:1px solid #EBEBEB;background:#FAFAFA}
+.scb-tab{padding:9px 22px;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:#999;border:none;background:none;cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.scb-tab.active{color:var(--purple);border-bottom-color:var(--purple);background:white}
+.scb-tab:hover:not(.active){color:var(--purple-lt);background:#F5F3FC}
+/* Pages */
+.scb-page{display:none}
+.scb-page.active{display:block}
 
-/* ── S6 DIFFERENTIATORS ── */
+/* FASHION PAGE */
+.scb-fashion-hero{display:grid;grid-template-columns:1fr 1fr;min-height:180px;background:linear-gradient(110deg,#faf8ff 0%,#f0ebf8 100%)}
+.scb-fh-text{padding:32px 36px;display:flex;flex-direction:column;justify-content:center}
+.scb-fh-eyebrow{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.22em;color:var(--gold);margin-bottom:8px}
+.scb-fh-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--purple);line-height:1}
+.scb-fh-title em{color:var(--gold)}
+.scb-fh-sub{font-family:'DM Mono',monospace;font-size:.45rem;letter-spacing:.12em;color:var(--muted);margin-top:8px}
+.scb-fh-btns{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.scb-btn-primary{background:var(--purple);color:white;font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.13em;padding:8px 18px;border-radius:3px;cursor:pointer;white-space:nowrap}
+.scb-btn-secondary{background:transparent;color:var(--purple);font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.13em;padding:8px 18px;border-radius:3px;border:1.5px solid var(--purple);cursor:pointer;white-space:nowrap}
+.scb-fh-visual{background:linear-gradient(135deg,var(--purple-sm),var(--purple-xs));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden}
+.scb-fh-img{font-size:3.5rem;filter:drop-shadow(0 4px 12px rgba(59,31,107,.2))}
+.scb-fh-tag{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.18em;color:var(--purple);background:white;padding:3px 10px;border-radius:20px}
+.scb-collections{padding:18px 28px;background:white;border-bottom:1px solid #F0F0F0}
+.scb-col-title{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.2em;color:var(--muted);margin-bottom:10px}
+.scb-col-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.scb-col-card{border:1px solid #EBEBEB;border-radius:6px;padding:10px 6px;text-align:center;background:#FAFAFA;transition:all .2s;cursor:pointer}
+.scb-col-card:hover{border-color:var(--purple);background:var(--purple-xs)}
+.c1:hover{border-color:#9B7AD4}.c2:hover{border-color:#3B1F6B}.c3:hover{border-color:#E2A84A}.c4:hover{border-color:#2E7D32}.c5:hover{border-color:#C0392B}.c6:hover{border-color:#1565C0}
+.scb-col-icon{font-size:1.1rem;margin-bottom:3px}
+.scb-col-name{font-family:'DM Mono',monospace;font-size:.42rem;letter-spacing:.1em;color:var(--purple);font-weight:700}
+.scb-col-count{font-size:.5rem;color:var(--muted-lt);margin-top:1px}
+.scb-product-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #F0F0F0}
+.scb-prod{padding:14px 16px;border-right:1px solid #F0F0F0;background:white;transition:background .2s}
+.scb-prod:last-child{border-right:none}
+.scb-prod:hover{background:#FAFAFA}
+.scb-prod-img{font-size:1.6rem;text-align:center;margin-bottom:7px;background:var(--warm-grey);border-radius:6px;padding:12px 0}
+.scb-prod-name{font-size:.64rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.scb-prod-price{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--purple);font-weight:700;margin-bottom:8px}
+.scb-prod-cta{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.1em;background:var(--purple);color:white;padding:5px 10px;text-align:center;border-radius:3px;cursor:pointer}
+
+/* EVENTS PAGE */
+.scb-events-hero{background:linear-gradient(120deg,#1a0d35,#3B1F6B);padding:36px 36px 28px;text-align:center}
+.scb-eh-badge{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.2em;color:var(--gold-pale);margin-bottom:10px;opacity:.8}
+.scb-eh-title{font-family:'Playfair Display',serif;font-size:1.9rem;color:white;font-weight:900;line-height:1.05}
+.scb-eh-title em{color:var(--gold-pale);font-style:italic}
+.scb-eh-sub{font-size:.65rem;color:rgba(255,255,255,.5);margin-top:8px;letter-spacing:.05em}
+.scb-eh-btns{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.scb-eh-btns .scb-btn-primary{background:var(--gold);color:white}
+.scb-eh-btns .scb-btn-secondary{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+.scb-events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid #F0F0F0}
+.scb-ev-pkg{padding:20px 20px 18px;border-right:1px solid #F0F0F0;background:white;transition:background .2s;position:relative}
+.scb-ev-pkg:last-child{border-right:none}
+.scb-ev-pkg:hover{background:var(--purple-xs)}
+.scb-ev-pkg-badge{position:absolute;top:0;right:12px;background:var(--gold);color:white;font-family:'DM Mono',monospace;font-size:.42rem;letter-spacing:.1em;padding:3px 8px;border-radius:0 0 4px 4px}
+.scb-ev-pkg-type{font-family:'DM Mono',monospace;font-size:.46rem;letter-spacing:.16em;color:var(--gold);margin-bottom:4px}
+.scb-ev-pkg-name{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--purple);font-weight:700;margin-bottom:6px}
+.scb-ev-pkg-desc{font-size:.6rem;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.scb-ev-pkg-price{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--purple);font-weight:700;margin-bottom:8px}
+.scb-ev-pkg-cta{display:inline-block;background:var(--purple);color:white;font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.1em;padding:5px 12px;border-radius:3px;cursor:pointer}
+.featured-pkg{background:var(--purple-xs)!important;border-left:2px solid var(--purple);border-right:2px solid var(--purple)}
+.scb-events-footer{display:grid;grid-template-columns:repeat(4,1fr);background:var(--warm-grey);border-top:1px solid #EBEBEB}
+.scb-ef-item{padding:12px;text-align:center;border-right:1px solid #EBEBEB}
+.scb-ef-item:last-child{border-right:none}
+.scb-ef-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--purple);font-weight:700}
+.scb-ef-lbl{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--muted);margin-top:2px}
+
+/* GROCERY PAGE */
+.scb-grocery-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;background:white}
+.scb-gh-text{padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.scb-gh-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--purple);font-weight:700;line-height:1.1}
+.scb-gh-title em{color:var(--green)}
+.scb-gh-sub{font-size:.65rem;color:var(--muted);margin-top:6px;line-height:1.6}
+.scb-gh-hours{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.scb-open-badge{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:var(--green);background:var(--green-bg);padding:4px 10px;border-radius:20px;border:1px solid rgba(30,125,79,.2)}
+.scb-gh-time{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--muted)}
+.scb-grocery-map{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);margin:20px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid rgba(30,125,79,.15);position:relative;overflow:hidden;min-height:130px}
+.scb-grocery-map::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(30,125,79,.04) 20px,rgba(30,125,79,.04) 21px),repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(30,125,79,.04) 20px,rgba(30,125,79,.04) 21px)}
+.scb-map-pin{font-size:1.8rem;position:relative;z-index:1}
+.scb-map-label{font-size:.66rem;font-weight:700;color:var(--ink);position:relative;z-index:1}
+.scb-map-addr{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--muted);position:relative;z-index:1}
+.scb-map-stars{font-size:.54rem;color:var(--ink-soft);position:relative;z-index:1}
+.scb-map-stars span{color:var(--muted)}
+.scb-grocery-cats{display:flex;gap:6px;padding:12px 20px;background:var(--warm-grey);border-top:1px solid #EBEBEB;flex-wrap:wrap}
+.scb-gcat{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--ink-soft);background:white;border:1px solid #EBEBEB;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.scb-grocery-specials{padding:16px 28px;background:white;border-top:1px solid #F0F0F0}
+.scb-specials-title{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:var(--gold);margin-bottom:10px}
+.scb-specials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.scb-special{background:var(--gold-bg);border:1px solid rgba(184,134,26,.15);border-radius:6px;padding:10px 10px;text-align:center}
+.scb-sp-icon{font-size:1.2rem;margin-bottom:3px}
+.scb-sp-name{font-size:.58rem;font-weight:700;color:var(--ink);line-height:1.3}
+.scb-sp-price{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--green);font-weight:700;margin-top:3px}
+
+/* RESTAURANT PAGE */
+.scb-rest-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;background:white}
+.scb-rh-content{padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.scb-rh-eyebrow{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.18em;color:var(--gold);margin-bottom:8px}
+.scb-rh-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--purple);font-weight:700;line-height:1.1}
+.scb-rh-title em{color:var(--gold)}
+.scb-rh-sub{font-size:.64rem;color:var(--muted);margin-top:6px;line-height:1.6}
+.scb-rh-btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.scb-rest-info{display:flex;flex-direction:column;gap:0;justify-content:center;padding:20px 28px 20px 16px}
+.scb-ri-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #F5F5F5}
+.scb-ri-item:last-child{border-bottom:none}
+.scb-ri-icon{font-size:.9rem;margin-top:1px;width:18px;text-align:center}
+.scb-ri-label{font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.12em;color:var(--muted);margin-bottom:1px}
+.scb-ri-val{font-size:.64rem;color:var(--ink);font-weight:600}
+.scb-menu-preview{padding:16px 28px;background:var(--off-white);border-top:1px solid #EBEBEB}
+.scb-menu-title{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:var(--purple);margin-bottom:10px}
+.scb-menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scb-menu-cat{background:white;border:1px solid #EBEBEB;border-radius:6px;padding:12px 14px}
+.scb-mc-name{font-size:.68rem;font-weight:700;color:var(--purple);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid #F0F0F0}
+.scb-mc-item{font-size:.59rem;color:var(--muted);padding:3px 0;line-height:1.4}
+
+/* ARCH CALLOUT STRIP */
+.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.arch-box{padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px}
+.arch-box-icon{font-size:1rem;margin-bottom:5px}
+.arch-box-title{font-size:.7rem;font-weight:700;color:var(--purple);margin-bottom:3px}
+.arch-box-desc{font-size:.59rem;color:var(--muted);line-height:1.55}
+
+/* DIFF */
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:36px}
 .diff-card{padding:22px 20px;border-radius:4px;background:var(--white);border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
 .diff-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
@@ -193,42 +257,7 @@ h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
 .diff-impact{font-size:.63rem;margin-top:7px;padding:7px 10px;border-top:1px solid var(--border-lt);color:var(--muted)}
 .diff-impact strong{color:var(--purple)}
 
-/* ── S7 ARCHITECTURE ── */
-.single-browser{background:#0F0A1A;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 32px 80px rgba(0,0,0,.22),0 0 0 1px rgba(59,31,107,.2);margin-top:20px}
-.sb-bar{background:#1a1525;padding:10px 14px;display:flex;align-items:center;gap:9px}
-.sb-dots{display:flex;gap:5px}
-.sb-dot{width:9px;height:9px;border-radius:50%}
-.sb-url{flex:1;background:#100d1a;border-radius:3px;padding:3px 10px;font-family:'DM Mono',monospace;font-size:.55rem;color:#666}
-.sb-nav{background:#09050f;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;border-bottom:1px solid rgba(255,255,255,.06)}
-.sb-links{display:flex;gap:10px;font-family:'DM Mono',monospace;font-size:.45rem;color:rgba(255,255,255,.3);letter-spacing:.14em}
-.sb-links .active-link{color:rgba(255,255,255,.85);border-bottom:1px solid var(--gold)}
-.sb-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-pale);font-style:italic}
-.sb-cta{font-size:.45rem;padding:4px 12px;background:var(--purple);color:white;letter-spacing:.1em;border-radius:2px;font-weight:700;font-family:'DM Mono',monospace}
-.sb-hero{background:linear-gradient(135deg,#09050f,#1A0D35);padding:30px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.05)}
-.sb-ht{font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1.1}
-.sb-ht em{color:var(--gold-pale);font-style:italic}
-.sb-tag{font-size:.46rem;color:rgba(184,134,26,.6);letter-spacing:.2em;margin-top:8px;font-family:'DM Mono',monospace}
-.sb-sections{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04)}
-.sb-sec{background:#0d0a18;padding:14px 10px;text-align:center;transition:background .2s;cursor:default}
-.sb-sec:hover{background:#160f28}
-.sb-sec-i{font-size:1.1rem;margin-bottom:5px}
-.sb-sec-t{font-size:.48rem;color:rgba(255,255,255,.65);letter-spacing:.12em;font-family:'DM Mono',monospace;font-weight:700}
-.sb-sec-s{font-size:.42rem;color:rgba(255,255,255,.28);margin-top:2px}
-.sb-sec.active-sec{background:#1E0F3A}
-.sb-sec.active-sec .sb-sec-t{color:var(--gold-pale)}
-/* arch callouts */
-.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
-.arch-box{padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:4px}
-.arch-box-icon{font-size:1rem;margin-bottom:5px}
-.arch-box-title{font-size:.7rem;font-weight:700;color:var(--purple);margin-bottom:3px}
-.arch-box-desc{font-size:.59rem;color:var(--muted);line-height:1.55}
-/* shopify page note */
-.shopify-note{margin-bottom:18px;padding:14px 20px;background:var(--purple-xs);border:1px solid var(--border);border-radius:4px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
-.sn-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;color:var(--purple);text-transform:uppercase;margin-bottom:4px}
-.sn-text{font-size:.74rem;color:var(--ink-soft);line-height:1.68}
-.sn-text strong{color:var(--purple)}
-
-/* ── S8 MARKETING ENGINE ── */
+/* MARKETING ENGINE */
 .engine-layers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
 .eng-layer{background:var(--white);padding:26px 20px;border:1px solid var(--border);border-radius:4px;transition:all .3s;position:relative}
 .eng-layer:hover{border-color:var(--purple-lt);box-shadow:0 6px 22px rgba(59,31,107,.09)}
@@ -242,11 +271,10 @@ h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
 .eng-ul li::before{content:'✓ ';color:var(--green);font-size:.58rem}
 .eng-without{margin-top:12px;padding:9px 12px;background:var(--red-bg);border-left:2px solid rgba(192,57,43,.3)}
 .eng-without p{font-size:.61rem;color:var(--red);line-height:1.6}
-/* throttle section */
 .throttle-title{font-size:.8rem;font-weight:700;color:var(--purple);margin-bottom:12px;letter-spacing:.02em}
 .throttle-phases{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
-.tp{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:12px;padding:11px 16px;border-radius:4px;border:1px solid var(--border);background:var(--white)}
-.tp-phase{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.1em;font-weight:700}
+.tp{display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:12px;padding:11px 16px;border-radius:4px;border:1px solid var(--border);background:var(--white)}
+.tp-phase{font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.08em;font-weight:700}
 .tp.now .tp-phase{color:var(--purple)}
 .tp.next .tp-phase{color:var(--gold)}
 .tp.later .tp-phase{color:var(--muted)}
@@ -255,7 +283,6 @@ h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
 .tp-roas{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--green);font-weight:600;text-align:right;white-space:nowrap}
 .tp.now{border-color:var(--purple);background:var(--purple-xs)}
 .tp.next{border-color:var(--gold);background:var(--gold-bg)}
-/* synergy */
 .synergy-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;border:1px solid var(--border);border-radius:6px;overflow:hidden}
 .syn-box{background:var(--white);padding:16px 18px;text-align:center}
 .syn-arrow{display:flex;align-items:center;justify-content:center;padding:0 8px;color:var(--gold);font-size:1.1rem;background:var(--warm-grey)}
@@ -263,11 +290,8 @@ h2.stitle em{font-style:italic;color:var(--gold);font-weight:400}
 .syn-title{font-size:.7rem;font-weight:700;color:var(--purple);margin-bottom:3px}
 .syn-desc{font-size:.58rem;color:var(--muted);line-height:1.45}
 .syn-result{font-family:'DM Mono',monospace;font-size:.53rem;color:var(--green);margin-top:5px}
-.missing-banner{padding:14px 20px;background:var(--red-bg);border:1px solid rgba(192,57,43,.2);border-radius:4px;display:flex;gap:12px;align-items:flex-start;margin-top:16px}
-.miss-text{font-size:.76rem;color:var(--ink-soft);line-height:1.72}
-.miss-text strong{color:var(--red)}
 
-/* ── S9 ROAS ── */
+/* ROAS */
 .roas-tabs{display:flex;gap:3px;margin-bottom:24px;border:1px solid var(--border);border-radius:5px;padding:3px;background:var(--white);width:fit-content}
 .r-tab{padding:7px 20px;font-size:.68rem;font-weight:700;letter-spacing:.07em;border-radius:3px;cursor:pointer;transition:all .25s;color:var(--muted);border:none;background:none;font-family:'Rajdhani',sans-serif}
 .r-tab.active{background:var(--purple);color:white}
@@ -303,7 +327,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .roas-insight.seo strong{color:var(--green)}
 .roas-disclaimer{font-family:'DM Mono',monospace;font-size:.51rem;color:var(--muted-lt);margin-top:14px;line-height:1.65}
 
-/* ── S10 TIMELINE ── */
+/* TIMELINE */
 .phase-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;position:relative}
 .phase-track::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent)}
 .phase{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px}
@@ -322,7 +346,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .tf-num{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--purple);line-height:1}
 .tf-lbl{font-family:'DM Mono',monospace;font-size:.51rem;color:var(--muted);margin-top:4px}
 
-/* ── S11 PRICING ── */
+/* PRICING */
 .price-intro{font-size:.98rem;color:var(--muted);max-width:560px;line-height:1.75;margin:14px 0 28px}
 .price-tabs{display:flex;gap:3px;margin-bottom:24px;border:1px solid var(--border);border-radius:5px;padding:3px;background:var(--white);width:fit-content}
 .p-tab{padding:7px 20px;font-size:.68rem;font-weight:700;letter-spacing:.07em;border-radius:3px;cursor:pointer;transition:all .25s;color:var(--muted);border:none;background:none;font-family:'Rajdhani',sans-serif}
@@ -362,13 +386,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .r-ul{list-style:none}
 .r-ul li{font-size:.67rem;color:var(--ink-soft);padding:3px 0;border-bottom:1px solid var(--border-lt);line-height:1.4}
 .r-ul li::before{content:'✓ ';color:var(--gold);font-size:.6rem}
+.r-ad-note{margin-top:10px;padding:7px 10px;background:var(--gold-bg);border:1px solid rgba(184,134,26,.2);border-radius:3px;font-size:.59rem;color:var(--gold);line-height:1.5;font-family:'DM Mono',monospace}
 .bb{margin-top:16px;border:1px solid var(--border);border-radius:5px;overflow:hidden;background:var(--white)}
 .bb-hdr{background:var(--purple);padding:13px 20px;display:flex;align-items:center;justify-content:space-between}
 .bb-title{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.16em;color:rgba(255,255,255,.55);text-transform:uppercase}
 .bb-total{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold-pale)}
 .bb-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.12em;color:var(--muted);padding:7px 20px;background:var(--warm-grey);border-bottom:1px solid var(--border)}
 .bb-rows{padding:4px 0}
-.bb-row{display:grid;grid-template-columns:190px 1fr 68px 50px;align-items:center;gap:10px;padding:8px 20px;border-bottom:1px solid var(--border-lt);transition:background .2s}
+.bb-row{display:grid;grid-template-columns:220px 1fr 68px 50px;align-items:center;gap:10px;padding:8px 20px;border-bottom:1px solid var(--border-lt);transition:background .2s}
 .bb-row:last-child{border-bottom:none}
 .bb-row:hover{background:var(--warm-grey)}
 .bb-cat{font-size:.7rem;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
@@ -377,8 +402,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .bb-amt{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--ink);font-weight:600;text-align:right}
 .bb-pct{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--muted-lt);text-align:right}
 
-/* ── S12 NEXT STEPS ── */
-#s12{background:linear-gradient(135deg,var(--purple) 0%,#2D1755 100%)}
+/* NEXT STEPS */
 .ns-steps{display:flex;flex-direction:column;gap:0;margin-top:36px;margin-bottom:28px}
 .ns-step{display:flex;gap:0;position:relative;padding-bottom:28px}
 .ns-step:last-child{padding-bottom:0}
@@ -394,7 +418,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .email-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:white;color:var(--purple);border:none;border-radius:4px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.07em;transition:all .3s;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.18)}
 .email-btn:hover{background:var(--gold-pale);transform:translateY(-2px)}
 
-/* ── REVEAL ── */
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
 .reveal.on{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.05s}.rd2{transition-delay:.2s}.rd3{transition-delay:.35s}.rd4{transition-delay:.5s}
@@ -402,18 +426,23 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 .fade-in{opacity:0;animation:fadeUp .9s forwards}
 .d1{animation-delay:.15s}.d2{animation-delay:.38s}.d3{animation-delay:.6s}.d4{animation-delay:.82s}
 
+/* insight / coi shared */
+.insight-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.insight-card{border-left:3px solid var(--purple);padding:14px 17px;background:var(--purple-xs);border-radius:0 4px 4px 0}
+.insight-card p{font-size:.78rem;color:var(--ink-soft);line-height:1.68}
+.insight-card strong{color:var(--purple)}
+
 @media(max-width:900px){
   .slide{padding:80px 22px 56px}
-  .two-col,.stat-grid,.insight-row,.phase-track,.ret-grid,.diff-grid,.eco-grid,.engine-layers,.roas-panel.active,.synergy-row{grid-template-columns:1fr}
-  .biz-grid,.biz-footer,.sb-sections,.arch-grid{grid-template-columns:repeat(2,1fr)}
+  .biz-grid,.biz-footer,.scb-col-grid,.scb-product-row,.scb-events-grid,.scb-events-footer,.scb-specials-grid,.scb-menu-grid,.arch-grid,.diff-grid,.engine-layers,.roas-panel.active,.ret-grid,.phase-track,.synergy-row{grid-template-columns:1fr!important}
+  .scb-fashion-hero,.scb-grocery-hero,.scb-rest-hero{grid-template-columns:1fr}
   nav{padding:14px 22px}
-  .syn-arrow{display:none}
+  .tp{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="main-nav" class="lt">
   <div class="nav-logo">DOT<em>x</em>LABS</div>
   <div class="nav-dots" id="nav-dots">
@@ -426,9 +455,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
     <div class="ndot" data-s="s7"></div>
     <div class="ndot" data-s="s8"></div>
     <div class="ndot" data-s="s9"></div>
-    <div class="ndot" data-s="s10"></div>
-    <div class="ndot" data-s="s11"></div>
-    <div class="ndot" data-s="s12"></div>
   </div>
 </nav>
 
@@ -437,85 +463,30 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
   <div class="deco-corner tl"></div><div class="deco-corner tr"></div>
   <div class="deco-corner bl"></div><div class="deco-corner br"></div>
   <div style="position:relative;z-index:1;max-width:860px">
-    <p class="eyebrow fade-in d1" style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--purple);margin-bottom:18px">Prepared exclusively for Beyond Global Group of Companies</p>
+    <p class="fade-in d1" style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--purple);margin-bottom:18px">Prepared exclusively for Beyond Global Group of Companies</p>
     <h1 class="hero fade-in d2">One Group.<br><em>Fully Found.</em></h1>
     <div class="hero-rule fade-in d3"></div>
     <p class="hero-sub fade-in d3">A complete digital growth strategy for your fashion store, event centre, grocery, and restaurant — all under one premium Shopify presence, built to bring customers across every business.</p>
     <div class="badges fade-in d4">
-      <span class="badge">Fashion & Lifestyle</span>
+      <span class="badge">Fashion &amp; Lifestyle</span>
       <span class="badge">Event Centre</span>
       <span class="badge">Grocery Store</span>
       <span class="badge">Restaurant</span>
       <span class="badge">Shopify Premium</span>
-      <span class="badge">SEO & Local Search</span>
+      <span class="badge">SEO &amp; Local Search</span>
       <span class="badge">Paid Ads</span>
     </div>
   </div>
   <div class="scroll-cue"><span>Scroll to explore</span><div class="scroll-pulse"></div></div>
 </section>
 
-<!-- S2: WHO WE ARE -->
+<!-- S2: FOUR BUSINESSES -->
 <section class="slide s-white" id="s2">
-  <div class="two-col">
-    <div class="reveal rd1">
-      <div class="section-tag">Who We Are</div>
-      <h2 class="stitle">Built for growth.<br><em>Obsessed with results.</em></h2>
-      <p class="body" style="margin-top:18px">DOTxLabs is a Toronto-based AI-powered digital growth agency. We specialise in helping multi-business operators like Beyond Global build a unified digital presence that works across every venture — one login, one strategy, one team.</p>
-      <div class="cred-list">
-        <div class="cred-item"><div class="cred-icon">🛒</div><div><div class="cred-title">Shopify Development & Migration</div><div class="cred-desc">Premium theme builds, store consolidations, and custom page development — e-commerce that converts and scales.</div></div></div>
-        <div class="cred-item"><div class="cred-icon">📍</div><div><div class="cred-title">Local SEO & Google Presence</div><div class="cred-desc">We get businesses found on Google Maps and local search — exactly where GTA customers look before spending money.</div></div></div>
-        <div class="cred-item"><div class="cred-icon">📣</div><div><div class="cred-title">Digital Marketing & Paid Ads</div><div class="cred-desc">Meta and Google campaigns — throttled intelligently across your four businesses to maximise ROAS at every stage.</div></div></div>
-      </div>
-    </div>
-    <div class="reveal rd2">
-      <div class="stat-grid">
-        <div class="sbox"><div class="snum">6+</div><div class="slbl">Years in Business</div><div class="sdesc">Founded 2019, serving Toronto, GTA & beyond</div></div>
-        <div class="sbox"><div class="snum">40%</div><div class="slbl">Avg Conversion Lift</div><div class="sdesc">Measured across client projects</div></div>
-        <div class="sbox"><div class="snum">1</div><div class="slbl">Point of Contact</div><div class="sdesc">One team. One invoice. Zero chaos.</div></div>
-        <div class="sbox"><div class="snum">∞</div><div class="slbl">Commitment</div><div class="sdesc">Your growth is our mission, start to finish.</div></div>
-      </div>
-      <div style="margin-top:12px;padding:14px 18px;background:var(--purple-xs);border:1px solid var(--border);border-radius:4px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:6px">What this means for Beyond Global specifically</div>
-        <div style="font-size:.67rem;color:var(--ink-soft);line-height:1.7">Four businesses, zero digital presence today. That means four untapped revenue streams — and competitors who are already ranking for the searches your customers are making right now. We've done this for multi-venture operators before. We know what to build first, what to throttle, and how to compound the results over time.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- S3: THE OPPORTUNITY -->
-<section class="slide s-warm" id="s3">
-  <div style="max-width:1120px;width:100%">
-    <div class="reveal rd1">
-      <div class="section-tag">The Opportunity</div>
-      <h2 class="stitle">Your GTA customers are searching.<br><em>They can't find you.</em></h2>
-      <p class="body" style="margin-top:14px;max-width:600px;margin-bottom:32px">Across all four businesses, the same problem exists — no digital presence means customers go to your competitors without ever knowing Beyond Global exists.</p>
-    </div>
-    <div class="stats-grid reveal rd2">
-      <div class="sg-box"><span class="sg-num">97%</span><div class="sg-lbl">of consumers search online before visiting a <strong>local business in Canada</strong></div><div class="sg-src">BrightLocal 2024</div></div>
-      <div class="sg-box"><span class="sg-num">76%</span><div class="sg-lbl">of local searches lead to an <strong>in-person visit within 24 hours</strong></div><div class="sg-src">Google</div></div>
-      <div class="sg-box"><span class="sg-num">64%</span><div class="sg-lbl">of customers click the <strong>top 3 results</strong> — businesses below that get almost no traffic</div><div class="sg-src">Search Engine Journal</div></div>
-      <div class="sg-box"><span class="sg-num">4×</span><div class="sg-lbl">more leads from businesses with <strong>complete Google profiles</strong> vs. incomplete</div><div class="sg-src">Google</div></div>
-      <div class="sg-box"><span class="sg-num">88%</span><div class="sg-lbl">of consumers <strong>trust online reviews</strong> as much as personal recommendations</div><div class="sg-src">BrightLocal</div></div>
-      <div class="sg-box"><span class="sg-num">$0</span><div class="sg-lbl"><strong>current digital investment</strong> across any of the four businesses — every month is lost ground</div><div class="sg-src">Beyond Global — Today</div></div>
-    </div>
-    <div class="insight-row reveal rd3">
-      <div class="insight-card"><p>The GTA is one of the most competitive local markets in Canada. <strong>Every week without a digital presence</strong> is a week your competitors capture customers who would have chosen you.</p></div>
-      <div class="insight-card"><p>The good news: <strong>most of your direct competitors are also underinvested in digital.</strong> Acting now means owning your category in search before they do — and that advantage compounds.</p></div>
-    </div>
-    <div class="coi-banner reveal rd4">
-      <div class="coi-icon">⚠️</div>
-      <div class="coi-text"><strong>The cost of inaction isn't zero — it's compounding.</strong> Every month without SEO is a month your competitors build rankings you'll have to fight to take back. A website without marketing is a storefront with no signs and no address. It exists, but nobody finds it.</div>
-    </div>
-  </div>
-</section>
-
-<!-- S4: FOUR BUSINESSES -->
-<section class="slide s-white" id="s4">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">The Four Pillars</div>
-      <h2 class="stitle">One Shopify store.<br><em>Four businesses. Zero confusion.</em></h2>
-      <p class="body" style="margin-top:12px;max-width:640px">All four businesses live under one premium Shopify store — one login, one checkout, one brand. The fashion store is the e-commerce engine at the core. The other three get dedicated, full-page experiences within the same store. When any of them scales far enough, it earns its own standalone site.</p>
+      <h2 class="stitle">One Shopify store.<br><em>Four digital opportunities.</em></h2>
+      <p class="body" style="margin-top:14px;max-width:640px">All four businesses under one premium Shopify store — one domain, one login, one brand. Fashion is the native e-commerce engine. The other three get full dedicated pages. Each can branch to its own site when volume justifies it.</p>
     </div>
     <div class="biz-grid reveal rd2">
       <div class="biz-card shopify-core">
@@ -523,202 +494,293 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
         <div class="biz-num">01</div>
         <span class="biz-icon">👗</span>
         <div class="biz-name">Fashion Store — E-Commerce Engine</div>
-        <div class="biz-desc">Beyond Limits Global — women's, men's, kids', footwear, home & living, delectables. Full product catalogue, collections, checkout, and Google Shopping. This is the revenue engine everything else is built around.</div>
+        <div class="biz-desc">Beyond Limits Global — women's, men's, kids', footwear, home &amp; living, delectables. Full product catalogue, collections, checkout, and Google Shopping.</div>
         <div class="biz-tags">
           <div class="biz-tag">Premium theme migration</div>
           <div class="biz-tag">All 6 category collections</div>
           <div class="biz-tag">Google Shopping integration</div>
           <div class="biz-tag">Abandoned cart automation</div>
         </div>
-        <div class="biz-opp"><p>🎯 Direct online revenue from day one. Every ad dollar is trackable to a sale — highest ROAS of all four. Marketing starts here.</p></div>
+        <div class="biz-opp"><p>🎯 Direct online revenue from day one. Every ad dollar is trackable to a sale. Marketing starts here.</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-num">02</div>
         <span class="biz-icon">🎉</span>
         <div class="biz-name">Event Centre — Shopify Page</div>
-        <div class="biz-desc">A full dedicated page within the Shopify store — package tiers, capacity info, photo gallery, enquiry form, and WhatsApp CTA. Corporate planners and families search Google before booking any venue.</div>
+        <div class="biz-desc">A full dedicated page within the store — packages, capacity, photo gallery, enquiry form, and WhatsApp CTA. Corporate planners search Google before booking any venue.</div>
         <div class="biz-tags">
           <div class="biz-tag">Custom Shopify landing page</div>
-          <div class="biz-tag">Enquiry & booking flow</div>
+          <div class="biz-tag">Enquiry &amp; booking flow</div>
           <div class="biz-tag">Local SEO — "event venues Toronto"</div>
         </div>
-        <div class="biz-opp"><p>🎯 One booked event = $2,000–$8,000. When volume justifies it, this branches to its own site. For now, one store wins.</p></div>
+        <div class="biz-opp"><p>🎯 One booked event = $2,000–$8,000. When volume justifies it, this branches to its own site.</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-num">03</div>
         <span class="biz-icon">🛒</span>
         <div class="biz-name">Grocery Store — Shopify Page</div>
-        <div class="biz-desc">Location, hours, Google Maps embed, weekly specials, and a community feel — all as a dedicated page. Customers check online before they drive. This page makes sure they drive to you.</div>
+        <div class="biz-desc">Location, hours, Google Maps embed, weekly specials — all as a dedicated page. Customers check online before they drive. This page makes sure they drive to you.</div>
         <div class="biz-tags">
           <div class="biz-tag">Custom Shopify landing page</div>
           <div class="biz-tag">Google Business Profile optimisation</div>
-          <div class="biz-tag">Local SEO & Maps ranking</div>
+          <div class="biz-tag">Local SEO &amp; Maps ranking</div>
         </div>
-        <div class="biz-opp"><p>🎯 One loyal grocery customer = $3,000–$6,000/year lifetime value. Local SEO and Maps do the heavy lifting here.</p></div>
+        <div class="biz-opp"><p>🎯 One loyal grocery customer = $3,000–$6,000/year lifetime value.</p></div>
       </div>
       <div class="biz-card">
         <div class="biz-num">04</div>
         <span class="biz-icon">🍽️</span>
         <div class="biz-name">Restaurant — Shopify Page</div>
-        <div class="biz-desc">Digital menu, hours, reservation link (WhatsApp or booking widget), and Google presence. 90% of diners research online before choosing where to eat — this page captures every one who finds Beyond Global.</div>
+        <div class="biz-desc">Digital menu, hours, reservation link, and Google presence. 90% of diners research online before choosing where to eat — this page captures every one who finds Beyond Global.</div>
         <div class="biz-tags">
           <div class="biz-tag">Custom Shopify landing page</div>
-          <div class="biz-tag">Digital menu & reservation link</div>
-          <div class="biz-tag">Google Maps & local SEO</div>
+          <div class="biz-tag">Digital menu &amp; reservation link</div>
+          <div class="biz-tag">Google Maps &amp; local SEO</div>
         </div>
-        <div class="biz-opp"><p>🎯 Restaurant searches in Toronto: 40,000+/month. Every missing review and ranking costs you tables.</p></div>
+        <div class="biz-opp"><p>🎯 Restaurant searches in Toronto: 40,000+/month. Every missing ranking costs you tables.</p></div>
       </div>
     </div>
     <div class="biz-footer reveal rd3">
       <div class="biz-stat"><div class="biz-stat-num">1</div><div class="biz-stat-lbl">Shopify Store</div></div>
       <div class="biz-stat"><div class="biz-stat-num">4</div><div class="biz-stat-lbl">Business Experiences</div></div>
       <div class="biz-stat"><div class="biz-stat-num">4</div><div class="biz-stat-lbl">Google Profiles</div></div>
-      <div class="biz-stat"><div class="biz-stat-num">1</div><div class="biz-stat-lbl">Login, Invoice & Team</div></div>
+      <div class="biz-stat"><div class="biz-stat-num">1</div><div class="biz-stat-lbl">Login, Invoice &amp; Team</div></div>
     </div>
   </div>
 </section>
 
-<!-- S5: ECOSYSTEM -->
-<section class="slide s-off" id="s5">
-  <div style="max-width:1120px;width:100%">
-    <div class="reveal rd1">
-      <div class="section-tag">Everything We Cover</div>
-      <h2 class="stitle">One partner.<br><em>All bases covered.</em></h2>
-      <p class="body" style="margin-top:12px;max-width:560px;margin-bottom:28px">Every pillar feeds the next. Brand builds trust. Shopify converts it. SEO brings in customers for free. Ads accelerate what's already working. Remove any one and the machine leaks.</p>
-    </div>
-    <div class="eco-grid reveal rd2">
-      <div class="eco-col">
-        <span class="eco-phase phase-now">▶ Phase 1 — Now</span>
-        <div class="eco-icon">🛒</div>
-        <div class="eco-title">Premium Shopify Build</div>
-        <ul class="eco-ul">
-          <li>Premium theme migration</li>
-          <li>Fashion store — all 6 collections</li>
-          <li>Event centre page</li>
-          <li>Grocery page</li>
-          <li>Restaurant page</li>
-          <li>Mobile-first, fast checkout</li>
-        </ul>
-        <div class="eco-roi"><p>Without this: no online presence across any of the four businesses. Every competitor with a site is winning customers you can't see.</p></div>
-      </div>
-      <div class="eco-col">
-        <span class="eco-phase phase-now">▶ Phase 1 — Now</span>
-        <div class="eco-icon">📍</div>
-        <div class="eco-title">Local SEO — All 4</div>
-        <ul class="eco-ul">
-          <li>4 Google Business Profiles</li>
-          <li>Google Maps optimisation</li>
-          <li>Local keyword targeting per biz</li>
-          <li>Schema markup per business</li>
-          <li>Review generation strategy</li>
-        </ul>
-        <div class="eco-roi"><p>Without this: customers in your neighbourhood can't find you — even when they're searching for exactly what you offer.</p></div>
-      </div>
-      <div class="eco-col">
-        <span class="eco-phase phase-next">► Phase 2 — Fashion First</span>
-        <div class="eco-icon">📣</div>
-        <div class="eco-title">Paid Ads — Phased</div>
-        <ul class="eco-ul">
-          <li>Fashion store ads first (direct ROAS)</li>
-          <li>Event centre ads second (high ticket)</li>
-          <li>Restaurant & grocery on SEO/organic</li>
-          <li>Meta & Google campaigns</li>
-          <li>Retargeting across all four</li>
-        </ul>
-        <div class="eco-roi"><p>Without this: SEO builds slowly. Ads put the fashion store in front of buyers today — proving return before expanding to the other three.</p></div>
-      </div>
-      <div class="eco-col">
-        <span class="eco-phase phase-later">◌ Phase 2 — Ongoing</span>
-        <div class="eco-icon">📧</div>
-        <div class="eco-title">Email & Retention</div>
-        <ul class="eco-ul">
-          <li>Abandoned cart (fashion store)</li>
-          <li>Event enquiry follow-up sequences</li>
-          <li>Post-visit re-engagement</li>
-          <li>New arrivals & promotions</li>
-          <li>Monthly growth dashboards</li>
-        </ul>
-        <div class="eco-roi"><p>Without this: you pay to acquire a customer once, they visit once, and you never bring them back. Retention is where margin lives.</p></div>
-      </div>
-    </div>
-    <div class="compound-banner reveal rd3">
-      <div class="cb-icon">⚡</div>
-      <div class="cb-text"><strong>Each pillar makes the others stronger.</strong> A premium Shopify store without SEO is invisible. SEO without a great site wastes every click. Ads without email throw money away after the first visit. And a business that cross-promotes all four ventures gets compounding lifetime value that none could achieve alone.</div>
-    </div>
-  </div>
-</section>
-
-<!-- S6: DIFFERENTIATORS -->
-<section class="slide s-warm" id="s6">
+<!-- S3: DIFFERENTIATORS -->
+<section class="slide s-warm" id="s3">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">What Sets Us Apart</div>
       <h2 class="stitle">Beyond the <em>expected.</em></h2>
     </div>
     <div class="diff-grid reveal rd2">
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🏢</span><span class="diff-pill">Group Strategy</span></div><div class="diff-title">We Treat You as a Group, Not Four Clients</div><div class="diff-desc">One Shopify store, one strategy across all four — shared brand equity, cross-promotion, and SEO that strengthens the Beyond Global name on every search.</div><div class="diff-without"><strong>Without this:</strong> four disconnected presences that don't reinforce each other, and four times the coordination overhead.</div><div class="diff-impact">Impact: <strong>Each business makes the others stronger</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📍</span><span class="diff-pill">Local Dominance</span></div><div class="diff-title">Own Your GTA Neighbourhood on Google</div><div class="diff-desc">Four Google Business Profiles — one per business — so Beyond Global shows up in four search categories simultaneously from one domain.</div><div class="diff-without"><strong>Without this:</strong> you appear nowhere on Maps. Your competitor with a complete profile gets the walk-in you never knew you lost.</div><div class="diff-impact">Impact: <strong>4× the Google Maps visibility</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🔁</span><span class="diff-pill">Cross-Business</span></div><div class="diff-title">Customers Who Visit One Discover All Four</div><div class="diff-desc">Restaurant customers see the event centre. Grocery shoppers find the fashion store. Every page on the Shopify store links to every other business.</div><div class="diff-without"><strong>Without this:</strong> customers stay siloed in one business, never knowing the other three exist — leaving lifetime value on the table.</div><div class="diff-impact">Impact: <strong>Higher customer lifetime value across all four</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">⭐</span><span class="diff-pill">Reputation</span></div><div class="diff-title">Reviews Built on Autopilot</div><div class="diff-desc">Automated review requests after great meals, events, and grocery runs. Reviews compound. Reputation builds. Google rankings rise — for free.</div><div class="diff-without"><strong>Without this:</strong> competitors with 50+ reviews rank above you even if your product is better. Reviews are the silent sales team you never hired.</div><div class="diff-impact">Impact: <strong>More 5-star reviews, more organic conversions</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📊</span><span class="diff-pill">Transparency</span></div><div class="diff-title">One Dashboard. Every Business. Plain English.</div><div class="diff-desc">One consolidated monthly report — Shopify sales, traffic, rankings, and ad performance across all four businesses. No jargon. No surprises.</div><div class="diff-without"><strong>Without this:</strong> you can't see what's working across which businesses, so you can't double down or cut what's wasting money.</div><div class="diff-impact">Impact: <strong>Always know where every dollar goes</strong></div></div>
-      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🚀</span><span class="diff-pill">Speed</span></div><div class="diff-title">Momentum From Week One</div><div class="diff-desc">Google Profiles live in week 1. Full Shopify store with all four pages by week 6. Fashion ads running by week 3. Results before most agencies finish their kickoff deck.</div><div class="diff-without"><strong>Without urgency:</strong> every week delayed is market share gifted to whoever moves first in your neighbourhood.</div><div class="diff-impact">Impact: <strong>Compounding advantage starts immediately</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🏢</span><span class="diff-pill">Group Strategy</span></div><div class="diff-title">We Treat You as a Group, Not Four Clients</div><div class="diff-desc">One Shopify store, one strategy across all four — shared brand equity, cross-promotion, and SEO that strengthens the Beyond Global name on every search.</div><div class="diff-without"><strong>Without this:</strong> four disconnected presences that don't reinforce each other.</div><div class="diff-impact">Impact: <strong>Each business makes the others stronger</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📍</span><span class="diff-pill">Local Dominance</span></div><div class="diff-title">Own Your GTA Neighbourhood on Google</div><div class="diff-desc">Four Google Business Profiles — one per business — so Beyond Global shows up in four search categories simultaneously from one domain.</div><div class="diff-without"><strong>Without this:</strong> you appear nowhere on Maps. Your competitor with a complete profile gets the walk-in.</div><div class="diff-impact">Impact: <strong>4× the Google Maps visibility</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🔁</span><span class="diff-pill">Cross-Business</span></div><div class="diff-title">Customers Who Visit One Discover All Four</div><div class="diff-desc">Restaurant customers see the event centre. Grocery shoppers find the fashion store. Every page links to every other business.</div><div class="diff-without"><strong>Without this:</strong> customers stay siloed, never knowing the other three exist.</div><div class="diff-impact">Impact: <strong>Higher lifetime value across all four</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">⭐</span><span class="diff-pill">Reputation</span></div><div class="diff-title">Reviews Built on Autopilot</div><div class="diff-desc">Automated review requests after great meals, events, and grocery runs. Reviews compound. Reputation builds. Google rankings rise for free.</div><div class="diff-without"><strong>Without this:</strong> competitors with 50+ reviews rank above you even if your product is better.</div><div class="diff-impact">Impact: <strong>More 5-star reviews, more organic conversions</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">📊</span><span class="diff-pill">Transparency</span></div><div class="diff-title">One Dashboard. Every Business. Plain English.</div><div class="diff-desc">One consolidated monthly report — Shopify sales, traffic, rankings, ad performance across all four. No jargon. No surprises.</div><div class="diff-without"><strong>Without this:</strong> you can't see what's working, so you can't double down or cut losses.</div><div class="diff-impact">Impact: <strong>Always know where every dollar goes</strong></div></div>
+      <div class="diff-card"><div class="diff-head"><span class="diff-icon">🚀</span><span class="diff-pill">Speed</span></div><div class="diff-title">Momentum From Week One</div><div class="diff-desc">Google Profiles live in week 1. Full Shopify store with all four pages by week 6. Fashion ads running by week 3. Results before most agencies finish their kickoff deck.</div><div class="diff-without"><strong>Without urgency:</strong> every week delayed is market share gifted to whoever moves first.</div><div class="diff-impact">Impact: <strong>Compounding advantage starts immediately</strong></div></div>
     </div>
   </div>
 </section>
 
-<!-- S7: WEB ARCHITECTURE -->
-<section class="slide s-purple-xs" id="s7">
-  <div style="max-width:1120px;width:100%">
-    <div class="reveal rd1" style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:20px">
+<!-- S4: SHOPIFY SHOWCASE -->
+<section class="slide s-off" id="s4" style="align-items:flex-start;padding-top:90px;padding-bottom:60px">
+  <div style="max-width:1180px;width:100%">
+    <div class="reveal rd1" style="display:flex;align-items:flex-start;justify-content:space-between;gap:32px;margin-bottom:22px;flex-wrap:wrap">
       <div>
         <div class="section-tag">The Web Architecture</div>
         <h2 class="stitle">One Shopify store.<br><em>Four front doors.</em></h2>
       </div>
-      <p class="body" style="max-width:360px;margin-top:8px">All four businesses live under one premium Shopify store — one domain, one login, one brand experience. Each gets a full dedicated page. When any business scales to the point it needs its own site, it branches out cleanly.</p>
+      <p class="body" style="max-width:400px;margin-top:8px">A bright, premium Shopify theme with all four businesses living under one roof. Click each tab to see how each page is built — from the fashion store product grid to the event centre packages, grocery specials, and restaurant menu.</p>
     </div>
-    <div class="shopify-note reveal rd2">
-      <div style="font-size:1.4rem">🛒</div>
-      <div>
-        <div class="sn-label">beyondlimitsglobal.shop — One Shopify Store, Four Experiences</div>
-        <div class="sn-text">The fashion store is the native e-commerce engine. The event centre, grocery, and restaurant each get a <strong>custom-built Shopify page</strong> — full design, enquiry flows, Google Maps integration, and cross-links to the other businesses. Visitors navigate between all four without ever leaving the store. Built with a premium theme and Shopify's page editor — manageable by the client, no dev required for content updates.</div>
-      </div>
-    </div>
-    <div class="single-browser reveal rd2">
-      <div class="sb-bar"><div class="sb-dots"><div class="sb-dot" style="background:#FF5F57"></div><div class="sb-dot" style="background:#FEBC2E"></div><div class="sb-dot" style="background:#28C840"></div></div><div class="sb-url">beyondlimitsglobal.shop</div></div>
-      <div class="sb-nav">
-        <div class="sb-links">
-          <span class="active-link">SHOP</span><span>EVENTS</span><span>GROCERY</span><span>RESTAURANT</span><span>ABOUT</span>
+
+    <!-- BROWSER FRAME -->
+    <div class="showcase-browser reveal rd2">
+      <!-- Browser chrome -->
+      <div class="scb-bar">
+        <div class="scb-dots">
+          <span style="background:#FF5F57"></span>
+          <span style="background:#FEBC2E"></span>
+          <span style="background:#28C840"></span>
         </div>
-        <div class="sb-logo">Beyond Global</div>
-        <div class="sb-cta">SHOP NOW</div>
+        <div class="scb-url">🔒 beyondlimitsglobal.shop</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.46rem;color:#aaa;letter-spacing:.08em;white-space:nowrap">PREMIUM SHOPIFY THEME</div>
       </div>
-      <div class="sb-hero">
-        <div class="sb-ht">Beyond Every <em>Limit</em></div>
-        <div class="sb-tag">FASHION · EVENTS · GROCERY · RESTAURANT · TORONTO GTA</div>
+      <!-- Store nav -->
+      <div class="scb-nav">
+        <div class="scb-nav-logo">Beyond Global</div>
+        <div class="scb-nav-links">
+          <span class="scb-nav-active" id="nav-shop">SHOP</span>
+          <span id="nav-events">EVENTS</span>
+          <span id="nav-grocery">GROCERY</span>
+          <span id="nav-restaurant">RESTAURANT</span>
+          <span>ABOUT</span>
+        </div>
+        <div class="scb-nav-right">
+          <span>🔍</span><span>♡</span><span>🛒</span>
+          <div class="scb-nav-cta">SHOP NOW</div>
+        </div>
       </div>
-      <div class="sb-sections">
-        <div class="sb-sec active-sec"><div class="sb-sec-i">👗</div><div class="sb-sec-t">FASHION</div><div class="sb-sec-s">Shop all collections</div></div>
-        <div class="sb-sec"><div class="sb-sec-i">🎉</div><div class="sb-sec-t">EVENTS</div><div class="sb-sec-s">Book your venue</div></div>
-        <div class="sb-sec"><div class="sb-sec-i">🛒</div><div class="sb-sec-t">GROCERY</div><div class="sb-sec-s">Location & hours</div></div>
-        <div class="sb-sec"><div class="sb-sec-i">🍽️</div><div class="sb-sec-t">RESTAURANT</div><div class="sb-sec-s">Menu & reservations</div></div>
+      <!-- Page selector tabs -->
+      <div class="scb-page-tabs">
+        <button class="scb-tab active" onclick="switchPage('fashion',this)">👗 Fashion Store</button>
+        <button class="scb-tab" onclick="switchPage('events',this)">🎉 Event Centre</button>
+        <button class="scb-tab" onclick="switchPage('grocery',this)">🛒 Grocery</button>
+        <button class="scb-tab" onclick="switchPage('restaurant',this)">🍽️ Restaurant</button>
       </div>
-    </div>
+
+      <!-- ── FASHION PAGE ── -->
+      <div class="scb-page active" id="page-fashion">
+        <div class="scb-fashion-hero">
+          <div class="scb-fh-text">
+            <div class="scb-fh-eyebrow">NEW COLLECTION — SPRING 2025</div>
+            <div class="scb-fh-title">Style Without<br><em>Limits</em></div>
+            <div class="scb-fh-sub">WOMEN · MEN · KIDS · FOOTWEAR · HOME &amp; LIVING · DELECTABLES</div>
+            <div class="scb-fh-btns">
+              <div class="scb-btn-primary">SHOP NEW ARRIVALS</div>
+              <div class="scb-btn-secondary">VIEW ALL COLLECTIONS</div>
+            </div>
+          </div>
+          <div class="scb-fh-visual">
+            <div class="scb-fh-img">👗</div>
+            <div class="scb-fh-tag">NEW IN THIS WEEK</div>
+          </div>
+        </div>
+        <div class="scb-collections">
+          <div class="scb-col-title">SHOP BY CATEGORY</div>
+          <div class="scb-col-grid">
+            <div class="scb-col-card c1"><div class="scb-col-icon">👗</div><div class="scb-col-name">WOMEN</div><div class="scb-col-count">42 products</div></div>
+            <div class="scb-col-card c2"><div class="scb-col-icon">👔</div><div class="scb-col-name">MEN</div><div class="scb-col-count">28 products</div></div>
+            <div class="scb-col-card c3"><div class="scb-col-icon">🧒</div><div class="scb-col-name">KIDS</div><div class="scb-col-count">19 products</div></div>
+            <div class="scb-col-card c4"><div class="scb-col-icon">👟</div><div class="scb-col-name">FOOTWEAR</div><div class="scb-col-count">24 products</div></div>
+            <div class="scb-col-card c5"><div class="scb-col-icon">🏠</div><div class="scb-col-name">HOME &amp; LIVING</div><div class="scb-col-count">16 products</div></div>
+            <div class="scb-col-card c6"><div class="scb-col-icon">🍫</div><div class="scb-col-name">DELECTABLES</div><div class="scb-col-count">11 products</div></div>
+          </div>
+        </div>
+        <div class="scb-product-row">
+          <div class="scb-prod"><div class="scb-prod-img">👗</div><div class="scb-prod-name">Flowy Midi Dress</div><div class="scb-prod-price">$68.00</div><div class="scb-prod-cta">ADD TO CART</div></div>
+          <div class="scb-prod"><div class="scb-prod-img">👔</div><div class="scb-prod-name">Linen Blend Shirt</div><div class="scb-prod-price">$52.00</div><div class="scb-prod-cta">ADD TO CART</div></div>
+          <div class="scb-prod"><div class="scb-prod-img">👟</div><div class="scb-prod-name">Classic White Sneakers</div><div class="scb-prod-price">$89.00</div><div class="scb-prod-cta">ADD TO CART</div></div>
+          <div class="scb-prod"><div class="scb-prod-img">🏠</div><div class="scb-prod-name">Ceramic Vase Set</div><div class="scb-prod-price">$44.00</div><div class="scb-prod-cta">ADD TO CART</div></div>
+        </div>
+      </div>
+
+      <!-- ── EVENTS PAGE ── -->
+      <div class="scb-page" id="page-events">
+        <div class="scb-events-hero">
+          <div class="scb-eh-badge">TORONTO'S PREMIER VENUE</div>
+          <div class="scb-eh-title">Where Moments<br><em>Become Memories</em></div>
+          <div class="scb-eh-sub">Corporate Events · Weddings · Private Parties · Up to 300 Guests · Full Catering Available</div>
+          <div class="scb-eh-btns">
+            <div class="scb-btn-primary" style="background:var(--gold)">REQUEST A QUOTE</div>
+            <div class="scb-btn-secondary" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.75)">VIEW GALLERY</div>
+          </div>
+        </div>
+        <div class="scb-events-grid">
+          <div class="scb-ev-pkg">
+            <div class="scb-ev-pkg-type">CORPORATE</div>
+            <div class="scb-ev-pkg-name">Business Events</div>
+            <div class="scb-ev-pkg-desc">Conferences, galas, product launches. AV setup, catering coordination, dedicated event manager included.</div>
+            <div class="scb-ev-pkg-price">From $2,500</div>
+            <div class="scb-ev-pkg-cta">ENQUIRE NOW</div>
+          </div>
+          <div class="scb-ev-pkg featured-pkg">
+            <div class="scb-ev-pkg-badge">MOST POPULAR</div>
+            <div class="scb-ev-pkg-type">WEDDINGS</div>
+            <div class="scb-ev-pkg-name">Wedding Packages</div>
+            <div class="scb-ev-pkg-desc">Full venue hire, décor, catering &amp; bar. Intimate gatherings to full 300-seat celebrations, all fully customisable.</div>
+            <div class="scb-ev-pkg-price">From $5,000</div>
+            <div class="scb-ev-pkg-cta">GET STARTED</div>
+          </div>
+          <div class="scb-ev-pkg">
+            <div class="scb-ev-pkg-type">PRIVATE</div>
+            <div class="scb-ev-pkg-name">Private Parties</div>
+            <div class="scb-ev-pkg-desc">Birthdays, anniversaries, celebrations. Flexible sizing, custom menus, full bar service, décor included.</div>
+            <div class="scb-ev-pkg-price">From $1,200</div>
+            <div class="scb-ev-pkg-cta">BOOK NOW</div>
+          </div>
+        </div>
+        <div class="scb-events-footer">
+          <div class="scb-ef-item"><div class="scb-ef-num">300</div><div class="scb-ef-lbl">Max Capacity</div></div>
+          <div class="scb-ef-item"><div class="scb-ef-num">3</div><div class="scb-ef-lbl">Venue Spaces</div></div>
+          <div class="scb-ef-item"><div class="scb-ef-num">24hr</div><div class="scb-ef-lbl">Enquiry Response</div></div>
+          <div class="scb-ef-item"><div class="scb-ef-num">📍</div><div class="scb-ef-lbl">Toronto GTA</div></div>
+        </div>
+      </div>
+
+      <!-- ── GROCERY PAGE ── -->
+      <div class="scb-page" id="page-grocery">
+        <div class="scb-grocery-hero">
+          <div class="scb-gh-text">
+            <div class="scb-gh-title">Your Neighbourhood<br><em>Grocery Store</em></div>
+            <div class="scb-gh-sub">Fresh produce, pantry essentials &amp; specialty goods — right in your community. Quality you can taste, prices you'll love.</div>
+            <div class="scb-gh-hours">
+              <div class="scb-open-badge">● OPEN NOW</div>
+              <div class="scb-gh-time">Mon–Sat 8am–9pm · Sun 9am–7pm</div>
+            </div>
+            <div class="scb-btn-primary" style="margin-top:14px;display:inline-block;cursor:pointer">GET DIRECTIONS</div>
+          </div>
+          <div class="scb-grocery-map">
+            <div class="scb-map-pin">📍</div>
+            <div class="scb-map-label">Beyond Global Grocery</div>
+            <div class="scb-map-addr">Toronto, Ontario · GTA</div>
+            <div class="scb-map-stars">⭐⭐⭐⭐⭐ <span>4.8 · 112 Google reviews</span></div>
+          </div>
+        </div>
+        <div class="scb-grocery-cats">
+          <div class="scb-gcat">🥩 Meat &amp; Seafood</div>
+          <div class="scb-gcat">🥦 Fresh Produce</div>
+          <div class="scb-gcat">🫙 Pantry &amp; Dry Goods</div>
+          <div class="scb-gcat">🧴 Health &amp; Beauty</div>
+          <div class="scb-gcat">🌶️ International Foods</div>
+          <div class="scb-gcat">🥛 Dairy &amp; Eggs</div>
+          <div class="scb-gcat">🍞 Bakery</div>
+          <div class="scb-gcat">🧊 Frozen &amp; Chilled</div>
+        </div>
+        <div class="scb-grocery-specials">
+          <div class="scb-specials-title">THIS WEEK'S SPECIALS</div>
+          <div class="scb-specials-grid">
+            <div class="scb-special"><div class="scb-sp-icon">🥩</div><div class="scb-sp-name">Beef Short Ribs</div><div class="scb-sp-price">$12.99/lb</div></div>
+            <div class="scb-special"><div class="scb-sp-icon">🥑</div><div class="scb-sp-name">Avocados 4-pack</div><div class="scb-sp-price">$3.49</div></div>
+            <div class="scb-special"><div class="scb-sp-icon">🍗</div><div class="scb-sp-name">Whole Chicken</div><div class="scb-sp-price">$8.99 ea</div></div>
+            <div class="scb-special"><div class="scb-sp-icon">🌾</div><div class="scb-sp-name">Basmati Rice 10lb</div><div class="scb-sp-price">$14.99</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RESTAURANT PAGE ── -->
+      <div class="scb-page" id="page-restaurant">
+        <div class="scb-rest-hero">
+          <div class="scb-rh-content">
+            <div class="scb-rh-eyebrow">NOW TAKING RESERVATIONS</div>
+            <div class="scb-rh-title">Dining That Brings<br><em>People Together</em></div>
+            <div class="scb-rh-sub">Authentic flavours, warm atmosphere, memorable meals · Toronto GTA · Dine in or takeout</div>
+            <div class="scb-rh-btns">
+              <div class="scb-btn-primary">RESERVE A TABLE</div>
+              <div class="scb-btn-secondary">VIEW MENU</div>
+            </div>
+          </div>
+          <div class="scb-rest-info">
+            <div class="scb-ri-item"><div class="scb-ri-icon">🕐</div><div><div class="scb-ri-label">HOURS</div><div class="scb-ri-val">Tue–Sun · 11am–10pm</div></div></div>
+            <div class="scb-ri-item"><div class="scb-ri-icon">📍</div><div><div class="scb-ri-label">LOCATION</div><div class="scb-ri-val">Toronto, Ontario GTA</div></div></div>
+            <div class="scb-ri-item"><div class="scb-ri-icon">📞</div><div><div class="scb-ri-label">RESERVATIONS</div><div class="scb-ri-val">WhatsApp or online form</div></div></div>
+            <div class="scb-ri-item"><div class="scb-ri-icon">⭐</div><div><div class="scb-ri-label">REVIEWS</div><div class="scb-ri-val">4.7 · 89 Google reviews</div></div></div>
+          </div>
+        </div>
+        <div class="scb-menu-preview">
+          <div class="scb-menu-title">POPULAR DISHES</div>
+          <div class="scb-menu-grid">
+            <div class="scb-menu-cat"><div class="scb-mc-name">🥗 Starters</div><div class="scb-mc-item">Jollof Arancini — $14</div><div class="scb-mc-item">Grilled Plantain — $10</div><div class="scb-mc-item">Suya Skewers — $16</div></div>
+            <div class="scb-menu-cat"><div class="scb-mc-name">🍽️ Mains</div><div class="scb-mc-item">Oxtail Stew — $32</div><div class="scb-mc-item">Grilled Tilapia — $28</div><div class="scb-mc-item">Egusi Soup — $24</div></div>
+            <div class="scb-menu-cat"><div class="scb-mc-name">🍰 Desserts</div><div class="scb-mc-item">Chin Chin Ice Cream — $12</div><div class="scb-mc-item">Puff Puff Bites — $9</div><div class="scb-mc-item">Coconut Cake — $11</div></div>
+          </div>
+          <div style="text-align:center;margin-top:12px"><div class="scb-btn-secondary" style="display:inline-block;cursor:pointer">VIEW FULL MENU</div></div>
+        </div>
+      </div>
+
+    </div><!-- end showcase-browser -->
+
+    <!-- Callout strip -->
     <div class="arch-grid reveal rd3">
       <div class="arch-box"><div class="arch-box-icon">👗</div><div class="arch-box-title">Fashion — Native Shopify</div><div class="arch-box-desc">Full e-commerce: collections, cart, checkout, Google Shopping, abandoned cart flows</div></div>
       <div class="arch-box"><div class="arch-box-icon">🎉</div><div class="arch-box-title">Events — Custom Page</div><div class="arch-box-desc">Packages, gallery, enquiry form, WhatsApp CTA. Branches to own site when bookings scale</div></div>
-      <div class="arch-box"><div class="arch-box-icon">🛒</div><div class="arch-box-title">Grocery — Custom Page</div><div class="arch-box-desc">Location, hours, Google Maps embed, weekly specials. Local SEO does the heavy lifting</div></div>
-      <div class="arch-box"><div class="arch-box-icon">🍽️</div><div class="arch-box-title">Restaurant — Custom Page</div><div class="arch-box-desc">Digital menu, hours, reservation link, review widget. Branches to own site when tables fill digitally</div></div>
+      <div class="arch-box"><div class="arch-box-icon">🛒</div><div class="arch-box-title">Grocery — Custom Page</div><div class="arch-box-desc">Location, hours, Maps embed, weekly specials. Local SEO does the heavy lifting</div></div>
+      <div class="arch-box"><div class="arch-box-icon">🍽️</div><div class="arch-box-title">Restaurant — Custom Page</div><div class="arch-box-desc">Digital menu, hours, reservation link, review widget. Branches out when tables fill digitally</div></div>
     </div>
   </div>
 </section>
 
-<!-- S8: MARKETING ENGINE -->
-<section class="slide s-white" id="s8">
+<!-- S5: MARKETING ENGINE -->
+<section class="slide s-white" id="s5">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">Why a Website Alone Isn't Enough</div>
       <h2 class="stitle">The marketing engine<br><em>that drives customers in.</em></h2>
-      <p class="body" style="margin-top:12px;max-width:580px;margin-bottom:28px">A Shopify store is your foundation — not your growth engine. Without SEO, nobody finds it. Without ads, it only reaches people who already know you. Without email, every customer is a one-time visitor. Here's how each layer works — and the smart way to activate them across four businesses on one budget.</p>
+      <p class="body" style="margin-top:12px;max-width:580px;margin-bottom:28px">A Shopify store is your foundation — not your growth engine. Without SEO, nobody finds it. Without ads, it only reaches people who already know you. Without email, every customer is a one-time visitor. Here's how each layer works — and how we activate them smartly across four businesses on one budget.</p>
     </div>
     <div class="engine-layers reveal rd2">
       <div class="eng-layer">
@@ -727,74 +789,69 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
         <div class="eng-title">SEO — Long-Term Compounding</div>
         <div class="eng-timeline">Builds over 3–6 months → Compounds forever</div>
         <div class="eng-desc">SEO is the only channel that gets cheaper the longer you run it. Every optimised page, review, and local keyword ranking earns traffic 24/7 — for all four businesses simultaneously.</div>
-        <ul class="eng-ul"><li>Google Maps & local search rankings</li><li>Organic traffic with no per-click cost</li><li>Compounds month over month</li><li>4 GBPs = 4× the local search surface area</li></ul>
+        <ul class="eng-ul"><li>Google Maps &amp; local search rankings</li><li>Organic traffic with no per-click cost</li><li>Compounds month over month</li><li>4 GBPs = 4× the local search surface area</li></ul>
         <div class="eng-without"><p>Without SEO: every visitor costs money forever. Stop spending, traffic drops to zero.</p></div>
       </div>
       <div class="eng-layer">
         <div class="eng-layer-num">2</div>
         <span class="eng-icon">📣</span>
-        <div class="eng-title">Paid Ads — Immediate & Phased</div>
-        <div class="eng-timeline">Day 1 for fashion → Expands as ROAS proves</div>
-        <div class="eng-desc">With four businesses and one budget, ads are throttled intelligently. Fashion store first — every dollar is trackable to a sale. Events second — one booking justifies weeks of spend. Restaurant and grocery grow on organic while the budget scales.</div>
-        <ul class="eng-ul"><li>Fashion: Meta + Google Shopping, direct ROAS</li><li>Events: Google Search — corporate planners</li><li>Restaurant & Grocery: local SEO first</li><li>Retargeting: cross-sell all four to existing visitors</li></ul>
-        <div class="eng-without"><p>Without phased ads: you spread a small budget thin across four businesses and prove ROAS on none of them.</p></div>
+        <div class="eng-title">Paid Ads — One Budget, Monthly Rotation</div>
+        <div class="eng-timeline">Month 1 fashion → Month 2 events → Expand</div>
+        <div class="eng-desc">One ad budget, one business in focus each month. Geo-targeted to GTA audiences specific to that business. Fashion first — trackable ROAS. Events second — highest ticket value. Restaurant and grocery grow on organic while the budget proves itself.</div>
+        <ul class="eng-ul"><li>Fashion: Meta + Google Shopping, direct ROAS</li><li>Events: Google Search — corporate planners</li><li>Geo-targeted monthly — different audience each time</li><li>Branch to separate budget when any business scales</li></ul>
+        <div class="eng-without"><p>Without this: spreading a small budget thin across four businesses proves ROAS on none of them.</p></div>
       </div>
       <div class="eng-layer">
         <div class="eng-layer-num">3</div>
         <span class="eng-icon">📧</span>
-        <div class="eng-title">Email & Retention — Perpetual Value</div>
+        <div class="eng-title">Email &amp; Retention — Perpetual Value</div>
         <div class="eng-timeline">Activates from Week 1 → Compounds forever</div>
         <div class="eng-desc">Getting a new customer costs 5–7× more than keeping one. Shopify's built-in email tools make this easy — abandoned cart for fashion, event enquiry follow-ups, restaurant re-engagement, grocery loyalty.</div>
         <ul class="eng-ul"><li>Abandoned cart recovery (fashion store)</li><li>Event enquiry nurture sequences</li><li>Post-purchase cross-sell to other businesses</li><li>New arrivals, seasonal promotions</li></ul>
-        <div class="eng-without"><p>Without email: you pay to acquire a customer, they buy once, and they're gone. Shopify's native tools make this almost free to run.</p></div>
+        <div class="eng-without"><p>Without email: you pay to acquire a customer, they buy once, and they're gone.</p></div>
       </div>
     </div>
-
-    <div class="throttle-title reveal rd3">🎯 Smart Budget Throttle — Four Businesses, One Budget</div>
+    <div class="throttle-title reveal rd3">🎯 One Ad Budget. Monthly Rotation. Four Businesses.</div>
     <div class="throttle-phases reveal rd3">
       <div class="tp now">
-        <div class="tp-phase">PHASE 1 — NOW</div>
-        <div class="tp-desc"><strong>Fashion Store ads active.</strong> Direct e-commerce ROAS — every dollar tracked to a sale. Proves return, funds expansion.</div>
-        <div class="tp-roas">Highest trackable ROAS</div>
+        <div class="tp-phase">MONTH 1 — FASHION</div>
+        <div class="tp-desc"><strong>Fashion store in the spotlight.</strong> Geo-targeted to GTA fashion shoppers — women 25–44, interest-based, lookalike audiences. Direct ROAS tracked in Shopify.</div>
+        <div class="tp-roas">Most trackable ROAS</div>
       </div>
       <div class="tp next">
-        <div class="tp-phase">PHASE 2 — NEXT</div>
-        <div class="tp-desc"><strong>Add Event Centre ads.</strong> High ticket value ($2k–$8k/booking) means one conversion justifies weeks of spend. Google Search targeting corporate planners.</div>
+        <div class="tp-phase">MONTH 2 — EVENTS</div>
+        <div class="tp-desc"><strong>Event centre spotlighted.</strong> Google Search targeting corporate planners and families actively searching "event venues Toronto." One booking justifies the full month's spend.</div>
         <div class="tp-roas">Highest single-conversion value</div>
       </div>
       <div class="tp">
-        <div class="tp-phase">PHASE 3 — SCALE</div>
-        <div class="tp-desc"><strong>Restaurant & Grocery activated.</strong> By now SEO is compounding, reviews are building, and the budget has room to expand. Full four-business activation.</div>
-        <div class="tp-roas">Full group momentum</div>
+        <div class="tp-phase">MONTH 3+ — ROTATE &amp; SCALE</div>
+        <div class="tp-desc"><strong>Restaurant and grocery get their turn.</strong> As SEO compounds and reviews build, paid ads accelerate what's already working. When any business reaches self-sustaining traffic, it moves to organic-only and the budget shifts.</div>
+        <div class="tp-roas">Branch out when ready</div>
       </div>
     </div>
-
     <div class="synergy-row reveal rd4">
       <div class="syn-box"><div class="syn-icon">🔍</div><div class="syn-title">SEO</div><div class="syn-desc">Builds organic rankings across all 4</div><div class="syn-result">Free traffic, month 3+</div></div>
       <div class="syn-arrow">→</div>
-      <div class="syn-box"><div class="syn-icon">📣</div><div class="syn-title">Paid Ads</div><div class="syn-desc">Immediate traffic, phased by ROAS</div><div class="syn-result">Revenue from day 1</div></div>
+      <div class="syn-box"><div class="syn-icon">📣</div><div class="syn-title">Paid Ads</div><div class="syn-desc">Immediate traffic, rotated monthly</div><div class="syn-result">Revenue from day 1</div></div>
       <div class="syn-arrow">→</div>
       <div class="syn-box"><div class="syn-icon">📧</div><div class="syn-title">Email</div><div class="syn-desc">Keeps every customer returning</div><div class="syn-result">3–5× higher LTV</div></div>
     </div>
   </div>
 </section>
 
-<!-- S9: ROAS CALCULATOR -->
-<section class="slide s-warm" id="s9">
+<!-- S6: ROAS CALCULATOR -->
+<section class="slide s-warm" id="s6">
   <div style="max-width:1120px;width:100%">
     <div class="reveal rd1">
       <div class="section-tag">What This Actually Returns</div>
       <h2 class="stitle">Your fashion store ad budget<br><em>as a growth lever.</em></h2>
-      <p class="body" style="margin-top:12px;max-width:600px;margin-bottom:28px">Phase 1 marketing starts with the fashion store — the only business with direct, trackable online revenue. This is where you prove ROAS before expanding to events and beyond. See what a realistic monthly ad investment returns.</p>
+      <p class="body" style="margin-top:12px;max-width:600px;margin-bottom:28px">Phase 1 marketing starts with the fashion store — the only business with direct, trackable online revenue. This is where you prove ROAS before expanding to events and beyond.</p>
     </div>
-
     <div class="roas-tabs reveal rd2">
       <button class="r-tab active" onclick="switchRoas('fashion',this)">👗 Fashion Store</button>
-      <button class="r-tab" onclick="switchRoas('events',this)">🎉 Events (Phase 2)</button>
-      <button class="r-tab" onclick="switchRoas('combined',this)">⚡ Combined (Phase 3)</button>
+      <button class="r-tab" onclick="switchRoas('events',this)">🎉 Events (Month 2)</button>
+      <button class="r-tab" onclick="switchRoas('combined',this)">⚡ Combined (Month 3+)</button>
     </div>
-
-    <!-- FASHION -->
     <div id="roas-fashion" class="roas-panel active reveal rd3">
       <div>
         <div class="wo-box">
@@ -814,7 +871,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
           <div class="roas-rrow"><span class="rr-label">🛒 Est. Orders</span><span class="rr-val neu" id="f-orders">54</span></div>
           <div class="roas-rrow"><span class="rr-label">💰 Est. Monthly Revenue</span><span class="rr-val pos" id="f-rev">$2,700</span></div>
         </div>
-        <p class="roas-disclaimer">* GTA fashion e-commerce benchmarks: 4% CTR, 3% conversion, avg order $50. SEO compounds these over time. Month 6: est. $3,800–$5,200 combined organic + paid.</p>
+        <p class="roas-disclaimer">* GTA fashion e-commerce benchmarks: 4% CTR, 3% conversion, avg order $50. SEO compounds over time — Month 6 est. $3,800–$5,200 combined organic + paid.</p>
       </div>
       <div>
         <div class="roas-summary">
@@ -822,16 +879,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
           <div class="rs-total" id="f-return">$2,700</div>
           <div class="rs-sub">Every <span>$1</span> on ads → <span id="f-ratio">$4.50</span> returned · Ad spend: <span id="f-spend">$600</span> · Est. profit: <span id="f-profit">$2,100</span></div>
         </div>
-        <div class="roas-insight seo">
-          <strong>Why start with fashion?</strong> It's the only one of the four businesses with direct, traceable online revenue. Every Meta and Google Shopping dollar maps to a sale in Shopify. Proven ROAS here funds expanding ads to events in Phase 2 — without guessing.
+        <div class="roas-insight seo" style="margin-top:12px">
+          <strong>Why start with fashion?</strong> It's the only one of the four businesses with direct, traceable online revenue. Every Meta and Google Shopping dollar maps to a Shopify sale. Proven ROAS here funds expanding ads to events in month 2.
         </div>
         <div class="roas-insight seo" style="margin-top:8px">
-          <strong>Month 6 — SEO compounding:</strong> As fashion store rankings build organically, paid ads become a multiplier on top of free traffic. Effective cost per acquisition drops each month while revenue grows.
+          <strong>Month 6 — SEO compounding:</strong> As fashion store rankings build organically, paid ads become a multiplier on top of free traffic. Cost per acquisition drops each month while revenue grows.
         </div>
       </div>
     </div>
-
-    <!-- EVENTS -->
     <div id="roas-events" class="roas-panel reveal rd3">
       <div>
         <div class="wo-box">
@@ -857,19 +912,17 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
         <div class="roas-summary">
           <div class="rs-label">Estimated Monthly Return</div>
           <div class="rs-total" id="ev-return">$15,000</div>
-          <div class="rs-sub">Every <span>$1</span> spent → <span id="ev-ratio">$25.00</span> returned · Ad spend: <span id="ev-spend">$600</span> · Est. profit: <span id="ev-profit">$14,400</span></div>
+          <div class="rs-sub">Every <span>$1</span> spent → <span id="ev-ratio">$25.0</span> returned · Ad spend: <span id="ev-spend">$600</span> · Est. profit: <span id="ev-profit">$14,400</span></div>
         </div>
-        <div class="roas-insight seo">
-          <strong>Highest ROAS of all four businesses.</strong> A single corporate booking at $3,000 covers 5 months of the Starter retainer. This is why events is activated second — once the fashion store has proven the model, events multiplies it.
+        <div class="roas-insight seo" style="margin-top:12px">
+          <strong>Highest ROAS of all four businesses.</strong> A single corporate booking at $3,000 covers over a month of the Growth retainer. This is why events is activated in month 2 — once fashion proves the model, events multiplies it.
         </div>
       </div>
     </div>
-
-    <!-- COMBINED -->
     <div id="roas-combined" class="roas-panel reveal rd3">
       <div>
         <div class="wo-box">
-          <div class="wo-title">⚡ Phase 3 — All four businesses active</div>
+          <div class="wo-title">⚡ Month 3+ — All four businesses active</div>
           <div class="wo-row"><span class="wo-key">Fashion store (SEO + ads)</span><span class="wo-val green">$3,800–$5,200/mo</span></div>
           <div class="wo-row"><span class="wo-key">Event centre (SEO + ads)</span><span class="wo-val green">$12,000–$20,000/mo</span></div>
           <div class="wo-row"><span class="wo-key">Restaurant (SEO + organic)</span><span class="wo-val green">40–60 covers/mo</span></div>
@@ -885,7 +938,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
           <div class="roas-rrow"><span class="rr-label">🍽️🛒 Restaurant + Grocery (organic)</span><span class="rr-val neu">Compounding</span></div>
           <div class="roas-rrow"><span class="rr-label">💰 Est. Combined Monthly Revenue</span><span class="rr-val pos" id="cb-total">$22,500</span></div>
         </div>
-        <p class="roas-disclaimer">* Phase 3 projections assume 6+ months of SEO compounding. Fashion and events ad split: 40% fashion, 60% events. Restaurant and grocery growing primarily via organic search and Maps at this stage.</p>
+        <p class="roas-disclaimer">* Phase 3 projections assume 6+ months of SEO compounding. Fashion/events ad split: 40%/60%. Restaurant and grocery growing primarily via organic search and Maps.</p>
       </div>
       <div>
         <div class="roas-summary">
@@ -893,16 +946,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
           <div class="rs-total" id="cb-return">$22,500</div>
           <div class="rs-sub">Total ad spend: <span id="cb-spend">$1,500</span> · Overall ROAS: <span id="cb-ratio">15×</span><br>This is where the group strategy compounds — <span>four businesses reinforcing each other</span></div>
         </div>
-        <div class="roas-insight seo">
-          <strong>The group multiplier effect.</strong> By Phase 3, every business is cross-promoting the others. A fashion store customer sees the event centre. A restaurant diner gets retargeted with fashion ads. One Shopify store, four revenue streams, all compounding from one marketing budget.
+        <div class="roas-insight seo" style="margin-top:12px">
+          <strong>The group multiplier effect.</strong> By month 3+, every business is cross-promoting the others. A fashion customer sees the event centre. A restaurant diner gets retargeted with fashion ads. One Shopify store, four revenue streams, all compounding from one rotating ad budget.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- S10: TIMELINE -->
-<section class="slide s-white" id="s10">
+<!-- S7: TIMELINE -->
+<section class="slide s-white" id="s7">
   <div style="max-width:1120px;width:100%">
     <div class="section-tag reveal rd1">The Roadmap</div>
     <h2 class="stitle reveal rd1">From day one<br><em>to fully live.</em></h2>
@@ -911,8 +964,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
         <div class="phase-node"><div class="phase-emoji">🔍</div><div class="phase-wk">WEEK 1–2</div></div>
         <div class="phase-name">Discovery</div>
         <div class="ph-items">
-          <div class="ph-item"><strong>Audit & Strategy</strong>Current store, competitors, quick wins</div>
-          <div class="ph-item"><strong>4 Google Profiles</strong>All GBPs created & optimised</div>
+          <div class="ph-item"><strong>Audit &amp; Strategy</strong>Current store, competitors, quick wins</div>
+          <div class="ph-item"><strong>4 Google Profiles</strong>All GBPs created &amp; optimised</div>
           <div class="ph-item"><strong>Theme Selected</strong>Premium Shopify theme agreed</div>
           <div class="ph-item"><strong>Keyword Research</strong>Local GTA keywords per business</div>
         </div>
@@ -925,7 +978,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
           <div class="ph-item"><strong>Shopify Migration</strong>Premium theme, fashion collections live</div>
           <div class="ph-item"><strong>3 Custom Pages</strong>Events, grocery, restaurant built</div>
           <div class="ph-item"><strong>SEO Architecture</strong>Schema, meta, local signals all four</div>
-          <div class="ph-item"><strong>Fashion Ads Ready</strong>Meta & Google Shopping creatives</div>
+          <div class="ph-item"><strong>Fashion Ads Ready</strong>Meta &amp; Google Shopping creatives</div>
         </div>
         <div class="ph-ms">🛒 Full Shopify store live Wk 6</div>
       </div>
@@ -934,7 +987,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
         <div class="phase-name">Launch</div>
         <div class="ph-items">
           <div class="ph-item"><strong>Everything Goes Live</strong>Store, profiles, campaigns</div>
-          <div class="ph-item"><strong>Fashion Ads Active</strong>First Meta & Google Shopping campaigns</div>
+          <div class="ph-item"><strong>Fashion Ads Active</strong>First Meta &amp; Google Shopping campaigns</div>
           <div class="ph-item"><strong>Email Flows Live</strong>Abandoned cart, welcome series</div>
           <div class="ph-item"><strong>First Report</strong>Week 1 performance baseline</div>
         </div>
@@ -945,7 +998,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
         <div class="phase-name">Grow</div>
         <div class="ph-items">
           <div class="ph-item"><strong>SEO Compounds</strong>Rankings climb across all four</div>
-          <div class="ph-item"><strong>Events Ads Added</strong>Phase 2 ad expansion begins</div>
+          <div class="ph-item"><strong>Events Ads Added</strong>Month 2 rotation begins</div>
           <div class="ph-item"><strong>Reviews Accumulate</strong>Reputation builds across all GBPs</div>
           <div class="ph-item"><strong>Monthly Dashboard</strong>All four businesses, one report</div>
         </div>
@@ -964,8 +1017,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
   </div>
 </section>
 
-<!-- S11: PRICING -->
-<section class="slide s-off" id="s11">
+<!-- S8: PRICING -->
+<section class="slide s-off" id="s8">
   <div style="max-width:1160px;width:100%">
     <div class="section-tag">Your Investment</div>
     <h2 class="stitle">Transparent pricing.<br><em>Exceptional value.</em></h2>
@@ -977,20 +1030,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 
     <div class="price-panel active" id="panel-phase1">
       <div class="p-items" id="item-list">
-        <div class="p-item selected" onclick="toggleItem(this)" data-price="2500" data-market="6000" data-label="Premium Shopify Migration & Fashion Store Build">
-          <div><div class="pi-name">Premium Shopify Migration & Fashion Store Build</div><div class="pi-desc">Full premium theme migration, all 6 fashion collections, mobile-first checkout, Google Shopping integration, and abandoned cart flows.</div></div>
+        <div class="p-item selected" onclick="toggleItem(this)" data-price="2500" data-market="6000" data-label="Premium Shopify Migration &amp; Fashion Store Build">
+          <div><div class="pi-name">Premium Shopify Migration &amp; Fashion Store Build</div><div class="pi-desc">Full premium theme migration, all 6 fashion collections, mobile-first checkout, Google Shopping integration, and abandoned cart flows.</div></div>
           <div class="pi-market">$6,000</div><div class="pi-our">$2,500</div><div class="pi-check"></div>
         </div>
-        <div class="p-item selected" onclick="toggleItem(this)" data-price="1200" data-market="3200" data-label="Three Custom Shopify Pages — Events, Grocery & Restaurant">
-          <div><div class="pi-name">Three Custom Shopify Pages — Events, Grocery & Restaurant</div><div class="pi-desc">Full-design custom pages for each business within the Shopify store — enquiry flows, maps, menus, hours, and cross-links to the fashion store.</div></div>
-          <div class="pi-market">$3,200</div><div class="pi-our">$1,200</div><div class="pi-check"></div>
+        <div class="p-item selected" onclick="toggleItem(this)" data-price="600" data-market="1800" data-label="Three Custom Shopify Pages — Events, Grocery &amp; Restaurant">
+          <div><div class="pi-name">Three Custom Shopify Pages — Events, Grocery &amp; Restaurant</div><div class="pi-desc">Full-design custom pages for each business within the Shopify store — enquiry flows, maps, menus, hours, and cross-links to the fashion store.</div></div>
+          <div class="pi-market">$1,800</div><div class="pi-our">$600</div><div class="pi-check"></div>
         </div>
-        <div class="p-item selected" onclick="toggleItem(this)" data-price="1200" data-market="3000" data-label="Local SEO Setup — All 4 Businesses">
+        <div class="p-item selected" onclick="toggleItem(this)" data-price="600" data-market="1600" data-label="Local SEO Setup — All 4 Businesses">
           <div><div class="pi-name">Local SEO Setup — All 4 Businesses</div><div class="pi-desc">4 Google Business Profiles created, verified, and optimised. Schema markup, local keywords, and Google Maps positioning across every business.</div></div>
-          <div class="pi-market">$3,000</div><div class="pi-our">$1,200</div><div class="pi-check"></div>
+          <div class="pi-market">$1,600</div><div class="pi-our">$600</div><div class="pi-check"></div>
         </div>
-        <div class="p-item" onclick="toggleItem(this)" data-price="800" data-market="2000" data-label="Email & Automation Flows">
-          <div><div class="pi-name">Email & Automation Flows</div><div class="pi-desc">Abandoned cart for fashion, event enquiry follow-up, restaurant re-engagement, and review request sequences — built once, running forever.</div></div>
+        <div class="p-item" onclick="toggleItem(this)" data-price="800" data-market="2000" data-label="Email &amp; Automation Flows">
+          <div><div class="pi-name">Email &amp; Automation Flows</div><div class="pi-desc">Abandoned cart for fashion, event enquiry follow-up, restaurant re-engagement, and review request sequences — built once, running forever.</div></div>
           <div class="pi-market">$2,000</div><div class="pi-our">$800</div><div class="pi-check"></div>
         </div>
         <div class="p-item" onclick="toggleItem(this)" data-price="600" data-market="1500" data-label="Brand Identity Refresh — Group Level">
@@ -1001,8 +1054,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
       <div class="price-summary">
         <div>
           <div class="ps-label">Your Total</div>
-          <div class="ps-total" id="our-total">$4,900 CAD</div>
-          <div class="ps-saving">Market value: <span id="market-total">$12,200</span> — you save <span id="saving-amt">$7,300</span></div>
+          <div class="ps-total" id="our-total">$3,700 CAD</div>
+          <div class="ps-saving">Market value: <span id="market-total">$9,400</span> — you save <span id="saving-amt">$5,700</span></div>
         </div>
         <div style="text-align:right">
           <div style="font-family:'DM Mono',monospace;font-size:.56rem;color:rgba(255,255,255,.38);margin-bottom:5px" id="items-count">3 deliverables selected</div>
@@ -1016,31 +1069,54 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 
     <div class="price-panel" id="panel-phase2">
       <div class="ret-grid">
-        <div class="r-card" onclick="selectRetainer(this,'1800','starter')">
+        <div class="r-card" onclick="selectRetainer(this,'1200','starter')">
           <div class="r-name">Starter</div>
-          <div class="r-price">$1,800 <span>/ month</span></div>
-          <div class="r-market">Market rate: ~$3,500/mo</div>
-          <div class="r-return"><span>📈</span><div class="r-return-text">Est. $4,200–$6,000/mo return<br>SEO + organic growth</div></div>
-          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Google Business Profile management</li><li>Website hosting & maintenance</li><li>Monthly performance report</li></ul>
+          <div class="r-price">$1,200 <span>/ month</span></div>
+          <div class="r-market">Market rate: ~$2,500/mo</div>
+          <div class="r-return"><span>📈</span><div class="r-return-text">SEO + organic growth — all 4 businesses<br>Best for: building presence before ads</div></div>
+          <ul class="r-ul">
+            <li>SEO management — all 4 businesses</li>
+            <li>Google Business Profile management</li>
+            <li>Local keyword targeting &amp; optimisation</li>
+            <li>Review generation strategy</li>
+            <li>Monthly performance report</li>
+          </ul>
+          <div class="r-ad-note">💡 Ad budget: not included — client runs ads independently or upgrades to Growth</div>
         </div>
-        <div class="r-card recommended selected" onclick="selectRetainer(this,'3000','growth')">
+        <div class="r-card recommended selected" onclick="selectRetainer(this,'2300','growth')">
           <div class="r-name">Growth</div>
-          <div class="r-price">$3,000 <span>/ month</span></div>
-          <div class="r-market">Market rate: ~$6,000/mo</div>
-          <div class="r-return"><span>📈</span><div class="r-return-text">Est. $9,000–$14,000/mo return<br>SEO + fashion ads + events</div></div>
-          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Google Business Profile management</li><li>Paid ads — fashion + events (phased)</li><li>Email campaigns (4/month)</li><li>Website hosting & maintenance</li><li>Monthly growth dashboard</li></ul>
+          <div class="r-price">$2,300 <span>/ month</span></div>
+          <div class="r-market">Market rate: ~$5,000/mo</div>
+          <div class="r-return"><span>📈</span><div class="r-return-text">Full ad management + SEO — one rotating budget<br>One business spotlighted per month</div></div>
+          <ul class="r-ul">
+            <li>SEO management — all 4 businesses</li>
+            <li>Google Business Profile management</li>
+            <li>Ad management — geo-targeting, keywords, audiences, creative briefs</li>
+            <li>Monthly business rotation strategy</li>
+            <li>Email campaigns (4/month)</li>
+            <li>Monthly growth dashboard</li>
+          </ul>
+          <div class="r-ad-note">💡 Ad budget: $400–$800/mo paid direct to Meta/Google — separate from this fee</div>
         </div>
-        <div class="r-card" onclick="selectRetainer(this,'4500','fullscale')">
+        <div class="r-card" onclick="selectRetainer(this,'3800','fullscale')">
           <div class="r-name">Full Scale</div>
-          <div class="r-price">$4,500 <span>/ month</span></div>
-          <div class="r-market">Market rate: ~$9,000/mo</div>
-          <div class="r-return"><span>📈</span><div class="r-return-text">Est. $18,000–$28,000/mo return<br>All 4 businesses fully activated</div></div>
-          <ul class="r-ul"><li>SEO — all 4 businesses</li><li>Paid ads — all 4 businesses active</li><li>Email + full Shopify automation</li><li>Content creation & copywriting</li><li>Website hosting & maintenance</li><li>Monthly strategy + growth report</li></ul>
+          <div class="r-price">$3,800 <span>/ month</span></div>
+          <div class="r-market">Market rate: ~$8,000/mo</div>
+          <div class="r-return"><span>📈</span><div class="r-return-text">Full service — strategy, content, ads &amp; automation<br>All 4 businesses running simultaneously</div></div>
+          <ul class="r-ul">
+            <li>SEO management — all 4 businesses</li>
+            <li>Google Business Profile management</li>
+            <li>Ad management — all 4, geo-targeted monthly</li>
+            <li>Content creation &amp; copywriting</li>
+            <li>Full Shopify email automation</li>
+            <li>Monthly strategy call + growth report</li>
+          </ul>
+          <div class="r-ad-note">💡 Ad budget: $800–$1,500/mo paid direct to Meta/Google — separate from this fee</div>
         </div>
       </div>
       <div class="bb" id="budget-breakdown">
-        <div class="bb-hdr"><div class="bb-title">Where Your Budget Goes</div><div class="bb-total" id="bb-total-display">$3,000 <span style="font-size:.7rem;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif">/ month</span></div></div>
-        <div class="bb-tag">ONE INVOICE. ALL FOUR BUSINESSES. ZERO HIDDEN EXTRAS.</div>
+        <div class="bb-hdr"><div class="bb-title">Where Your Retainer Fee Goes</div><div class="bb-total" id="bb-total-display">$2,300 <span style="font-size:.7rem;color:rgba(255,255,255,.4);font-family:'Rajdhani',sans-serif">/ month</span></div></div>
+        <div class="bb-tag">YOUR SERVICE FEE BREAKDOWN — AD SPEND IS SEPARATE &amp; PAID DIRECT TO META/GOOGLE</div>
         <div class="bb-rows" id="bb-rows"></div>
       </div>
       <div style="margin-top:16px;text-align:center">
@@ -1050,25 +1126,25 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
   </div>
 </section>
 
-<!-- S12: NEXT STEPS -->
-<section class="slide" id="s12" style="background:linear-gradient(135deg,#3B1F6B 0%,#2D1755 100%)">
+<!-- S9: NEXT STEPS -->
+<section class="slide" id="s9" style="background:linear-gradient(135deg,#3B1F6B 0%,#2D1755 100%)">
   <div class="deco-corner tl" style="border-color:rgba(255,255,255,.1)"></div>
   <div class="deco-corner br" style="border-color:rgba(255,255,255,.1)"></div>
   <div style="max-width:900px;width:100%;position:relative;z-index:1">
-    <div class="section-tag reveal rd1" style="color:var(--gold-pale)"><span style="display:block;width:24px;height:1px;background:var(--gold-pale)"></span>What Happens Next</div>
+    <div class="section-tag reveal rd1" style="color:var(--gold-pale)">What Happens Next</div>
     <h2 class="stitle reveal rd1" style="color:white;margin-bottom:6px">We've talked.<br><em style="color:var(--gold-pale)">Now let's move.</em></h2>
     <div class="ns-steps reveal rd2">
       <div class="ns-step">
         <div class="ns-num-w"><div class="ns-num">1</div></div>
-        <div class="ns-body"><div class="ns-title">Review this proposal and select your deliverables.</div><div class="ns-desc">Use the pricing section above to pick Phase 1 items. Hit "Send to David" — it fires a pre-filled email directly to us. Takes 30 seconds.</div></div>
+        <div><div class="ns-title">Review this proposal and select your deliverables.</div><div class="ns-desc">Use the pricing section above to pick Phase 1 items. Hit "Send to David" — it fires a pre-filled email directly to us. Takes 30 seconds.</div></div>
       </div>
       <div class="ns-step">
         <div class="ns-num-w"><div class="ns-num">2</div></div>
-        <div class="ns-body"><div class="ns-title">David follows up within 24 hours.</div><div class="ns-desc">We confirm scope, agree the premium Shopify theme, and lock in the kickoff date. No lengthy back-and-forth. We're ready to start the moment you are.</div></div>
+        <div><div class="ns-title">David follows up within 24 hours.</div><div class="ns-desc">We confirm scope, agree the premium Shopify theme, and lock in the kickoff date. No lengthy back-and-forth. We're ready to start the moment you are.</div></div>
       </div>
       <div class="ns-step">
         <div class="ns-num-w"><div class="ns-num">3</div></div>
-        <div class="ns-body"><div class="ns-title">Week 2: All four Google Business Profiles are live.</div><div class="ns-desc">Before the full build is even complete, your four businesses appear on Google Maps and local search. That alone starts generating visibility — and it's the fastest win we can put on the board.</div></div>
+        <div><div class="ns-title">Week 2: All four Google Business Profiles are live.</div><div class="ns-desc">Before the full build is even complete, your four businesses appear on Google Maps and local search. That alone starts generating visibility — and it's the fastest win we can put on the board.</div></div>
       </div>
     </div>
     <div class="ns-contact reveal rd3">
@@ -1085,168 +1161,163 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;heigh
 <script>
 (function(){
 
-/* ── BUDGET PLANS ── */
 var budgetPlans = {
-  starter:   [{icon:'📍',label:'SEO & Google Profile Mgmt',amt:800,color:'#3B1F6B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#5B3A9B'},{icon:'📊',label:'Monthly Reporting',amt:400,color:'#B8861A'}],
-  growth:    [{icon:'📍',label:'SEO & Google Profile Mgmt',amt:800,color:'#3B1F6B'},{icon:'📣',label:'Paid Ads — Fashion + Events (Phased)',amt:1000,color:'#B8861A'},{icon:'📧',label:'Email Campaigns',amt:500,color:'#5B3A9B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:700,color:'#7A6E5C'}],
-  fullscale: [{icon:'📍',label:'SEO & Google Profile Mgmt',amt:900,color:'#3B1F6B'},{icon:'📣',label:'Paid Ads — All 4 Businesses',amt:1800,color:'#B8861A'},{icon:'📧',label:'Email & Shopify Automation',amt:600,color:'#5B3A9B'},{icon:'🌐',label:'Website Hosting & Maintenance',amt:600,color:'#7A6E5C'},{icon:'✍️',label:'Content & Copywriting',amt:600,color:'#9B7AD4'}]
+  starter:   [{icon:'📍',label:'SEO Management — All 4 Businesses',amt:700,color:'#3B1F6B'},{icon:'🗺️',label:'Google Business Profile Management',amt:300,color:'#5B3A9B'},{icon:'📊',label:'Reporting & Strategy',amt:200,color:'#B8861A'}],
+  growth:    [{icon:'📍',label:'SEO Management — All 4 Businesses',amt:700,color:'#3B1F6B'},{icon:'📣',label:'Ad Management — Geo, Keywords, Audiences',amt:900,color:'#B8861A'},{icon:'📧',label:'Email Campaigns & Automation',amt:400,color:'#5B3A9B'},{icon:'📊',label:'Reporting, Strategy & Rotation Planning',amt:300,color:'#7A6E5C'}],
+  fullscale: [{icon:'📍',label:'SEO Management — All 4 Businesses',amt:800,color:'#3B1F6B'},{icon:'📣',label:'Ad Management — All 4, Geo-Targeted',amt:1400,color:'#B8861A'},{icon:'✍️',label:'Content Creation & Copywriting',amt:700,color:'#9B7AD4'},{icon:'📧',label:'Email & Shopify Automation',amt:500,color:'#5B3A9B'},{icon:'📊',label:'Strategy Calls & Growth Reporting',amt:400,color:'#7A6E5C'}]
 };
 
 function renderBB(planKey, total) {
   var rows = document.getElementById('bb-rows');
   var disp = document.getElementById('bb-total-display');
-  if (!rows) return;
   var plan = budgetPlans[planKey];
-  if (!plan) return;
+  if (!rows||!plan) return;
   if (disp) disp.innerHTML = '$' + parseInt(total).toLocaleString() + ' <span style="font-size:.7rem;color:rgba(255,255,255,.4);font-family:\'Rajdhani\',sans-serif">/ month</span>';
   var html = '';
-  plan.forEach(function(item) {
-    var pct = Math.round((item.amt / total) * 100);
-    html += '<div class="bb-row"><div class="bb-cat"><span>' + item.icon + '</span>' + item.label + '</div><div class="bb-bw"><div class="bb-bar" style="width:' + pct + '%;background:' + item.color + '"></div></div><div class="bb-amt">$' + item.amt.toLocaleString() + '</div><div class="bb-pct">' + pct + '%</div></div>';
+  plan.forEach(function(item){
+    var pct = Math.round((item.amt/total)*100);
+    html += '<div class="bb-row"><div class="bb-cat"><span>'+item.icon+'</span>'+item.label+'</div><div class="bb-bw"><div class="bb-bar" style="width:'+pct+'%;background:'+item.color+'"></div></div><div class="bb-amt">$'+item.amt.toLocaleString()+'</div><div class="bb-pct">'+pct+'%</div></div>';
   });
   rows.innerHTML = html;
 }
 
-/* ── REVEAL ── */
-var rObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('on'); rObs.unobserve(e.target); } });
-}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(function(el) { rObs.observe(el); });
-setTimeout(function() {
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    var r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight - 40) el.classList.add('on');
+/* REVEAL */
+var rObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');rObs.unobserve(e.target);}});
+},{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){rObs.observe(el);});
+setTimeout(function(){
+  document.querySelectorAll('.reveal').forEach(function(el){
+    var r=el.getBoundingClientRect();if(r.top<window.innerHeight-40)el.classList.add('on');
   });
-}, 80);
+},80);
 
-/* ── NAV ── */
-var darkSlides = { s12: 1 };
+/* NAV */
 var navEl = document.getElementById('main-nav');
 var allDots = document.querySelectorAll('.ndot');
-var sObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting && e.intersectionRatio > 0.38) {
-      var id = e.target.id;
-      var dk = !!darkSlides[id];
-      navEl.className = dk ? 'dk' : 'lt';
-      allDots.forEach(function(d) {
-        d.classList.toggle('active', d.dataset.s === id);
-      });
+var darkSlides = {s9:1};
+var sObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting && e.intersectionRatio>0.38){
+      var id=e.target.id;
+      navEl.className = darkSlides[id]?'dk':'lt';
+      allDots.forEach(function(d){d.classList.toggle('active',d.dataset.s===id);});
     }
   });
-}, { threshold: 0.38 });
-document.querySelectorAll('.slide').forEach(function(s) { sObs.observe(s); });
-allDots.forEach(function(d) {
-  d.addEventListener('click', function() {
-    var t = document.getElementById(d.dataset.s);
-    if (t) t.scrollIntoView({ behavior: 'smooth' });
+},{threshold:0.38});
+document.querySelectorAll('.slide').forEach(function(s){sObs.observe(s);});
+allDots.forEach(function(d){
+  d.addEventListener('click',function(){
+    var t=document.getElementById(d.dataset.s);if(t)t.scrollIntoView({behavior:'smooth'});
   });
 });
 
-/* ── TABS ── */
+/* SHOPIFY PAGE SWITCHER */
+var navMap = {fashion:'nav-shop',events:'nav-events',grocery:'nav-grocery',restaurant:'nav-restaurant'};
+window.switchPage = function(page, btn) {
+  document.querySelectorAll('.scb-page').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.scb-tab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.scb-nav-links span').forEach(function(s){s.classList.remove('scb-nav-active');});
+  document.getElementById('page-'+page).classList.add('active');
+  btn.classList.add('active');
+  var navId = navMap[page];
+  if(navId) document.getElementById(navId).classList.add('scb-nav-active');
+};
+
+/* TABS */
 window.switchTab = function(panel, btn) {
-  document.querySelectorAll('.price-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.p-tab').forEach(function(t) { t.classList.remove('active'); });
-  document.getElementById('panel-' + panel).classList.add('active');
+  document.querySelectorAll('.price-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.p-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('panel-'+panel).classList.add('active');
   btn.classList.add('active');
 };
 
-/* ── PHASE 1 ── */
-window.toggleItem = function(el) { el.classList.toggle('selected'); updateSummary(); };
-function updateSummary() {
-  var our = 0, mkt = 0, cnt = 0;
-  document.querySelectorAll('#item-list .p-item').forEach(function(item) {
-    if (item.classList.contains('selected')) {
-      our += parseInt(item.dataset.price, 10);
-      mkt += parseInt(item.dataset.market, 10);
-      cnt++;
-    }
+/* PHASE 1 */
+window.toggleItem = function(el){el.classList.toggle('selected');updateSummary();};
+function updateSummary(){
+  var our=0,mkt=0,cnt=0;
+  document.querySelectorAll('#item-list .p-item').forEach(function(item){
+    if(item.classList.contains('selected')){our+=parseInt(item.dataset.price,10);mkt+=parseInt(item.dataset.market,10);cnt++;}
   });
-  document.getElementById('our-total').textContent = '$' + our.toLocaleString() + ' CAD';
-  document.getElementById('market-total').textContent = '$' + mkt.toLocaleString();
-  document.getElementById('saving-amt').textContent = '$' + (mkt - our).toLocaleString();
-  document.getElementById('items-count').textContent = cnt + ' deliverable' + (cnt !== 1 ? 's' : '') + ' selected';
+  document.getElementById('our-total').textContent='$'+our.toLocaleString()+' CAD';
+  document.getElementById('market-total').textContent='$'+mkt.toLocaleString();
+  document.getElementById('saving-amt').textContent='$'+(mkt-our).toLocaleString();
+  document.getElementById('items-count').textContent=cnt+' deliverable'+(cnt!==1?'s':'')+' selected';
 }
 
-/* ── RETAINER ── */
-var selRet = 3000, selRetName = 'Growth - $3,000/month';
-window.selectRetainer = function(el, price, planKey) {
-  document.querySelectorAll('.r-card').forEach(function(c) { c.classList.remove('selected'); });
+/* RETAINER */
+var selRet=2300, selRetName='Growth - $2,300/month';
+window.selectRetainer = function(el, price, planKey){
+  document.querySelectorAll('.r-card').forEach(function(c){c.classList.remove('selected');});
   el.classList.add('selected');
-  selRet = parseInt(price, 10);
-  var n = el.querySelector('.r-name');
-  selRetName = (n ? n.textContent : 'Plan') + ' - $' + selRet.toLocaleString() + '/month';
-  renderBB(planKey, selRet);
+  selRet=parseInt(price,10);
+  var n=el.querySelector('.r-name');
+  selRetName=(n?n.textContent:'Plan')+' - $'+selRet.toLocaleString()+'/month';
+  renderBB(planKey,selRet);
 };
 
-/* ── ROAS ── */
-window.switchRoas = function(biz, btn) {
-  document.querySelectorAll('.roas-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.r-tab').forEach(function(t) { t.classList.remove('active'); });
-  document.getElementById('roas-' + biz).classList.add('active');
+/* ROAS */
+window.switchRoas = function(biz,btn){
+  document.querySelectorAll('.roas-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.r-tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('roas-'+biz).classList.add('active');
   btn.classList.add('active');
 };
-
-window.calcFashion = function(val) {
-  val = parseInt(val, 10);
-  document.getElementById('fashion-bval').textContent = '$' + val + '/mo';
-  var imp = Math.round(val * 75), clicks = Math.round(imp * 0.04), orders = Math.round(clicks * 0.03), rev = orders * 50;
-  document.getElementById('f-imp').textContent = imp.toLocaleString();
-  document.getElementById('f-clicks').textContent = clicks.toLocaleString();
-  document.getElementById('f-orders').textContent = orders;
-  document.getElementById('f-rev').textContent = '$' + rev.toLocaleString();
-  document.getElementById('f-return').textContent = '$' + rev.toLocaleString();
-  document.getElementById('f-ratio').textContent = '$' + (rev / val).toFixed(2);
-  document.getElementById('f-spend').textContent = '$' + val;
-  document.getElementById('f-profit').textContent = '$' + (rev - val).toLocaleString();
+window.calcFashion = function(val){
+  val=parseInt(val,10);
+  document.getElementById('fashion-bval').textContent='$'+val+'/mo';
+  var imp=Math.round(val*75),clicks=Math.round(imp*0.04),orders=Math.round(clicks*0.03),rev=orders*50;
+  document.getElementById('f-imp').textContent=imp.toLocaleString();
+  document.getElementById('f-clicks').textContent=clicks.toLocaleString();
+  document.getElementById('f-orders').textContent=orders;
+  document.getElementById('f-rev').textContent='$'+rev.toLocaleString();
+  document.getElementById('f-return').textContent='$'+rev.toLocaleString();
+  document.getElementById('f-ratio').textContent='$'+(rev/val).toFixed(2);
+  document.getElementById('f-spend').textContent='$'+val;
+  document.getElementById('f-profit').textContent='$'+(rev-val).toLocaleString();
+};
+window.calcEvents = function(val){
+  val=parseInt(val,10);
+  document.getElementById('ev-bval').textContent='$'+val+'/mo';
+  var imp=Math.round(val*54),enq=Math.round(val/50),book=Math.round(enq*0.4),rev=book*3000;
+  document.getElementById('ev-imp').textContent=imp.toLocaleString();
+  document.getElementById('ev-enq').textContent=enq;
+  document.getElementById('ev-book').textContent=book;
+  document.getElementById('ev-rev').textContent='$'+rev.toLocaleString();
+  document.getElementById('ev-return').textContent='$'+rev.toLocaleString();
+  document.getElementById('ev-ratio').textContent='$'+(rev>0?(rev/val).toFixed(1):'0');
+  document.getElementById('ev-spend').textContent='$'+val;
+  document.getElementById('ev-profit').textContent='$'+(rev-val).toLocaleString();
+};
+window.calcCombined = function(val){
+  val=parseInt(val,10);
+  document.getElementById('cb-bval').textContent='$'+val+'/mo';
+  var fB=Math.round(val*0.4),eB=Math.round(val*0.6);
+  var fR=Math.round((fB*75*0.04*0.03)*50),eR=Math.round((eB/50)*0.4)*3000,tot=fR+eR;
+  document.getElementById('cb-fash').textContent='$'+fR.toLocaleString();
+  document.getElementById('cb-ev').textContent='$'+eR.toLocaleString();
+  document.getElementById('cb-total').textContent='$'+tot.toLocaleString();
+  document.getElementById('cb-return').textContent='$'+tot.toLocaleString();
+  document.getElementById('cb-spend').textContent='$'+val;
+  document.getElementById('cb-ratio').textContent=(tot>0?(tot/val).toFixed(1):'0')+'×';
 };
 
-window.calcEvents = function(val) {
-  val = parseInt(val, 10);
-  document.getElementById('ev-bval').textContent = '$' + val + '/mo';
-  var imp = Math.round(val * 54), enq = Math.round(val / 50), book = Math.round(enq * 0.4), rev = book * 3000;
-  document.getElementById('ev-imp').textContent = imp.toLocaleString();
-  document.getElementById('ev-enq').textContent = enq;
-  document.getElementById('ev-book').textContent = book;
-  document.getElementById('ev-rev').textContent = '$' + rev.toLocaleString();
-  document.getElementById('ev-return').textContent = '$' + rev.toLocaleString();
-  document.getElementById('ev-ratio').textContent = '$' + (rev > 0 ? (rev / val).toFixed(1) : '0');
-  document.getElementById('ev-spend').textContent = '$' + val;
-  document.getElementById('ev-profit').textContent = '$' + (rev - val).toLocaleString();
-};
-
-window.calcCombined = function(val) {
-  val = parseInt(val, 10);
-  document.getElementById('cb-bval').textContent = '$' + val + '/mo';
-  var fashBudget = Math.round(val * 0.4), evBudget = Math.round(val * 0.6);
-  var fashRev = Math.round((fashBudget * 75 * 0.04 * 0.03) * 50);
-  var evRev = Math.round((evBudget / 50) * 0.4) * 3000;
-  var total = fashRev + evRev;
-  document.getElementById('cb-fash').textContent = '$' + fashRev.toLocaleString();
-  document.getElementById('cb-ev').textContent = '$' + evRev.toLocaleString();
-  document.getElementById('cb-total').textContent = '$' + total.toLocaleString();
-  document.getElementById('cb-return').textContent = '$' + total.toLocaleString();
-  document.getElementById('cb-spend').textContent = '$' + val;
-  document.getElementById('cb-ratio').textContent = (total > 0 ? (total / val).toFixed(1) : '0') + '×';
-};
-
-/* ── EMAIL ── */
-window.sendPhase1Email = function(e) {
+/* EMAIL */
+window.sendPhase1Email = function(e){
   e.preventDefault();
-  var sel = document.querySelectorAll('#item-list .p-item.selected');
-  if (!sel.length) { alert('Please select at least one deliverable.'); return; }
-  var lines = [];
-  sel.forEach(function(el) { lines.push('  - ' + el.dataset.label); });
-  var total = document.getElementById('our-total').textContent;
-  window.location.href = 'mailto:david@dotxlabs.com?subject=' + encodeURIComponent('Beyond Global Group — Phase 1 Selection') + '&body=' + encodeURIComponent('Hi David,\n\nHere is my Phase 1 selection for Beyond Global Group of Companies:\n\n' + lines.join('\n') + '\n\nTotal: ' + total + '\n\nLooking forward to moving forward.');
+  var sel=document.querySelectorAll('#item-list .p-item.selected');
+  if(!sel.length){alert('Please select at least one deliverable.');return;}
+  var lines=[];
+  sel.forEach(function(el){lines.push('  - '+el.dataset.label);});
+  var total=document.getElementById('our-total').textContent;
+  window.location.href='mailto:david@dotxlabs.com?subject='+encodeURIComponent('Beyond Global Group — Phase 1 Selection')+'&body='+encodeURIComponent('Hi David,\n\nHere is my Phase 1 selection for Beyond Global Group of Companies:\n\n'+lines.join('\n')+'\n\nTotal: '+total+'\n\nLooking forward to moving forward.');
 };
-
-window.sendRetainerEmail = function(e) {
+window.sendRetainerEmail = function(e){
   e.preventDefault();
-  window.location.href = 'mailto:david@dotxlabs.com?subject=' + encodeURIComponent('Beyond Global Group — Phase 2 Retainer Selection') + '&body=' + encodeURIComponent('Hi David,\n\nHere is my Phase 2 retainer selection:\n\n  - Plan: ' + selRetName + '\n  - Monthly investment: $' + selRet.toLocaleString() + '\n\nLooking forward to moving forward.');
+  window.location.href='mailto:david@dotxlabs.com?subject='+encodeURIComponent('Beyond Global Group — Phase 2 Retainer Selection')+'&body='+encodeURIComponent('Hi David,\n\nHere is my Phase 2 retainer selection:\n\n  - Plan: '+selRetName+'\n  - Monthly investment: $'+selRet.toLocaleString()+'\n\nLooking forward to moving forward.');
 };
 
-renderBB('growth', 3000);
+renderBB('growth', 2300);
 updateSummary();
 
 })();
